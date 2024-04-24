@@ -1,0 +1,179 @@
+/* Import des polices d'ecriture utilisées */
+/* Titre : Fjalla One */
+@import url('https://fonts.googleapis.com/css2?family=Bellefair&family=Fjalla+One&display=swap');
+/* contenu, trouvé sur https://www.1001fonts.com/droid-serif-font.html */
+@font-face {
+    font-family :'Droid Serif';
+    font-weight: normal;
+    font-style: normal;
+    src : url('assets/fonts/DroidSerif.ttf') format('truetype'),
+}
+@font-face {
+    font-family :'Droid Serif';
+    font-weight: bold;
+    font-style: normal;
+    src : url('assets/fonts/DroidSerif-Bold.ttf') format('truetype'),
+}
+@font-face {
+    font-family :'Droid Serif';
+    font-weight: bold;
+    font-style: italic;
+    src : url('assets/fonts/DroidSerif-BoldItalic.ttf') format('truetype'),
+}
+@font-face {
+    font-family :'Droid Serif';
+    font-weight: normal;
+    font-style: italic;
+    src : url('assets/fonts/DroidSerif-Italic.ttf') format('truetype'),
+}
+
+/* Permet de masquer le texte pour la lecture de texte pour les internautes malvoyants */
+.accessibility {
+    position : absolute ;
+    left : -15000px ; 
+}
+
+
+/* ************************************************************************************************* */
+/* GENERAL */
+/* ************************************************************************************************* */
+
+a {
+    text-decoration: none;
+}
+
+body, #ContenuPrincipal {
+    background-color: #B65F28;
+}
+
+.content {
+    background-color: #FFFFFF;
+}
+
+#header, #footer, .content {
+    display: flex;
+    justify-content: space-between;
+}
+
+#header-right, #social-network {
+    display: flex;
+    align-items: center;
+}
+
+#header-right p {
+    margin-left: 20px;
+}
+
+#header img {
+    margin: 20px;
+}
+
+#social-network img {
+    margin: 5px;
+}
+
+#informations, #contact {
+    margin: 20px;
+}
+
+
+.text-style1 {
+    font-size: 20px;
+    font-family: 'Fjalla One';
+    margin-top: 10px;
+    
+}
+.text-style1 a {
+    color: #FFFFFF;
+}
+
+.text-style2 {
+    display: inline-block;
+    font-family: 'Droid Serif';
+    margin-top: 10px;
+    padding: 10px;
+    border: 2px solid;
+    margin-left: 10px;
+}
+
+.text-style2 a {
+    color: #2C1E1E;
+}
+
+.text-style3 {
+    font-size: 18px;
+}
+.text-style3, .text-style4 {
+    color: #2C1E1E;
+    margin-top: 10px;
+    font-family: 'Droid Serif';
+}
+
+.zone-filtre {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#filter {
+    border: 2px solid;
+    border-color: #2C1E1E;
+    padding: 20px;
+}
+
+.table {
+    display: table;
+    padding: 10px;
+}
+    
+
+/* ************************************************************************************************* */
+/* NAVBARRE */
+/* ************************************************************************************************* */
+/*#imenuToggle{
+    color : #6C98E1;
+    font-size: 2.5em;
+    border: none;
+}
+
+#HMenu a{
+    font-weight: bold;
+    margin:10px;
+}
+
+#HMenu a:link, a:visited {
+    color : #232628 ;
+    background-color: #ECEFF3;
+}
+
+#HMenu a:hover {
+    color : #CC6119  ;
+    background-color: #232628;
+}
+
+#HMenu a:active{
+    color : #ECEFF3;
+    background-color: #232628 ;
+}
+
+/* Met en évidence le bouton du menu correspondant à la page affichée */
+/*#PageAffichee {
+    color : #ECEFF3;
+    background-color: #CC6119 ;
+}*/
+
+/* ************************************************************************************************* */
+/* AFFICHAGE POUR LES ECRANS DE TAILLE LG ET PLUS */
+/* ************************************************************************************************* */
+@media screen and (min-width:992px) {
+
+    /* Entête */
+    header {
+        position : fixed;
+        top : 0;
+    }
+    #HMenu {
+        background-color: #ECEFF3;
+        opacity: 0.8;
+    }
+
+}

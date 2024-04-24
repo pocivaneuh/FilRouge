@@ -1,0 +1,52 @@
+        <!--HEADER BOOTSTRAP -->
+        <header id="entetePrincipale" class="container-fluid m-0 p-0">
+            <!-- Barre de navigation -->
+            <section id="HMenu" class="navbar navbar-expand-lg m-0 p-0">        
+                <!--Accessibilité-->
+                <h1 class="accessibility">Menu Principal</h1>
+                <p class="accessibility"><a href="#ContenuPrincipal" title="Accéder directement au contenu principal de cette page">Passer le menu</a></p>
+
+                <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                    <img src="../assets/images/logo.png" height="45" alt="Choco PAP Logo"/>
+                </a>
+                <button id="menuToggle" class="navbar-toggler position-fixed top-0 end-0 z-index-tooltip" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="" role="button" title="Menu"><i class="fa fa-bars" id="imenuToggle"></i></span> 
+                </button>
+                <nav role="navigation" class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-0 ">
+                        <!-- Navbar brand -->
+                            <li class="nav-item active">
+                                <a class="nav-link m-0" aria-current="page" id="PageAffichee" href="accueil">Accueil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link m-0" href="boutique">Boutique</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link m-0" href="panier">{{ajoutPanier}}&nbsp;<i class="fa-solid fa-cart-shopping" id="panier"></i></a>
+                            </li>
+                    </ul>
+                </nav>
+            </section>
+        </header>
+            
+        <router-outlet></router-outlet>
+
+        <!-- FOOTER -->
+        <div id="footer">
+            <div id="informations">
+                <div class="text-style3">Choco pap</div>
+                <div class="text-style4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
+            </div>
+            <div id="contact">
+                <div class="text-style3">Contact</div>
+                <div class="text-style4">
+                    Adresse : 51 rue du chocolat 75000 Paris Téléphone: 01 23 45 67 89
+                    Horaires: 9h00-17h00 du Lundi au vendredi
+                </div>
+            </div>
+            <div id="social-network">
+                <div><img src="../assets/images/logo-facebook.png" width="40" height="40" alt="facebook"></div>
+                <div><img src="../assets/images/logo-instagram.jpeg" width="40" height="40" alt="instagram"></div>
+                <div><img src="../assets/images/logo-twitter.png" width="40" height="40" alt="twitter"></div>
+            </div>
+        </div>
