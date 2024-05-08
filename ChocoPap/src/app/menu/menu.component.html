@@ -1,0 +1,32 @@
+
+        <!--HEADER BOOTSTRAP -->
+        <header id="entetePrincipale" class="container-fluid m-0 p-0">
+            <!-- Barre de navigation -->
+            <section id="HMenu" class="navbar navbar-expand-md m-0">        
+                <!--Accessibilité-->
+                <h1 class="accessibility">Menu Principal</h1>
+                <p class="accessibility"><a href="#ContenuPrincipal" title="Accéder directement au contenu principal de cette page">Passer le menu</a></p>
+                <!-- Navbar brand -->
+                <a class="navbar-brand mt-2 mt-lg-0" href="accueil">
+                    <img src="../assets/images/logo.png" alt="Choco PAP Logo"/>
+                </a>
+                <!-- Menu hamburger -->
+                <button id="menuToggle" class="navbar-toggler position-fixed top-0 end-0 z-index-tooltip" type="button" (click)="isCollapsed = !isCollapsed" aria-controls="navbarSupportedContent" [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation">
+                    <span class="" role="button" title="Menu"><i class="fa fa-bars" id="imenuToggle"></i></span> 
+                </button>
+                <!-- Liste des menus -->
+                <nav role="navigation" [ngbCollapse]="isCollapsed" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-0 ">
+                            <li class="nav-item active text-style1">
+                                <a class="nav-link m-0" aria-current="page" href="accueil">Accueil</a>
+                            </li>
+                            <li class="nav-item text-style1">
+                                <a class="nav-link m-0" href="boutique">Boutique</a>
+                            </li>
+                            <li class="nav-item Panier">
+                                <a class="nav-link m-0" href="panier">0 &nbsp;<i class="fa-solid fa-cart-shopping" id="panier"></i></a>
+                            </li>
+                    </ul>
+                </nav>                
+            </section>
+        </header>

@@ -1,0 +1,61 @@
+/* ************************************************************************************************* */
+/* NAVBARRE */
+/* ************************************************************************************************* */
+#HMenu, .content{
+    background-color: var(--miel);
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.8;
+    width: 100%;
+}
+
+#imenuToggle{
+    color : var(--caramel);
+    font-size: 1.5em;
+    border: none;
+}
+
+#HMenu img {
+    height: 70px;
+    margin: 20px;
+}
+
+#HMenu a:hover {
+    color : var(--chocolatnoir);
+    font-size : 18px;
+    transition:0.4 ease-in-out;
+}
+
+/*Met en évidence le bouton du menu correspondant à la page affichée */
+.active {
+    font-size: 20px;
+    font-family: 'Fjalla One';
+    margin-top: 10px;
+    color : var(--pateasucre) !important;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#header-right {
+    display: flex;
+    align-items: center;
+}
+
+#header-right p {
+    margin-left: 20px;
+}
+
+#panier{
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+
+/* ************************************************************************************************* */
+/* AFFICHAGE POUR LES ECRANS DE TAILLE LG ET PLUS */
+/* ************************************************************************************************* */
+@media screen and (min-width:992px) {
+
+
+
+}
