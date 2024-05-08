@@ -9,6 +9,8 @@ import { ProduitComponent } from './produit/produit.component';
 import { DataService } from './data.service';
 import { ProduitDetailsComponent } from './produit-details/produit-details.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 NgModule({
     declarations: [
         AppComponent,
@@ -20,6 +22,7 @@ NgModule({
     imports : [
         BrowserModule,
         FormsModule,
+        NgbModule
     ],
     
     providers : [DataService],

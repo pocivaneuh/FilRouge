@@ -10,10 +10,12 @@
                         {{ titreArticle }} 
                     </h1>
                     <p class="card-text">{{ prixArticle }} €</p>
-                    <p class="card-text">{{ noteArticle }}</p>
-                    <a href="#" class="btn btn-warning mt-5" [ngClass]="{'show': dispo===true, 'hidden' :dispo===false}">Ajouter au panier</a>
+                    <button class = "btn btn-primary">J'aime</button>
+                    <p class="card-text">{{ noteArticle}}</p>
+                    <a href="#" class="btn btn-warning mt-5" [ngClass]="{'show': dispo===true, 'hidden' :dispo===false}" (click)="onAjouter()">Ajouter au panier</a>
                     <span *ngIf="dispo===false">* Indisponible </span>
                 </div>
             </div> <!-- /CARD -->
         </div> <!-- /row -->
     </div> <!-- /col -->
+    <div class="height-100 container d-flex justify-content-center align-items-center">

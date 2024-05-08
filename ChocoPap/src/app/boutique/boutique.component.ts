@@ -1,14 +1,16 @@
-import { Component, OnInit,Input, Output, EventEmitter, output  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+/* Import de ,Input, Output, EventEmitter, output  ... */
 import { CommonModule } from '@angular/common';
 
 import { ProduitComponent } from '../produit/produit.component';
+import { EtoilesComponent } from '../etoiles/etoiles.component';
 import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-boutique',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, ProduitComponent],
+  imports: [RouterOutlet, CommonModule, ProduitComponent, EtoilesComponent],
   templateUrl: './boutique.component.html',
   styleUrl: './boutique.component.css'
 })
@@ -17,9 +19,6 @@ export class BoutiqueComponent implements OnInit{
   title = 'ChocoPap';
   liste : any;
   
-  ajoutPanier : number = 0;
-
-
   constructor (private dataService:DataService) { }
 
   ngOnInit(): void {

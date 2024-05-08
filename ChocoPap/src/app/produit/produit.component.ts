@@ -3,12 +3,13 @@ import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { ProduitDetailsComponent } from '../produit-details/produit-details.component';
+import { EtoilesComponent } from '../etoiles/etoiles.component';
 import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-produit',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, ProduitDetailsComponent],
+  imports: [RouterOutlet, CommonModule, ProduitDetailsComponent, EtoilesComponent],
   templateUrl: './produit.component.html',
   styleUrl: './produit.component.css'
 })
@@ -23,7 +24,7 @@ export class ProduitComponent implements OnInit {
     @Input() urlImg : string ="./assets/images/accueil1.jpg";
     @Input() textAltImg : string ="";
     @Input() dispo : boolean = false;
-
+    ajoutPanier : number = 0;
 
     constructor() {}
     ngOnInit() :void {}
@@ -35,12 +36,17 @@ export class ProduitComponent implements OnInit {
         return "10%"
       }
     }
+
     getDispoBtn(){
       if (this.dispo === true) {
         return "true"
       } else {
         return "false"
       }
+    }
+
+    onAjouter(){
+      this.ajoutPanier++;
     }
 
 }

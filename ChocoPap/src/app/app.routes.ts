@@ -8,6 +8,7 @@ import { ProduitComponent } from './produit/produit.component';
 import { ProduitDetailsComponent } from './produit-details/produit-details.component';
 
 export const routes: Routes = [
+    {path : "", component : AccueilComponent},
     {path : "accueil", component : AccueilComponent},
     {path : "boutique", component : BoutiqueComponent},
     {path : "produit", component : ProduitComponent},

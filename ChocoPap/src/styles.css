@@ -27,6 +27,17 @@
     src : url('assets/fonts/DroidSerif-Italic.ttf') format('truetype'),
 }
 
+/* Non supporté par tous les navigateurs */
+:root{
+    --chocolat : #2C1E1E;
+    --chocolatnoir : #1F1615 ;
+    --caramel : #B65F28;
+    --pateasucre : #55C0CF ;
+    --miel : #FFD543;
+    --meringue : #FFFFFF;
+}
+
+
 /* Permet de masquer le texte pour la lecture de texte pour les internautes malvoyants */
 .accessibility {
     position : absolute ;
@@ -43,39 +54,14 @@ a {
 }
 
 body, #ContenuPrincipal {
-    background-color: #B65F28;
+    background-color: var(--caramel);
 }
 
 .content {
-    background-color: #FFFFFF;
-}
-
-#header, #footer, .content {
+    background-color: var(--meringue);
     display: flex;
     justify-content: space-between;
 }
-
-#header-right, #social-network {
-    display: flex;
-    align-items: center;
-}
-
-#header-right p {
-    margin-left: 20px;
-}
-
-#header img {
-    margin: 20px;
-}
-
-#social-network img {
-    margin: 5px;
-}
-
-#informations, #contact {
-    margin: 20px;
-}
-
 
 .text-style1 {
     font-size: 20px;
@@ -84,7 +70,8 @@ body, #ContenuPrincipal {
     
 }
 .text-style1 a {
-    color: #FFFFFF;
+    color: var(--meringue);
+    text-decoration: none;
 }
 
 .text-style2 {
@@ -97,14 +84,15 @@ body, #ContenuPrincipal {
 }
 
 .text-style2 a {
-    color: #2C1E1E;
+    color: var(--chocolat);
+    text-decoration: none;
 }
 
 .text-style3 {
     font-size: 18px;
 }
 .text-style3, .text-style4 {
-    color: #2C1E1E;
+    color: var(--chocolat);
     margin-top: 10px;
     font-family: 'Droid Serif';
 }
@@ -116,7 +104,7 @@ body, #ContenuPrincipal {
 
 #filter {
     border: 2px solid;
-    border-color: #2C1E1E;
+    border-color: var(--chocolat);
     padding: 20px;
 }
 
@@ -125,55 +113,3 @@ body, #ContenuPrincipal {
     padding: 10px;
 }
     
-
-/* ************************************************************************************************* */
-/* NAVBARRE */
-/* ************************************************************************************************* */
-/*#imenuToggle{
-    color : #6C98E1;
-    font-size: 2.5em;
-    border: none;
-}
-
-#HMenu a{
-    font-weight: bold;
-    margin:10px;
-}
-
-#HMenu a:link, a:visited {
-    color : #232628 ;
-    background-color: #ECEFF3;
-}
-
-#HMenu a:hover {
-    color : #CC6119  ;
-    background-color: #232628;
-}
-
-#HMenu a:active{
-    color : #ECEFF3;
-    background-color: #232628 ;
-}
-
-/* Met en évidence le bouton du menu correspondant à la page affichée */
-/*#PageAffichee {
-    color : #ECEFF3;
-    background-color: #CC6119 ;
-}*/
-
-/* ************************************************************************************************* */
-/* AFFICHAGE POUR LES ECRANS DE TAILLE LG ET PLUS */
-/* ************************************************************************************************* */
-@media screen and (min-width:992px) {
-
-    /* Entête */
-    header {
-        position : fixed;
-        top : 0;
-    }
-    #HMenu {
-        background-color: #ECEFF3;
-        opacity: 0.8;
-    }
-
-}
