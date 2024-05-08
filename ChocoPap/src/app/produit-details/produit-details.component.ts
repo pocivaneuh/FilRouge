@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { ProduitComponent } from '../produit/produit.component';
@@ -10,13 +10,13 @@ import { DataService } from '../data.service';
 @Component({
   selector: 'app-produit-details',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, ProduitComponent, EtoilesComponent],
+  imports: [RouterModule, RouterOutlet, CommonModule, ProduitComponent, EtoilesComponent],
   templateUrl: './produit-details.component.html',
   styleUrl: './produit-details.component.css'
 })
 
 export class ProduitDetailsComponent implements OnInit{
-    id! : number;
+    idProduit! : number;
     titre! : string;
     prix! : number;
     note! : number;
@@ -33,7 +33,7 @@ export class ProduitDetailsComponent implements OnInit{
 
     ngOnInit() {
       const id = this.route.snapshot.params['id'];
-      this.id = id;
+      this.idProduit = id;
       this.titre = this.dataService.getProduit(id)?.titreArticle ?? 'Default Name';
       this.prix = this.dataService.getProduit(id)?.prixArticle ?? 0;
       this.description = this.dataService.getProduit(id)?.descriptionArticle ?? 'Default Name';

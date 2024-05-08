@@ -3,8 +3,9 @@
     <div id="lstProduits" class="container-fluid">
         <div class="row m-3">
             <div class="card m-3">
-                <img [src]="urlImg" class="card-img-top mt-3" [alt]="textAltImg" title="Illustration du produit"/>
-                <!--<a routerlink="/detail/{{ idProduit }}"></a>-->
+                <a routerLink ="/produit/{{ idProduit }}">
+                    <img [src]="urlImg" class="card-img-top mt-3" [alt]="textAltImg" title="Illustration du produit"/>
+                </a>
                 <div class="card-body">
                     <h1 class="card-title mb-4" [ngStyle]="{opacity: getDispo()}">
                         {{ titreArticle }} 

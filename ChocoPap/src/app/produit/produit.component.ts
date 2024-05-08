@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { ProduitDetailsComponent } from '../produit-details/produit-details.component';
@@ -9,7 +9,7 @@ import { DataService } from '../data.service';
 @Component({
   selector: 'app-produit',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, ProduitDetailsComponent, EtoilesComponent],
+  imports: [RouterModule, RouterOutlet, CommonModule, ProduitDetailsComponent, EtoilesComponent],
   templateUrl: './produit.component.html',
   styleUrl: './produit.component.css'
 })

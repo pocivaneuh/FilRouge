@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 /* Import de ,Input, Output, EventEmitter, output  ... */
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule, RouterOutlet } from '@angular/router';
+
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [CommonModule , NgbModule],
+  imports: [RouterModule, RouterOutlet, CommonModule , NgbModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })
@@ -20,15 +22,7 @@ export class MenuComponent implements OnInit{
   ngOnInit() :void {
   }
 
-  onAccueil() {
-    this.pageAffichee ='accueil';
-  }
-  onBoutique() {
-    this.pageAffichee = 'boutique';
-  }
-  onPanier() {
-    this.pageAffichee = 'panier';
-  }
+  
  
   onCollapse() {
     if (this.isCollapsed === true) {

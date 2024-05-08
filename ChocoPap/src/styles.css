@@ -63,16 +63,6 @@ body, #ContenuPrincipal {
     justify-content: space-between;
 }
 
-.text-style1 {
-    font-size: 20px;
-    font-family: 'Fjalla One';
-    margin-top: 10px;
-    
-}
-.text-style1 a {
-    color: var(--meringue);
-    text-decoration: none;
-}
 
 .text-style2 {
     display: inline-block;

@@ -6,9 +6,24 @@ import { Injectable } from '@angular/core';
 
 export class DataService {
 
-  listeProduits = [
+  public listeSlides = [
+    { 
+      src: "./assets/images/accueil1.jpg",
+      alt : "Banquet de pâtisseries"
+     },
+    { 
+      src: "./assets/images/accueil2.jpg",
+      alt : "Méli-mélo de bonbons"
+     },
+    { 
+      src: "./assets/images/accueil3.jpg",
+      alt : "Chocolats bien ordonnées" 
+    }
+  ];
+
+  public listeProduits = [
     {
-      id: 1,
+      idProduit: 1,
       titreArticle: "Rocher chocolat au coeur framboise",
       prixArticle : 12,
       noteArticle : 4.5,
@@ -19,7 +34,7 @@ export class DataService {
       dispo : true
     },
     {
-      id: 2,
+      idProduit: 2,
       titreArticle: "Oeuf au chocolat fondant",
       prixArticle : 10,
       noteArticle : 4.1,
@@ -30,7 +45,7 @@ export class DataService {
       dispo : true
     },
     {
-      id: 3,
+      idProduit: 3,
       titreArticle: "Secret liqueur de fraise",
       prixArticle : 10,
       noteArticle : 4.8,
@@ -41,7 +56,7 @@ export class DataService {
       dispo : false
     },
     {
-      id: 4,
+      idProduit: 4,
       titreArticle: "Coeur pur",
       prixArticle : 10,
       noteArticle : 4.8,
@@ -52,7 +67,7 @@ export class DataService {
       dispo : false
     },
     {
-      id: 5,
+      idProduit: 5,
       titreArticle: "Bouchées noisettes",
       prixArticle : 10,
       noteArticle : 4.8,
@@ -63,7 +78,7 @@ export class DataService {
       dispo : false
     },
     {
-      id: 6,
+      idProduit: 6,
       titreArticle: "Marbré deux chocolats",
       prixArticle : 10,
       noteArticle : 4.8,
@@ -74,7 +89,7 @@ export class DataService {
       dispo : false
     },
     {
-      id: 7,
+      idProduit: 7,
       titreArticle: "Secret coulant chocofraise",
       prixArticle : 10,
       noteArticle : 4.8,
@@ -85,7 +100,7 @@ export class DataService {
       dispo : false
     },
     {
-      id: 8,
+      idProduit: 8,
       titreArticle: "Lingot craquant",
       prixArticle : 10,
       noteArticle : 4.8,
@@ -96,7 +111,7 @@ export class DataService {
       dispo : false
     },
     {
-      id: 9,
+      idProduit: 9,
       titreArticle: "Choco grafitti",
       prixArticle : 10,
       noteArticle : 4.8,
@@ -107,7 +122,7 @@ export class DataService {
       dispo : false
     },
     {
-      id: 10,
+      idProduit: 10,
       titreArticle: "Caramelchoc",
       prixArticle : 10,
       noteArticle : 4.8,
@@ -123,7 +138,7 @@ export class DataService {
   
   getProduit(id: number) {
     const produits = this.listeProduits.find((a) => {
-        return a.id == id ;
+        return a.idProduit == id ;
     });
     return produits; 
   }

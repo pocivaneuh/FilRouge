@@ -27,14 +27,27 @@
 }
 
 /*Met en évidence le bouton du menu correspondant à la page affichée */
-.active {
+.text-style1, .active {
     font-size: 20px;
     font-family: 'Fjalla One';
     margin-top: 10px;
-    color : var(--pateasucre) !important;
-    font-weight: bold;
+}
+
+#panier{
+        font-size: 20px;
+        margin-top: 15px;
+    }
+    
+.text-style1 a {
+    color: var(--meringue);
     text-decoration: none;
 }
+
+.active a { 
+    color : var(--pateasucre);
+    text-decoration: none;
+}
+
 
 #header-right {
     display: flex;
@@ -45,10 +58,6 @@
     margin-left: 20px;
 }
 
-#panier{
-    font-size: 20px;
-    margin-top: 10px;
-}
 
 
 /* ************************************************************************************************* */
