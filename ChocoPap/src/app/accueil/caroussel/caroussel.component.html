@@ -3,14 +3,8 @@
             <div class="carousel-container row">
                 <div id="crslChocoAccueil" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-                       <div class="carousel-item" [ngClass]="{'active': idSlide===1}">
-                            <img src="../assets/images/accueil1.jpg" class="d-block w-100" alt="img" data-type="image" data-toggle="lightbox" data-gallery="home-gallery" title="Illustration de la page d'accueil">
-                        </div>
-                        <div class="carousel-item" [ngClass]="{'active': idSlide===2}">
-                            <img src="../assets/images/accueil2.jpg" class="d-block w-100" alt="img" data-type="image" data-toggle="lightbox" data-gallery="home-gallery" title="Illustration de la page d'accueil">
-                        </div>
-                        <div class="carousel-item" [ngClass]="{'active': idSlide===3}">
-                            <img src="../assets/images/accueil3.jpg" class="d-block w-100" alt="img" data-type="image" data-toggle="lightbox" data-gallery="home-gallery" title="Illustration de la page d'accueil">
+                       <div class="carousel-item active">
+                            <img src="{{ urlImgSlide }}" class="d-block w-100" [alt]="textAltImgSlide" title="Illustration de la page d'accueil">
                         </div>
                     </div>                
                 </div>

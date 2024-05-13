@@ -16,11 +16,9 @@ import { DataService } from '../../data.service';
 })
 
 export class CarousselComponent implements OnInit {
-    idSlide! : number ;
+    idSlide : number = 1 ;
     urlImgSlide! : string ;
     textAltImgSlide! : string;
-    slideAffiche : number = 1;
-    slidesLst : any;
 
   constructor(
       private dataService: DataService,
@@ -28,11 +26,9 @@ export class CarousselComponent implements OnInit {
 
   ngOnInit() {
     
-    this.slidesLst = this.dataService.listeSlides
-    const id = this.slideAffiche;
-    this.idSlide = id;
-    this.urlImgSlide = this.dataService.getSlide(this.idSlide)?.textAltImgSlide ?? "./assets/images/accueil1.jpg";
-    this.textAltImgSlide = this.dataService.getSlide(this.idSlide)?.textAltImgSlide ?? "Banquet de pâtisseries";
+    let id = this.idSlide ?? 1 ;
+    this.urlImgSlide = this.dataService.getSlide(id)?.urlImgSlide ?? "./assets/images/accueil1.jpg";
+    this.textAltImgSlide = this.dataService.getSlide(id)?.textAltImgSlide ?? "Banquet de pâtisseries";
   }
 
   onPrev(){
@@ -41,6 +37,8 @@ export class CarousselComponent implements OnInit {
     } else {
       this.idSlide = 3
     }
+    this.urlImgSlide = this.dataService.getSlide(this.idSlide)?.urlImgSlide ?? "./assets/images/accueil1.jpg";
+    this.textAltImgSlide = this.dataService.getSlide(this.idSlide)?.textAltImgSlide ?? "Banquet de pâtisseries";
   }
 
   onNext(){
@@ -49,11 +47,15 @@ export class CarousselComponent implements OnInit {
     } else {
       this.idSlide = 1
     }
+    this.urlImgSlide = this.dataService.getSlide(this.idSlide)?.urlImgSlide ?? "./assets/images/accueil1.jpg";
+    this.textAltImgSlide = this.dataService.getSlide(this.idSlide)?.textAltImgSlide ?? "Banquet de pâtisseries";
   }
 
   onSelect(id:number)
   {
-    this.idSlide = id ; 
+    this.idSlide = id ;
+    this.urlImgSlide = this.dataService.getSlide(id)?.urlImgSlide ?? "./assets/images/accueil1.jpg";
+    this.textAltImgSlide = this.dataService.getSlide(id)?.textAltImgSlide ?? "Banquet de pâtisseries";
   }
 }
 
