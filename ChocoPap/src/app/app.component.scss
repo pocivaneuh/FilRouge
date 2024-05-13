@@ -1,0 +1,31 @@
+/* ************************************************************************************************* */
+/* NAVBARRE */
+
+#footer, .content {
+    background-color: var(--miel);
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.8;
+  }
+  
+  #social-network {
+    display: flex;
+    align-items: center;
+  }
+  
+  #social-network img {
+    margin: 5px;
+  }
+  
+  #informations, #contact {
+    margin: 20px;
+  }
+    
+  
+  /* ************************************************************************************************* */
+  /* AFFICHAGE POUR LES ECRANS DE TAILLE LG ET PLUS */
+  /* ************************************************************************************************* */
+  @media screen and (min-width:992px) {
+  
+  
+  }

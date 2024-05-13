@@ -1,0 +1,26 @@
+  .carousel-item img {
+    object-fit: cover;
+    max-height: 450px;
+  }
+  #carousel-thumbs {
+    background: var(--caramel);
+    bottom: 0;
+    left: 0;
+    padding: 0 50px;
+    right: 0;
+  }
+  #carousel-thumbs img {
+    border: 5px solid transparent;
+    cursor: pointer;
+  }
+  #carousel-thumbs img:hover {
+    border-color: var(--miel);
+    transition:0.4 ease-in-out;
+  }
+  #carousel-thumbs .selected img {
+    border-color: var(--pateasucre);
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 50px;
+  }

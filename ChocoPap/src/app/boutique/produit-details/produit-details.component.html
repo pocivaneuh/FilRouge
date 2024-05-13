@@ -1,0 +1,24 @@
+<!-- DETAIL DES PRODUITS  -->
+<main id="ContenuPrincipal">
+     
+    <div>
+        <div>
+            <img [src]="urlImg" [alt]="textAltImg" id="PrdDetail" title="Illustration du produit">
+        </div>
+        <div class="table">
+            <div class="text-style1">{{ titre }}</div>
+            <div class="text-style3">{{ prix }} €</div>
+            <div class="text-style4">{{ description}}</div>
+            <button class = "btn btn-primary">J'aime</button>
+            <p class="card-text">{{ noteArticle}}</p>
+            <input title ="Nombre d'article"  type="number" id="qte" value={{nbArticles}}>
+            <a routerLink="/panier" class="btn btn-warning mt-5" [ngClass]="{'show': dispo===true, 'hidden' :dispo===false}" (click)="onAjouter(nbArticles)">Ajouter au panier</a>
+            <span *ngIf="dispo===false">* Indisponible </span>
+        </div>
+    </div>
+    <app-notation></app-notation>
+    <div class="content table">
+        <div class="text-style1">Ingrédients</div>
+        <div>{{ingredients}}</div>
+    </div>
+</main>

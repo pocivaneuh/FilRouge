@@ -8,16 +8,19 @@ export class DataService {
 
   public listeSlides = [
     { 
-      src: "./assets/images/accueil1.jpg",
-      alt : "Banquet de pâtisseries"
+      idSlide : 1,
+      urlImgSlide: "./assets/images/accueil1.jpg",
+      textAltImgSlide : "Banquet de pâtisseries"
      },
     { 
-      src: "./assets/images/accueil2.jpg",
-      alt : "Méli-mélo de bonbons"
+      idSlide : 2,
+      urlImgSlide: "./assets/images/accueil2.jpg",
+      textAltImgSlide : "Méli-mélo de bonbons"
      },
     { 
-      src: "./assets/images/accueil3.jpg",
-      alt : "Chocolats bien ordonnées" 
+      idSlide : 3,
+      urlImgSlide: "./assets/images/accueil3.jpg",
+      textAltImgSlide : "Chocolats bien ordonnées" 
     }
   ];
 
@@ -143,4 +146,10 @@ export class DataService {
     return produits; 
   }
 
+  getSlide(id: number) {
+    const produits = this.listeSlides.find((a) => {
+        return a.idSlide == id ;
+    });
+    return produits; 
+  }
 }

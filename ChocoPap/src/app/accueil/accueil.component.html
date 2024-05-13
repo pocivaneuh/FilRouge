@@ -1,60 +1,9 @@
 <!-- CONTENU  -->
 <main id="ContenuPrincipal">
-    <div class="row mt-5">
-        <!-- CAROUSSEL -->
-        <div class="container mt-5">
-            <div class="carousel-container position-relative row">
-                <div id="crslChocoAccueil" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active" data-slide-number="0">
-                            <img src="../assets/images/accueil1.jpg" class="d-block w-100" alt="img" data-type="image" data-toggle="lightbox" data-gallery="home-gallery">
-                        </div>
-                        <div class="carousel-item" data-slide-number="1">
-                            <img src="./assets/images/accueil2.jpg" class="d-block w-100" alt="img" data-type="image" data-toggle="lightbox" data-gallery="home-gallery">
-                        </div>
-                        <div class="carousel-item" data-slide-number="2">
-                            <img src="./assets/images/accueil3.jpg" class="d-block w-100" alt="img" data-type="image" data-toggle="lightbox" data-gallery="home-gallery">
-                        </div>
-                    </div>
-
-                    <!-- CAROUSSEL BOUTON PREV -->
-                    <a class="carousel-control-prev" href="#carousel-inner" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-
-                    <!-- CAROUSSEL BOUTON NEXT -->
-                    <a class="carousel-control-next" href="#carousel-inner" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                
-                </div>
-
-                <!-- CAROUSSEL NAV -->
-                <div id="carousel-thumbs" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row mx-0 justify-content-center">
-                                <div id="carousel-selector-0" class="thumb col-4 col-sm-2 px-1 py-2 selected" data-target="#crslChocoAccueil" data-slide-to="0">
-                                    <img src="./assets/images/accueil1.jpg" class="img-fluid" alt="img">
-                                </div>
-                                <div id="carousel-selector-1" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#crslChocoAccueil" data-slide-to="1">
-                                    <img src="./assets/images/accueil2.jpg" class="img-fluid" alt="img">
-                                </div>
-                                <div id="carousel-selector-2" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#crslChocoAccueil" data-slide-to="2">
-                                    <img src="./assets/images/accueil3.jpg" class="img-fluid" alt="img">
-                                </div>
-                            </div>
-                        </div>
-                    </div>                    
-                </div> <!-- /CARROUSSEL NAV -->
-            </div>  <!-- /CAROUSSEL row -->
-        </div> <!-- /CAROUSSEL container  -->
-
-        <div class="text-style2">
-            <a routerLink="/boutique">VOIR LA BOUTIQUE</a>
-        </div>
-        
+    <div class="row m-0">
+            <app-caroussel></app-caroussel>
+            <div class="mt-5 text-style1" >
+                <a routerLink="/boutique">VOIR LA BOUTIQUE</a>
+            </div>
     </div>
 </main>

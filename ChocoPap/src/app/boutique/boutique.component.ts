@@ -3,20 +3,21 @@ import { RouterOutlet } from '@angular/router';
 /* Import de ,Input, Output, EventEmitter, output  ... */
 import { CommonModule } from '@angular/common';
 
-import { ProduitComponent } from '../produit/produit.component';
-import { EtoilesComponent } from '../etoiles/etoiles.component';
+/* IMPORT DES COMPONENTS PERSONNALISES A AJOUTER DANS IMPORTS */
+import { ProduitComponent } from './produit/produit.component';
+import { NotationComponent } from './notation/notation.component';
 import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-boutique',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, ProduitComponent, EtoilesComponent],
+  imports: [RouterOutlet, CommonModule, ProduitComponent, NotationComponent],
+  providers:[DataService],
   templateUrl: './boutique.component.html',
-  styleUrl: './boutique.component.css'
+  styleUrl: './boutique.component.scss'
 })
-
 export class BoutiqueComponent implements OnInit{
-  title = 'ChocoPap';
+
   liste : any;
   
   constructor (private dataService:DataService) { }
