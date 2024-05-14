@@ -1,12 +1,25 @@
+img {
+    border-radius: 10px;
+}
+
 .card {
     font-family: "Droid Serif";
     color: #FFFFFF;
     background-color:#1F1615;
-    width: 18rem;
+    box-shadow: 0 0 15px var(--miel) ;
+    width: 20rem;
+    height: 40rem;
 }
 
 .card-title {
     font-family: "Fjalla One";
+}
+
+.card-body span {
+    font-family: "Droid Serif";
+    color : #55C0CF;
+    font-size: 16px;
+    font-style: italic;
 }
 
 .show{
@@ -17,37 +30,41 @@
     display :none;
 }
 
-.card-body span {
-    font-family: "Droid Serif";
-    color : #55C0CF;
-    font-size: 16px;
-    font-style: italic;
+.ajouter {
+    vertical-align: middle;
+    color : var(--chocolatnoir);
+    background-color: var(--miel);
+    border-color: var(--miel);
+    padding : 5px 10px;
+    font-size: var(--bs-btn-font-size);
+    font-weight: var(--bs-btn-font-weight);
+    line-height: var(--bs-btn-line-height);
+    border-width: var(--bs-border-width);
+    border-radius: var(--bs-border-radius);
+    box-shadow : inset 0 3px 5px var(--caramel);
+    text-decoration: none;
+    position:absolute;
+    bottom : 2rem ;
+    right : 1.5rem;
+    transition: all 0.20s ease-in-out;
 }
 
-/* ************************************************************************************************* */
-/* ETOILES */
-/* ************************************************************************************************* */
-.ratings i{
-    color:var(--meringue);
-    font-size:16px;
+.ajouter:hover{
+    color : var(--meringue);
+    background-color: var(--caramel);
+    border-color: var(--meringue);
+    box-shadow : inset 0 3px 5px var(--meringue);
+    transition: all 0.20s ease-in-out;
 }
 
-.rating-color{
-    color: var(--miel);
+.ajouter:active{
+    color : var(--pateasucre);
+    background-color: var(--chocolat);
+    border-color: var(--meringue);
+    box-shadow : inset 0 3px 5px var(--pateasucre);
+    transition: all 0.20s ease-in-out;
 }
 
-.review-count{
-    font-weight:400;
-    margin-bottom:2px;
-    font-size:16px;
-}
-
-.small-ratings i{
-    color:var(--pateasucre)  
-}
-
-.review-stat{
-    font-weight:300;
-    font-size:16px;
-    margin-bottom:2px;
+.ajouter:focus{
+    box-shadow:3px 3px var(--meringue), -1em 0 .4em var(--pateasucre);
 }

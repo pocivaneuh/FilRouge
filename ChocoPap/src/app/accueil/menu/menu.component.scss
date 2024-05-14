@@ -9,21 +9,29 @@
     width: 100%;
 }
 
+#menuToggle {
+    margin : 0.7em;
+    border : none ;
+}
+
 #imenuToggle{
     color : var(--caramel);
-    font-size: 1.5em;
-    border: none;
+    font-size: 2.5em;
 }
 
 #HMenu img {
     height: 70px;
-    margin: 20px;
+    margin: 2rem;
+}
+
+#navbarSupportedContent {
+    margin-right:1rem;
 }
 
 #HMenu a:hover {
     color : var(--chocolatnoir);
-    font-size : 18px;
-    transition:0.4 ease-in-out;
+    font-size : 1.2em;
+    transition: all 0.50s ease-in-out;
 }
 
 /*Met en évidence le bouton du menu correspondant à la page affichée */

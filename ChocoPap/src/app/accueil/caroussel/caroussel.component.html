@@ -1,7 +1,7 @@
         <!-- CAROUSSEL -->
         <div class="container mt-5">
             <div class="carousel-container row">
-                <div id="crslChocoAccueil" class="carousel slide" data-ride="carousel">
+                <div id="crslChocoAccueil" class="carousel slide p-0" data-ride="carousel">
                     <div class="carousel-inner">
                        <div class="carousel-item active">
                             <img src="{{ urlImgSlide }}" class="d-block w-100" [alt]="textAltImgSlide" title="Illustration de la page d'accueil">
@@ -25,18 +25,17 @@
                             </div>
                         </div>
                     </div>                    
-                </div> <!-- /CARROUSSEL NAV -->
-            </div>  <!-- /CAROUSSEL row -->
-            
+                    <div id="Navigation">
                         <!-- CAROUSSEL BOUTON PREV -->
-                        <a class="carousel-control-prev" href="#carousel-inner" role="button" title="Précédent" (click)="onPrev()">
+                        <a class="carousel-control-prev" role="button" title="Précédent" (click)="onPrev()">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only"></span>
                         </a>
     
                         <!-- CAROUSSEL BOUTON NEXT -->
-                        <a class="carousel-control-next" href="#carousel-inner" role="button" title="Suivant" (click)="onNext()">
+                        <a class="carousel-control-next" role="button" title="Suivant" (click)="onNext()">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only"></span>
                         </a>
+                    </div> 
+                </div> <!-- /CARROUSSEL NAV -->
+            </div>  <!-- /CAROUSSEL row -->        
         </div> <!-- /CAROUSSEL container  -->

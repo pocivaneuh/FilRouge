@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { ProduitDetailsComponent } from '../produit-details/produit-details.component';
+import { ProduitDetailsComponent } from './produit-details/produit-details.component';
 import { NotationComponent } from '../notation/notation.component';
 import { DataService } from '../../data.service';
 

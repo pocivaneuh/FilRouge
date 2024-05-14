@@ -57,10 +57,12 @@
 /* ************************************************************************************************* */
 /* GENERAL */
 /* ************************************************************************************************* */
+html {
+    background-color: var(--chocolatnoir);
+}
 
-html,body, #ContenuPrincipal {
+body {
     background-color: var(--caramel);
-    height: 100%;
 }
 
 a {
@@ -106,7 +108,10 @@ a {
 
 .text-style3 {
     font-size: 18px;
+    font-weight: bold;
+    opacity : 1;
 }
+
 .text-style3, .text-style4 {
     color: var(--chocolat);
     margin-top: 10px;

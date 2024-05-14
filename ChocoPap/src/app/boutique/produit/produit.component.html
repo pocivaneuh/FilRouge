@@ -9,11 +9,11 @@
                     <h1 class="card-title mb-4" [ngStyle]="{opacity: getDispo()}">
                         {{ titreArticle }} 
                     </h1>
+                    <span class="indicateur" *ngIf="dispo===false">* Indisponible </span>
                     <p class="card-text">{{ prixArticle }} €</p>
                     <button class = "btn btn-primary">J'aime</button>
                     <p class="card-text"><app-notation></app-notation> {{noteArticle}}</p>
-                    <a href="#" class="btn btn-warning mt-5" [ngClass]="{'show': dispo===true, 'hidden' :dispo===false}" (click)="onAjouter()">Ajouter au panier</a>
-                    <span *ngIf="dispo===false">* Indisponible </span>
+                    <a class="ajouter mt-5" [ngClass]="{'show': dispo===true, 'hidden' :dispo===false}" (click)="onAjouter()">Ajouter au panier</a>
                 </div>
             </div> <!-- /CARD -->
         </div> <!-- /row -->

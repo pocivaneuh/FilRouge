@@ -1,26 +1,9 @@
-.card {
-    font-family: "Droid Serif";
-    color: #FFFFFF;
-    background-color:#1F1615;
-    width: 18rem;
+#ContenuPrincipal {
+    background-color: var(--caramel);
 }
 
-.card-title {
-    font-family: "Fjalla One";
-}
-
-.show{
-    display :inline-block;
-}
-
-.hidden{
-    display :none;
-}
-
-.card-body span {
-    font-family: "Droid Serif";
-    color : #55C0CF;
-    font-size: 16px;
-    font-style: italic;
-    text-transform: uppercase ;
+#lstProduits{
+    display: grid ;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-gap: 2rem;
 }

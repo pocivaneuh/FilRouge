@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AccueilComponent } from './accueil/accueil.component';
 import { BoutiqueComponent } from './boutique/boutique.component';
-import { ProduitDetailsComponent } from './boutique/produit-details/produit-details.component';
+import { ProduitDetailsComponent } from './boutique/produit/produit-details/produit-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export const routes: Routes = [

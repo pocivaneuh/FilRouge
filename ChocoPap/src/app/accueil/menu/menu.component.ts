@@ -16,6 +16,7 @@ import { DataService } from '../../data.service';
 
 export class MenuComponent implements OnInit{
     pageAffichee: string = 'accueil';
+    colapse : boolean = false ; 
   
     constructor(private router:Router) {
     this.router.events.subscribe(event => {
@@ -24,7 +25,11 @@ export class MenuComponent implements OnInit{
       }
     });
   }
-
     ngOnInit() :void {
+    }
+
+    onColapse()
+    {
+      this.colapse= !this.colapse ;
     }
   }
