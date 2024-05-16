@@ -9,15 +9,24 @@
         <div id="lstProduits" class="col-8">
             <app-produit
                 *ngFor ="let element of liste"
-                [idProduit]="element.idProduit"
-                [titreArticle]= "element.titreArticle"
-                [description]= "element.description"
-                [ingredients]= "element.ingredients"
-                [prixArticle]= "element.prixArticle"
-                [noteArticle]= "element.noteArticle"
-                [urlImg] = "element.urlImg"
-                [textAltImg] ="element.textAltImg"
-                [dispo] = "element.dispo" >
+                    [idProduit]="element.idProduit"
+                    [titreArticle]= "element.titreArticle"
+                    [description]= "element.description"
+                    [ingredients]= "element.ingredients"
+                    [prixArticle]= "element.prixArticle"
+                    [noteArticle]= "element.noteArticle"
+                    [urlImg] = "element.urlImg"
+                    [textAltImg] ="element.textAltImg"
+                    [dispo] = "element.dispo" 
+                    [choco] = "element.choco"
+                    [caramel] = "element.caramel"
+                    [liqueur] = "element.liqueur"
+                    [fruit] = "element.fruit"
+                    [croquant] = "element.croquant"
+                    [coulant] = "element.coulant"
+                    [fondant] = "element.fondant"
+                    [fourre] = "element.fourre"
+                    [noixNoisette] = "element.noixNoisette">
             </app-produit>
         </div> <!-- /col -->
     </section> <!-- /row -->

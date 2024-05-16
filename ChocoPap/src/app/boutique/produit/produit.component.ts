@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NgForm } from '@angular/forms';
 
 import { ProduitDetailsComponent } from './produit-details/produit-details.component';
-import { NotationComponent } from '../notation/notation.component';
+import { NotationComponent } from './notation/notation.component';
 import { DataService } from '../../data.service';
 
 @Component({
@@ -26,6 +26,15 @@ export class ProduitComponent implements OnInit {
     @Input() urlImg : string ="./assets/images/accueil1.jpg";
     @Input() textAltImg : string ="";
     @Input() dispo : boolean = false;
+    @Input() choco : string = "lait";
+    @Input() caramel : boolean = false;
+    @Input() liqueur : boolean = false;
+    @Input() fruit : boolean = false;
+    @Input() croquant : boolean = false;
+    @Input() coulant : boolean = false;
+    @Input() fondant : boolean = false;
+    @Input() fourre : boolean = false;
+    @Input() noixNoisette : boolean = false;
     articleToAdd : number = 0;
 
     constructor() {}

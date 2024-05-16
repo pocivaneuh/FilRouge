@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 
 /* IMPORT DES COMPONENTS PERSONNALISES A AJOUTER DANS IMPORTS */
 import { ProduitComponent } from './produit/produit.component';
-import { NotationComponent } from './notation/notation.component';
+import { NotationComponent } from './produit/notation/notation.component';
 import { DataService } from '../data.service';
 
 @Component({

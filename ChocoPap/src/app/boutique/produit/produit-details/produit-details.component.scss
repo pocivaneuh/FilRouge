@@ -1,4 +1,100 @@
-#PrdDetail {
-    width : 300 px ;
-    height : 300 px ;
+#DetailProduit {
+    background-image: linear-gradient(to bottom,var(--caramel),var(--chocolat));
+    justify-content:center ;
+    align-items: center;
+}
+
+.bi {
+    margin-right:15px;
+}
+
+.card{
+    font-family :'Droid Serif';
+    height:max-content;
+    width:80%;
+    background-color: var(--meringue);
+    box-sizing:border-box;
+    padding:20px;
+}
+
+.main{
+    display : none;
+}
+
+.active{
+    display : block;
+}
+
+.toggleicone {
+    cursor:pointer;
+    color:var(--chocolatnoir);
+}
+
+.price{
+    height:max-content;
+    width:max-content;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:-30px;
+    padding : 10px;
+    background-color:var(--chocolat);
+    position:absolute;
+    color:var(--meringue);
+    border-radius: 50%;
+}
+
+.card h1{
+    font-family : 'Fjalla One';
+    font-weight : bold;
+    font-size : 2.5rem;
+    margin: 1rem 0;
+    color:var(--caramel);
+}
+
+.card h2{
+    font-family : 'Fjalla One';
+    font-weight : bold;
+    font-size: 18px;
+    margin-top:8px;
+}
+
+.input_text{
+    margin-top : -10px;
+    color : var(--pateasucre);
+}
+
+.input_text p:nth-child(1){
+   font-size : 13px;
+}
+
+.input_text p:nth-child(2){
+   font-weight : 700;
+   font-size : 13px;
+}
+
+.small_content img {
+    width: 100px;
+}
+
+#disponiblite {
+    margin-top : 50px;
+    color : var(--pateasucre);
+    font-size : 13px;
+}
+
+#ingredients {
+    font-size:13px;
+    align-items:center;
+}
+
+
+
+/* ************************************************************************************************* */
+/* AFFICHAGE POUR LES ECRANS DE TAILLE MD ET PLUS */
+/* ************************************************************************************************* */
+@media screen and (min-width:720px) {
+    .card{
+        width:50%;
+    }
 }

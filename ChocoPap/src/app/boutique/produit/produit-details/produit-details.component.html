@@ -1,24 +1,99 @@
 <!-- DETAIL DES PRODUITS  -->
-<main id="ContenuPrincipal">
-     
-    <div>
-        <div>
-            <img [src]="urlImg" [alt]="textAltImg" id="PrdDetail" title="Illustration du produit">
-        </div>
-        <div class="table">
-            <div class="text-style1">{{ titre }}</div>
-            <div class="text-style3">{{ prix }} €</div>
-            <div class="text-style4">{{ description}}</div>
-            <button class = "btn btn-primary">J'aime</button>
-            <p class="card-text">{{ noteArticle}}</p>
-            <input title ="Nombre d'article"  type="number" id="qte" value={{nbArticles}}>
-            <a routerLink="/panier" class="btn btn-warning mt-5" [ngClass]="{'show': dispo===true, 'hidden' :dispo===false}" (click)="onAjouter(nbArticles)">Ajouter au panier</a>
-            <span *ngIf="dispo===false">* Indisponible </span>
-        </div>
-    </div>
-    <app-notation></app-notation>
-    <div class="content table">
-        <div class="text-style1">Ingrédients</div>
-        <div>{{ingredients}}</div>
-    </div>
-</main>
+<div id="DetailProduit" class="container-fluid d-flex vh-100">
+    <div class="card">
+        <div [ngClass]="{'active': page === 1, 'main': page === 2}">
+            <div  class="top d-flex justify-content-between toggleicone">
+                <i class="bi bi-list-ul"></i>
+                <i class="bi bi-arrow-right" (click)="onNextPage()"></i>
+            </div>
+            <h1 class="card-title" [ngStyle]="{opacity: getDispo()}">
+                {{ titreDetail }} 
+            </h1>            
+            <img [src]="urlImg" class="card-img-top mt-3" [alt]="textAltImg" title="Illustration du produit"/>
+            <div class="price">
+                <h2>{{ prixDetail }} €</h2>
+            </div>
+            <p id="disponibilite"><span *ngIf="dispo===false">* Indisponible </span></p>
+            <div class="input_text d-flex justify-content-between pt-4">
+                <p class="card-text text-style4">{{ description}}</p>
+            </div>
+            <div class="input_text d-flex justify-content-between pt-3">
+                <p class="card-text"><app-notation [note]="this.noteArticle"></app-notation></p>
+            </div>
+            <div class="input_div mt-4">
+                <div class="input_text d-flex justify-content-between">
+                    <p><i class="bi bi-heart-fill"></i>Chocolat</p>
+                    <p>{{ choco }}</p>
+                </div>
+                <div class="input_text input_text d-flex justify-content-between">
+                    <p>
+                        <i class="bi bi-heart-fill"></i>
+                        <span *ngIf="noixNoisette===true">Noisettes</span>
+                        <span *ngIf="caramel===true">&nbsp;Caramel</span>
+                        <span *ngIf="fruit===true">&nbsp;Fruit</span>
+                        <span *ngIf="croquant===true">&nbsp;Croquant</span>
+                        <span *ngIf="coulant===true">&nbsp;Coulant</span>
+                        <span *ngIf="fondant===true">&nbsp;Fondant</span>
+                        <span *ngIf="fourre===true">&nbsp;Fourré</span>
+                    </p>
+                </div>
+                <div class="input_text input_text d-flex justify-content-between">
+                    <p><i class="bi bi-heart-fill"></i>liqueur</p>
+                    <p *ngIf="liqueur===true">Oui</p>
+                    <p *ngIf="liqueur===false">Non</p>
+                </div>
+            </div>
+            
+            <div [ngClass]="{'active': page === 2, 'main': page === 1}">
+                <div class="top d-flex justify-content-between toggleicone">
+                    <i class="bi bi-arrow-left" (click)="onPrevPage()"></i>
+                    <i class="bi bi-list-ul"></i>
+                </div>
+                <div class="small_content mt-4 mb-5 d-flex justify-content-between">
+                    <img [src]="urlImg" class="card-img-top mt-3" [alt]="textAltImg" title="Illustration du produit"/>
+                    <div class="small_content">
+                        <p id="disponibilite"><span *ngIf="dispo===false">* Indisponible </span></p>
+                        <h1 class="card-title" [ngStyle]="{opacity: getDispo()}">
+                            {{ titreDetail }} 
+                        </h1>    
+                    </div>
+                </div>
+                <div class="input_div mt-2">
+                    <div class="input_text d-flex justify-content-between">
+                        <p><i class="bi bi-heart-fill"></i>Chocolat</p>
+                        <p>{{ choco }}</p>
+                    </div>
+                    <div class="input_text input_text d-flex justify-content-between">
+                        <p>
+                            <i class="bi bi-heart-fill"></i>
+                            <span *ngIf="noixNoisette===true">Noisettes</span>
+                            <span *ngIf="caramel===true">&nbsp;Caramel</span>
+                            <span *ngIf="fruit===true">&nbsp;Fruit</span>
+                            <span *ngIf="croquant===true">&nbsp;Croquant</span>
+                            <span *ngIf="coulant===true">&nbsp;Coulant</span>
+                            <span *ngIf="fondant===true">&nbsp;Fondant</span>
+                            <span *ngIf="fourre===true">&nbsp;Fourré</span>
+                        </p>
+                    </div>
+                    <div class="input_text input_text d-flex justify-content-between">
+                        <p><i class="bi bi-heart-fill"></i>liqueur</p>
+                        <p *ngIf="liqueur===true">Oui</p>
+                        <p *ngIf="liqueur===false">Non</p>
+                    </div>
+                </div>
+                <div class="input_text d-flex justify-content-between">
+                    <p class="card-text text-style1">Ingrédients</p>
+                    <p  id="ingredients" class="card-text">{{ingredients}}</p>
+                </div>
+                <div class="buy mt-4 d-flex justify-content-center">
+                    <!--<form class="mt-4" action="" title="Ajouter l'article au panier" [ngClass]="{'show': dispo===true, 'hidden' : dispo===false}">
+                        <label for="nbArticles" class="d-block">Nombre d'articles</label>
+                        <input type="number" name="nbArticles" id="nbArticles" title="Nombre d'articles à ajouter" placeholder="0" [(ngModel)="articleToAdd"] required/>
+                        <a class="ajouter">Ajouter au panier</a>
+
+                        <input title ="Nombre d'article"  type="number" id="qte" value={{nbArticles}}>
+                    </form>-->
+                </div><!-- /MAIN -->
+            </div><!-- /MAIN ACTIVE -->
+        </div> <!-- /CARD -->
+    </div><!-- /CONTAINER -->
