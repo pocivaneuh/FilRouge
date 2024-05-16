@@ -2,10 +2,11 @@
 /* FOOTER  */
 /* ************************************************************************************************* */
 
-#footer, .content {
+#footer {
     background-color: var(--miel);
     justify-content: space-between;
     opacity: 0.8;
+    box-shadow: 15px 5px 20px var(--chocolat);
   }
 
   .row {

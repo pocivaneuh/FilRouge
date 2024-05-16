@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { NgForm } from '@angular/forms';
 
 import { ProduitDetailsComponent } from './produit-details/produit-details.component';
 import { NotationComponent } from '../notation/notation.component';
@@ -14,6 +15,7 @@ import { DataService } from '../../data.service';
   templateUrl: './produit.component.html',
   styleUrl: './produit.component.scss'
 })
+
 export class ProduitComponent implements OnInit {
     @Input() idProduit: number = 1 ;
     @Input() titreArticle: string = "Article1";
@@ -24,7 +26,7 @@ export class ProduitComponent implements OnInit {
     @Input() urlImg : string ="./assets/images/accueil1.jpg";
     @Input() textAltImg : string ="";
     @Input() dispo : boolean = false;
-    ajoutPanier : number = 0;
+    articleToAdd : number = 0;
 
     constructor() {}
     ngOnInit() :void {}
@@ -45,8 +47,9 @@ export class ProduitComponent implements OnInit {
       }
     }
 
-    onAjouter(){
-      this.ajoutPanier++;
+    onAjouter(form : NgForm){
+      const newNumber = this.articleToAdd;
+      console.log("newNumber :" + newNumber) ;
     }
 
 }

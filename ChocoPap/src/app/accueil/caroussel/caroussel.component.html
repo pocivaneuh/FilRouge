@@ -8,34 +8,8 @@
                         </div>
                     </div>                
                 </div>
-                <!-- CAROUSSEL NAV -->
-                <div id="carousel-thumbs" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row mx-0 justify-content-center">
-                                <div id="carousel-selector-0" class="thumb col-4 col-sm-2 px-1 py-2" [ngClass]="{'selected': idSlide===1}" data-target="#crslChocoAccueil" (click)="onSelect(1)">
-                                    <img src="./assets/images/accueil1.jpg" class="img-fluid" alt="img">
-                                </div>
-                                <div id="carousel-selector-1" class="thumb col-4 col-sm-2 px-1 py-2" [ngClass]="{'selected': idSlide===2}" data-target="#crslChocoAccueil" (click)="onSelect(2)">
-                                    <img src="./assets/images/accueil2.jpg" class="img-fluid" alt="img">
-                                </div>
-                                <div id="carousel-selector-2" class="thumb col-4 col-sm-2 px-1 py-2" [ngClass]="{'selected': idSlide===3}" data-target="#crslChocoAccueil" (click)="onSelect(3)">
-                                    <img src="./assets/images/accueil3.jpg" class="img-fluid" alt="img">
-                                </div>
-                            </div>
-                        </div>
-                    </div>                    
-                    <div id="Navigation">
-                        <!-- CAROUSSEL BOUTON PREV -->
-                        <a class="carousel-control-prev" role="button" title="Précédent" (click)="onPrev()">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </a>
-    
-                        <!-- CAROUSSEL BOUTON NEXT -->
-                        <a class="carousel-control-next" role="button" title="Suivant" (click)="onNext()">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </a>
-                    </div> 
-                </div> <!-- /CARROUSSEL NAV -->
+                <div class="m-0 p-0">
+                    <app-navcarousel [idSlideCarousel]="idSlide" (idSlideNav)="slideAffiche($event)"></app-navcarousel>
+                </div>
             </div>  <!-- /CAROUSSEL row -->        
         </div> <!-- /CAROUSSEL container  -->

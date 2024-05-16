@@ -81,6 +81,21 @@ Data Biding types :
     - Enclose the target event in function brackets (()) within the template.
     - Implement the method in the component class.
     
+EXPL MOUSEOVER : 
+    HTML COMPONENTA : 
+        <p (mouseover)="showImage=true" (mouseout)="showImage=false"> Test </p>
+        <div>
+            <img *ngIf="showImage" src="./assets/images/accueil1.jpg" class="img-fluid" alt="img">
+        </div>
+
+    TS COMPONENTA : 
+        export class NotationComponent implements OnInit {
+            showImage : boolean
+
+            constructor() {
+                this.showImage = false
+            }
+        }
 
 *****************************************************************************************************************************************************************
 ts :                                                *    HTML : 

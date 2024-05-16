@@ -1,12 +1,14 @@
 /* ************************************************************************************************* */
 /* NAVBARRE */
 /* ************************************************************************************************* */
-#HMenu, .content{
+#HMenu{
     background-color: var(--miel);
     display: flex;
     justify-content: space-between;
+    text-align:center;
     opacity: 0.8;
     width: 100%;
+    box-shadow: 10px 5px 20px 2px var(--chocolat);
 }
 
 #menuToggle {
@@ -24,12 +26,19 @@
     margin: 2rem;
 }
 
-#navbarSupportedContent {
-    margin-right:1rem;
+#navbarSupportedContent a {
+    border-color: var(--miel);
+    padding : 10px;
+    background-color: var(--chocolat);
+    text-shadow: 2px 2px 5px var(--chocolatnoir);
+    line-height: var(--bs-btn-line-height);
+    border-width: var(--bs-border-width);
+    border-radius: var(--bs-border-radius);
+    box-shadow : inset 0 3px 5px var(--caramel);
 }
 
 #HMenu a:hover {
-    color : var(--chocolatnoir);
+    color : var(--miel);
     font-size : 1.2em;
     transition: all 0.50s ease-in-out;
 }
@@ -65,8 +74,23 @@
 /* ************************************************************************************************* */
 /* AFFICHAGE POUR LES ECRANS DE TAILLE LG ET PLUS */
 /* ************************************************************************************************* */
-@media screen and (min-width:992px) {
+@media screen and (min-width:720px) {
 
+    #navbarSupportedContent {
+        margin-right:1rem;
+    }
 
+    #navbarSupportedContent a {
+        border:none;
+        background-color: transparent;
+        line-height: var(--bs-btn-line-height);
+        border-width: var(--bs-border-width);
+        border-radius: var(--bs-border-radius);
+        box-shadow : none ;
+    }
+
+    #HMenu a:hover {
+        color : var(--chocolatnoir);
+    }
 
 }

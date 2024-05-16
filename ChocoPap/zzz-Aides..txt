@@ -45,7 +45,7 @@ Dans angular.json, ajoutez les lignes suivantes:
               }
           }
       }
-}
+
 Ainsi, on peut transformer nos:
 
 @import '../../../../theme/mixins';

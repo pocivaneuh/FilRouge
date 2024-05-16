@@ -283,7 +283,7 @@ ng new Chocopap
                 userToken: string ="From parent 074f5sd";
 
                 receivedgMessage : string = "";
-                receiveMessage(message: string) void {
+                receiveMessage(message: string): void {
                     this.receivedMessage = message ;
                 }
             }
