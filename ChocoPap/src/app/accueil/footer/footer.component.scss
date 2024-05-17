@@ -1,0 +1,28 @@
+/* ************************************************************************************************* */
+/* FOOTER  */
+/* ************************************************************************************************* */
+
+#footer {
+    background-color: var(--miel);
+    justify-content: space-between;
+    opacity: 0.8;
+    box-shadow: 15px 5px 20px var(--chocolat);
+  }
+
+  .row {
+    width: 100%;
+    padding : 5px 20px;
+  }
+  
+  #social-network {
+    display: inline-flex;
+    align-items: center;
+    justify-content: right;
+    padding: 0;
+  }
+  
+  #social-network img {
+    margin: 5px;
+  }
+
+    

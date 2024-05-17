@@ -1,0 +1,10 @@
+#ContenuPrincipal {
+    background-color: var(--caramel);
+    height: 100%;
+}
+
+#boutique a:hover {
+    color : var(--chocolatnoir);
+    font-size : 1.2em;
+    transition: all 0.50s ease-in-out;
+}

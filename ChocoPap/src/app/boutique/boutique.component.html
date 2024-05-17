@@ -1,0 +1,33 @@
+<!-- CONTENU  -->
+<main id="ContenuPrincipal">
+    <section class="row m-0">
+        <!-- FILTRES -->
+        <div id="selectProduits" class="col-4">
+        </div>
+
+        <!-- LISTE DES PRODUITS -->
+        <div id="lstProduits" class="col-8">
+            <app-produit
+                *ngFor ="let element of liste"
+                    [idProduit]="element.idProduit"
+                    [titreArticle]= "element.titreArticle"
+                    [description]= "element.description"
+                    [ingredients]= "element.ingredients"
+                    [prixArticle]= "element.prixArticle"
+                    [noteArticle]= "element.noteArticle"
+                    [urlImg] = "element.urlImg"
+                    [textAltImg] ="element.textAltImg"
+                    [dispo] = "element.dispo" 
+                    [choco] = "element.choco"
+                    [caramel] = "element.caramel"
+                    [liqueur] = "element.liqueur"
+                    [fruit] = "element.fruit"
+                    [croquant] = "element.croquant"
+                    [coulant] = "element.coulant"
+                    [fondant] = "element.fondant"
+                    [fourre] = "element.fourre"
+                    [noixNoisette] = "element.noixNoisette">
+            </app-produit>
+        </div> <!-- /col -->
+    </section> <!-- /row -->
+</main>
