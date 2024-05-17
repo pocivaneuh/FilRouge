@@ -50,8 +50,6 @@ export class ProduitDetailsComponent implements OnInit{
 
     ngOnInit() {
 
-      
-
       const id = this.route.snapshot.params['id'];
       this.idProduit = id;
       this.titreDetail = this.dataService.getProduit(id)?.titreArticle ?? 'Default Name';

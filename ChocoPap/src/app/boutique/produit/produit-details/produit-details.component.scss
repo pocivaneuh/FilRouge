@@ -1,14 +1,22 @@
+.main {
+    display: none ;
+}
+
+.active {
+    display : block;
+}
+
 #DetailProduit {
     background-image: linear-gradient(to bottom,var(--caramel),var(--chocolat));
-    justify-content:center ;
-    align-items: center;
+    justify-content : center ;
+    align-items : center;
 }
 
 .bi {
     margin-right:15px;
 }
 
-.card{
+.card {
     font-family :'Droid Serif';
     height:max-content;
     width:80%;
@@ -17,12 +25,9 @@
     padding:20px;
 }
 
-.main{
-    display : none;
-}
-
-.active{
-    display : block;
+#mainImg {
+    width: 290px ;
+    margin-top:20px;
 }
 
 .toggleicone {
@@ -30,21 +35,21 @@
     color:var(--chocolatnoir);
 }
 
-.price{
+.price {
     height:max-content;
     width:max-content;
     display:flex;
     justify-content:center;
     align-items:center;
     margin-top:-30px;
-    padding : 10px;
+    padding : 20px;
     background-color:var(--chocolat);
     position:absolute;
     color:var(--meringue);
     border-radius: 50%;
 }
 
-.card h1{
+.card h1 {
     font-family : 'Fjalla One';
     font-weight : bold;
     font-size : 2.5rem;
@@ -52,23 +57,23 @@
     color:var(--caramel);
 }
 
-.card h2{
+.card h2 {
     font-family : 'Fjalla One';
     font-weight : bold;
     font-size: 18px;
     margin-top:8px;
 }
 
-.input_text{
+.input_text {
     margin-top : -10px;
     color : var(--pateasucre);
 }
 
-.input_text p:nth-child(1){
+.input_text p:nth-child(1) {
    font-size : 13px;
 }
 
-.input_text p:nth-child(2){
+.input_text p:nth-child(2) {
    font-weight : 700;
    font-size : 13px;
 }
@@ -77,7 +82,7 @@
     width: 100px;
 }
 
-#disponiblite {
+#disponibilite {
     margin-top : 50px;
     color : var(--pateasucre);
     font-size : 13px;
@@ -85,6 +90,7 @@
 
 #ingredients {
     font-size:13px;
+    padding: 0 5px 0 15px ;
     align-items:center;
 }
 
