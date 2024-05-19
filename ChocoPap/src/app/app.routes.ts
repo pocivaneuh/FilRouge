@@ -4,16 +4,22 @@ import { NgModule } from '@angular/core';
 
 import { AccueilComponent } from './accueil/accueil.component';
 import { BoutiqueComponent } from './boutique/boutique.component';
-import { ProduitDetailsComponent } from './boutique/produit/produit-details/produit-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PanierComponent } from './boutique/panier/panier.component';
 
 export const routes: Routes = [
-    { path : '' , redirectTo: '/accueil', pathMatch: 'full'},
     { path: '' , component : AccueilComponent},
-    { path : 'accueil' , component : AccueilComponent},
+    { path : 'accueil',
+        loadComponent: () => import('./accueil/accueil.component').then(c => c.AccueilComponent)
+    },
     { path : 'boutique' , component : BoutiqueComponent},
-    { path : 'produit', redirectTo: '/boutique', pathMatch:'full'},
-    { path : 'produit/:id' , component : ProduitDetailsComponent},
+    { path : 'produit',
+        loadComponent: () => import('./boutique/produit/produit.component').then(c => c.ProduitComponent)
+    },
+    { path : 'produit/:id',
+        loadComponent: () => import('./boutique/produit/produit-details/produit-details.component').then(c => c.ProduitDetailsComponent)
+    },
+    { path : 'panier' , component : PanierComponent},
     { path : '**' , component : PageNotFoundComponent}
 ];
 

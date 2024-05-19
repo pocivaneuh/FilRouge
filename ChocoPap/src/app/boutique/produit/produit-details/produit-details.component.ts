@@ -25,7 +25,9 @@ export class ProduitDetailsComponent implements OnInit{
     ingredients! : string;
     urlImg! : string;
     textAltImg! : string;
-    choco! : string;
+    lait!: boolean;
+    blanc!: boolean;
+    noir!: boolean;
     caramel!: boolean;
     liqueur! : boolean;
     fruit! : boolean;
@@ -60,7 +62,9 @@ export class ProduitDetailsComponent implements OnInit{
       this.ingredients = this.dataService.getProduit(id)?.ingredientsArticle ?? 'Default Name';
       this.urlImg = this.dataService.getProduit(id)?.urlImg ?? 'Default Name';
       this.textAltImg = this.dataService.getProduit(id)?.textAltImg ?? 'Default Name';
-      this.choco = this.dataService.getProduit(id)?.choco ?? "lait";
+      this.lait = this.dataService.getProduit(id)?.lait ?? false;
+      this.blanc = this.dataService.getProduit(id)?.blanc ?? false;
+      this.noir = this.dataService.getProduit(id)?.noir ?? false;
       this.caramel = this.dataService.getProduit(id)?.caramel ?? false;
       this.liqueur = this.dataService.getProduit(id)?.liqueur ?? false;
       this.fruit = this.dataService.getProduit(id)?.fruit ?? false;

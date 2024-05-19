@@ -23,18 +23,20 @@
             <div class="input_div mt-4">
                 <div class="input_text d-flex justify-content-between">
                     <p><i class="bi bi-heart-fill"></i>Chocolat</p>
-                    <p>{{ choco }}</p>
+                    <p><span *ngIf="lait===true">Lait&nbsp;</span></p>
+                    <p><span *ngIf="blanc===true">Blanc&nbsp;</span></p>
+                    <p><span *ngIf="noir===true">Noir&nbsp;</span></p>
                 </div>
                 <div class="input_text input_text d-flex justify-content-between">
                     <p>
                         <i class="bi bi-heart-fill"></i>
-                        <span *ngIf="noixNoisette===true">Noisettes</span>
-                        <span *ngIf="caramel===true">&nbsp;Caramel</span>
-                        <span *ngIf="fruit===true">&nbsp;Fruit</span>
-                        <span *ngIf="croquant===true">&nbsp;Croquant</span>
-                        <span *ngIf="coulant===true">&nbsp;Coulant</span>
-                        <span *ngIf="fondant===true">&nbsp;Fondant</span>
-                        <span *ngIf="fourre===true">&nbsp;Fourré</span>
+                        <span *ngIf="noixNoisette===true">Noisettes&nbsp;</span>
+                        <span *ngIf="caramel===true">Caramel&nbsp;</span>
+                        <span *ngIf="fruit===true">Fruit&nbsp;</span>
+                        <span *ngIf="croquant===true">Croquant&nbsp;</span>
+                        <span *ngIf="coulant===true">Coulant&nbsp;</span>
+                        <span *ngIf="fondant===true">Fondant&nbsp;</span>
+                        <span *ngIf="fourre===true">Fourré&nbsp;</span>
                     </p>
                 </div>
                 <div class="input_text input_text d-flex justify-content-between">
@@ -62,7 +64,9 @@
             <div class="input_div mt-2">
                 <div class="input_text d-flex justify-content-between">
                     <p><i class="bi bi-heart-fill"></i>Chocolat</p>
-                    <p>{{ choco }}</p>
+                    <p><span *ngIf="lait===true">Lait&nbsp;</span></p>
+                    <p><span *ngIf="blanc===true">Blanc&nbsp;</span></p>
+                    <p><span *ngIf="noir===true">Noir&nbsp;</span></p>
                 </div>
                 <div class="input_text input_text d-flex justify-content-between">
                     <p>
@@ -89,7 +93,7 @@
             <div class="buy mt-4 d-flex justify-content-center">
                 <!--<form class="mt-4" action="" title="Ajouter l'article au panier" [ngClass]="{'show': dispo===true, 'hidden' : dispo===false}">
                     <label for="nbArticles" class="d-block">Nombre d'articles</label>
-                    <input type="number" name="nbArticles" id="nbArticles" title="Nombre d'articles à ajouter" placeholder="0" [(ngModel)="articleToAdd"] required/>
+                    <input type="number" name="nbArticles" id="nbArticles" min="0" max="100" title="Nombre d'articles à ajouter" placeholder="0" [(ngModel)="articleToAdd"] required/>
                     <a class="ajouter">Ajouter au panier</a>
 
                     <input title ="Nombre d'article"  type="number" id="qte" value={{nbArticles}}>

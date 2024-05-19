@@ -26,7 +26,9 @@ export class ProduitComponent implements OnInit {
     @Input() urlImg : string ="./assets/images/accueil1.jpg";
     @Input() textAltImg : string ="";
     @Input() dispo : boolean = false;
-    @Input() choco : string = "lait";
+    @Input() lait : boolean = false;
+    @Input() blanc : boolean = false;
+    @Input() noir : boolean = false;
     @Input() caramel : boolean = false;
     @Input() liqueur : boolean = false;
     @Input() fruit : boolean = false;

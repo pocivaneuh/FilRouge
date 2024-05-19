@@ -315,13 +315,104 @@ ng new Chocopap
 
 
 
+/* ----------------------------------------------------------------------------- */
+/*  LAZY MODULES                                                                 */
+/* ----------------------------------------------------------------------------- */
+    1. Exempl : Crew Management
+        I need to charge the Crew Module only if I'm in the Flights page.
+        If I'm in the Admin page, I don't need it : 
+
+        Admin
+            Admin Module
+        Flights Page
+            Crew Module
+
+    2. Generate a lazy loading module 
+        ng g module <module> --routing
+
+    3. Inside lazy loading module we can have
+        - standalone components
+        - regular component --standalone false
+        Exmpl : 
+            ng g m admin --routing
+            ng g c admin/add-user
+            ng g c admin/edit-user --standalone false
+        
+    4. In the app.routes.ts
+         const routes: Routes = [
+        //Other routes...
+        { path: 'lazy', loadChildren : () => import ('./lazy/lazy.module').then(m=>m.LazyModule)}
+        ];
+
+        Exmpl : 
+        export const routes : Routes = [
+                { path : 'boutique',
+            loadChildren: () => import('./boutique/boutique.module').then(m => m.BoutiqueModule)
+            },
+        ]
+
+    5. In the admin.routing.module.ts
+        const routes : Routes = [
+            {
+                path : '',
+                component : EditUserComponent
+            }
+        ]
+
+/* ----------------------------------------------------------------------------- */
+/*  LAZY COMPONENTS                                                                 */
+/* ----------------------------------------------------------------------------- */
+
+1. 
 
 
 
 
 
+/* ----------------------------------------------------------------------------- */
+/*  angular-transformer-ses-chemins-relatifs-en-chemin-absolu                    */
+/* ----------------------------------------------------------------------------- */
+https://www.clemdesign.fr/blog/2021/angular-transformer-ses-chemins-relatifs-en-chemin-absolu
 
+Dans le fichier tsconfig.json, ajoutez les lignes suivantes:
+{
+    //...
+    "compilerOptions": {
+        "baseUrl": "./",
+        // ...
+        // ===> Code à rajouter
+        "paths": {
+            "@environments/*": ["./src/environments/*"],
+            "@components/*": ["./src/app/_components/*"],
+            // ...
+        }
+    }
+    // ...
+}
 
+Ainsi, on peut transformer nos:
+import {environment} from '../../../../environments/environment';
+import {PasswordModule} from '../../../_components/password/password.module';
+
+import {environment} from '@environments/environment';
+import {PasswordModule} '@components/password/password.module';
+
+      "architect": {
+          "build": {
+              // ...
+              "options": {
+                  // ...
+                  // ===> Code à rajouter
+                  "stylePreprocessorOptions": {
+                      "includePaths": [
+                          "src/theme"
+                      ]
+                  }
+                  // ...
+              }
+          }
+      }
+}
 
 
 

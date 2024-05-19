@@ -1,6 +1,7 @@
 #ContenuPrincipal {
-    background-color: var(--caramel);
-    height: 100%;
+    background-image: linear-gradient(to bottom,var(--caramel),var(--chocolat));
+    justify-content : center ;
+    align-items : center;
 }
 
 #boutique a:hover {

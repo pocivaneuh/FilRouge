@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 /* IMPORT DES COMPONENTS PERSONNALISES A AJOUTER DANS IMPORTS */
+import { ProduitFiltresComponent } from './produit-filtres/produit-filtres.component';
 import { ProduitComponent } from './produit/produit.component';
 import { NotationComponent } from './produit/notation/notation.component';
 import { DataService } from '../data.service';
@@ -11,7 +12,7 @@ import { DataService } from '../data.service';
 @Component({
   selector: 'app-boutique',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, ProduitComponent, NotationComponent],
+  imports: [RouterOutlet, CommonModule, ProduitFiltresComponent, ProduitComponent, NotationComponent],
   providers:[DataService],
   templateUrl: './boutique.component.html',
   styleUrl: './boutique.component.scss'

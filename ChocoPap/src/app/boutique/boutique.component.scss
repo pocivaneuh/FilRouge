@@ -1,5 +1,7 @@
 #ContenuPrincipal {
-    background-color: var(--caramel);
+    background-image: linear-gradient(to bottom,var(--caramel),var(--chocolat));
+    justify-content : center ;
+    align-items : center;
 }
 
 #lstProduits{
