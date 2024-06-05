@@ -1,0 +1,76 @@
+https://gitlab.com/ss-open/websites/personal/-/blob/structure/src/components/ThemeSwitch/ThemeSwitch.tsx?ref_type=heads
+
+
+https://vitejs.dev/
+https://vitejs.fr/guide/features.html
+https://vitejs.dev/guide/cli.html#vite
+https://www.youtube.com/watch?v=qabYnswX3FY&ab_channel=Melvynx%E2%80%A2Apprendre%C3%A0coder
+
+https://www.youtube.com/watch?v=EdB_lK7ICYc&list=PLwJWw4Pbl4w9EagISEzAcKBTAJwmSuvrd&ab_channel=FaisonsLePoint
+
+https://www.next-decision.fr/wiki/mettre-en-place-une-application-web-reactjs-avec-vite
+
+Pour que l'import de path fonctionne : 
+npm i @types/node -D
+et rajouter "types":["node"] dans tsconfignode.json
+
+/!\ Ne pas mettre Bootstrap car pour react, il n'y a que react bootstrap, qui passe par à la fois react et bootstrap, il risque de ne pas être maintenu comme bootstrap normal.
+npm i --save bootstrap @popperjs/core
+Continuer sur https://getbootstrap.com/docs/5.2/getting-started/vite/#import-bootstrap
+
+
+Voir https://github.com/vitejs/vite/discussions/12191 pour l'import d'images d'un folder
+
+Dans vite.config.ts, ajouter dans l'export : 
+esbuild: {
+    loader: 'tsx',
+  },
+
+Les fichiers js/ts doivent prendre l'extension tsx
+
++ npm install --save-dev @types/react @types/react-dom @types/node @types/jest typescript
+cf https://bobbyhadz.com/blog/react-typescript-cannot-find-name
+
+
+
+
+/* ------------------------------------------------------------------------------------- */
+/* INSALL vitejs avec ts                                                                 */
+/* ------------------------------------------------------------------------------------- */
+
+Créer un projet : 
+npm create vite@latest ChocoPAPViteJS -- --template react-ts
+
+Lancer le serveur : 
+npm run dev
+
+Ajout de SCSS : 
+npm install -D sass
+
+
+
+
+/* ------------------------------------------------------------------------------------- */
+/* INSALL FONTAWESOME                                                                    */
+/* ------------------------------------------------------------------------------------- */
+Aide : https://docs.fontawesome.com/web/use-with/react/
+https://docs.fontawesome.com/web/style/animate
+
+npm i --save @fortawesome/fontawesome-svg-core
+
+npm i --save @fortawesome/free-solid-svg-icons
+npm i --save @fortawesome/free-regular-svg-icons
+npm i --save @fortawesome/free-brands-svg-icons
+
+/* ------------------------------------------------------------------------------------- */
+/*  STRUCTURE                                                                            */
+/* ------------------------------------------------------------------------------------- */
+
+Publique : fichiers directement accessibles depuis l'url
+main.jsx permet de run l'application.
+
+
+
+
+MENU TOOGLE
+https://codepen.io/Panch0/pen/BgBNNK
