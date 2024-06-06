@@ -14,10 +14,10 @@
     
     .rating_hearts span .FilledHeart,
     .rating_hearts span .HalFullHeart,
-    .rating_hearts span.active-low .faHeart, 
-    .rating_hearts span.active-high .faHeart, 
-    .rating_hearts span.active-low .FilledHeart, 
-    .rating_hearts span.active-high .HalFullHeart
+    .rating_hearts span.activeLow .faHeart, 
+    .rating_hearts span.activeHigh .faHeart, 
+    .rating_hearts span.activeLow.FilledHeart, 
+    .rating_hearts span.activeHigh .HalFullHeart
     {
       display: none;
     }
@@ -26,11 +26,11 @@
       display: inline-block;
     }
     
-    .rating_hearts span.s.active-high .FilledHeart{
+    .rating_hearts span.s.activeHigh .FilledHeart{
       display: inline-block; color: var(--miel);
     }
     
-    .rating_hearts span.s.active-low .HalFullHeart{
+    .rating_hearts span.s.activeLow .HalFullHeart{
       display: inline-block; color: var(--miel);
     }
     
