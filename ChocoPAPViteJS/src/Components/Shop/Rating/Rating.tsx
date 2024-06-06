@@ -6,6 +6,7 @@ import HalfHeart from '../../../Assets/Images/HalfHeart.svg';
 import { prdList } from '../../../Datas/PrdList';
 
 import { useState, useEffect } from "react";
+import { clsx } from 'clsx';
 
 import "../../../App.scss";
 import "./Rating.scss";
@@ -26,31 +27,56 @@ const EmptyHeart = () => {
     )
   };
 
-
+  function Show({ value, activeLow, activeHigh }) {
+    let showContent = "" ;
+    if (value > (activeLow) && value < (activeHigh)) {
+      showContent = 's activeLow';
+    }
+    if (value >= (activeHigh)) {
+      showContent = 's activeHigh';
+    }
+    if (value = (activeLow)) {
+      showContent = 's';
+    }
+    return (
+      <span className={showContent}>{showContent}<FilledHeart /><HalFullHeart /><EmptyHeart /></span>
+    );
+  }
   
+ 
 
-export const Rating = ( {Score : number} ) =>
+export function Rating ( {Score} ) {
   {
     return (
-      <span className="rating_hearts rating_0">
-        <span className='s'>
-              <FilledHeart /><HalFullHeart /><EmptyHeart />
-          </span>
-          <span className='s'>
-              <FilledHeart /><HalFullHeart /><EmptyHeart />
-          </span>
-          <span className='s'>
-              <FilledHeart /><HalFullHeart /><EmptyHeart />
-          </span>
-          <span className='s'>
-              <FilledHeart /><HalFullHeart /><EmptyHeart />
-          </span>
-          <span className='s'>
-              <FilledHeart /><HalFullHeart /><EmptyHeart />
-          </span>
-          <span><Score/></span>
-      </span>
-
-
+      <div>
+        <span className="rating_hearts rating_0">
+            <Show
+              value = {Score}
+              activeLow = {0}
+              activeHigh = {1}
+            />
+            <Show
+              value = {Score}
+              activeLow = {1}
+              activeHigh = {2}
+            />
+            <Show
+              value = {Score}
+              activeLow = {2}
+              activeHigh = {3}
+            />
+            <Show
+              value = {Score}
+              activeLow = {3}
+              activeHigh = {4}
+            />
+            <Show
+              value = {Score}
+              activeLow = {4}
+              activeHigh = {5}
+            />
+        </span>
+      </div>
     );
-  };
+  }
+};
