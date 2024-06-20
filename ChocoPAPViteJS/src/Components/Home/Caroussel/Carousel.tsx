@@ -1,23 +1,21 @@
 import "./Carousel.css";
 
-import { NavCarousel } from "./NavCarousel/NavCarousel"
+import { FC } from "react";
 
-export const Carousel = ( ) =>
-{
+export type slidesProps = {
+    idSlide: number;
+    urlImgSlide: string ;
+    textAltImgSlide : string ;
+  }
+
+export const Carousel: FC<slidesProps> = ({idSlide,urlImgSlide,textAltImgSlide,}) => {
   return (
-    <div className="container mt-5">
-        <div className="carousel-container row">
-            <div id="crslChocoAccueil" className="carousel slide p-0" data-ride="carousel">
-                <div className="carousel-inner">
-                   <div className="carousel-item active">
-                        
-                    </div>
-                </div>                
-            </div>
-            <div className="m-0 p-0">
-                {/* <NavCarousel /> */}
-            </div>
+    <div className="carousel-inner">
+        <div className="carousel-item">
+            <img className="slide" src={urlImgSlide} alt={textAltImgSlide} title={textAltImgSlide} />
         </div>
-    </div>
+    </div>                
   );
 };
+
+
