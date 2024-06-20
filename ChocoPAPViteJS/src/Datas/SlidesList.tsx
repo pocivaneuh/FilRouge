@@ -6,16 +6,19 @@ export const slidesList = [
   { 
       idSlide : 1,
       urlImgSlide: accueil1,
-      textAltImgSlide : "Banquet de pâtisseries"
+      textAltImgSlide : "Banquet de pâtisseries",
+      slideClass :"",
      },
     { 
       idSlide : 2,
       urlImgSlide: accueil2,
-      textAltImgSlide : "Méli-mélo de bonbons"
+      textAltImgSlide : "Méli-mélo de bonbons",
+      slideClass :"",
      },
     { 
       idSlide : 3,
       urlImgSlide: accueil3,
-      textAltImgSlide : "Chocolats bien ordonnés" 
+      textAltImgSlide : "Chocolats bien ordonnés",
+      slideClass :"",
     }
   ];

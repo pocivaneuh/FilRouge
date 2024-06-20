@@ -18,8 +18,9 @@ export const Home = ( ) =>
           <div className="container mt-5">
             <div className="carousel-container row">
               <div id="crslChocoAccueil" className="carousel slide p-0" data-ride="carousel">
-                  {slidesList.map(({ idSlide, urlImgSlide, textAltImgSlide }) => (
+                  {slidesList.map(({ slideClass, idSlide, urlImgSlide, textAltImgSlide }) => (
                       <Carousel
+                        slideClass = "carousel-item"
                         idSlide={idSlide}
                         urlImgSlide={urlImgSlide}
                         textAltImgSlide={textAltImgSlide}
@@ -27,9 +28,7 @@ export const Home = ( ) =>
                     ))
                   }
               </div>
-              <div className="m-0 p-0">
-                  {/* <NavCarousel /> */}
-              </div>
+                  <NavCarousel />
             </div>
         </div>
         <div className="boutique text-style1" >
