@@ -32,7 +32,7 @@ export const prdList = [
     fondant: false,
     filled: true,
     nuts: true,
-    Available: true,
+    available: true,
   },
   {
     idArticle: 2,

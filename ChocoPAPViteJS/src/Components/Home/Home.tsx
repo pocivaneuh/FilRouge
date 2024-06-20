@@ -1,14 +1,17 @@
-import "../../../App.scss";
-import "./Home.scss";
+import "../../App.css";
+import { Carousel } from "./Caroussel/Carousel";
+import "./Home.css";
+
+import { Link } from "react-router-dom";
 
 export const Home = ( ) =>
 {
   return (
     <main id="ContenuPrincipal">
-        <section class="row m-0">
-                <app-caroussel></app-caroussel>
-                <div id="boutique" class="mt-5 mb-3 text-style1" >
-                    <a routerLink="/boutique">VOIR LA BOUTIQUE</a>
+        <section className="row m-0">
+                <Carousel />
+                <div id="boutique" className="mt-5 mb-3 text-style1" >
+                  <Link to={`/Boutique`}>VOIR LA BOUTIQUE</Link>
                 </div>
         </section>
     </main>

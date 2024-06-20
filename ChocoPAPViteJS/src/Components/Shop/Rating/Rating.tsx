@@ -1,81 +1,73 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FilledHeart} from './FilledHeart';
-import { faHeart} from '@fortawesome/free-regular-svg-icons';
-import HalfHeart from '../../../Assets/Images/HalfHeart.svg';
+import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
+import { faStar as  faHeartEmpty } from '@fortawesome/free-regular-svg-icons';
+import { faStar as faHeartFilled } from '@fortawesome/free-solid-svg-icons';
+import { faStarHalfStroke as faHeartHalf } from '@fortawesome/free-solid-svg-icons';
 
-import { prdList } from '../../../Datas/PrdList';
+import { FC } from "react";
 
-import { useState, useEffect } from "react";
-import { clsx } from 'clsx';
+import "../../../App.css";
+import "./Rating.css";
 
-import "../../../App.scss";
-import "./Rating.scss";
+//propal pour le nom HeartEmpty, HeartHalf, HeartFull
 
-const EmptyHeart = () => {
-    return (
-      <span>
-            <FontAwesomeIcon id="score" icon={faHeart} bounce className="EmptyHeart"/>
-      </span>
-    )
-  };
+// Autre manière de fairetype RatingIconProps = FontAwesomeIconProps
+//const RatingIcon: FC<RatingIconProps> = (props) => (
+//type RatingIconProps =Omit<FontAwesomeIconProps, 'bounce' />
 
-  const HalFullHeart = () => {
-    return (
-      <span>
-            <img id="score" src={HalfHeart} className="HalFullHeart" alt='Demi-coeur' />
-      </span>
-    )
-  };
+const RatingIcon: FC<FontAwesomeIconProps> = (props) => (
+  <FontAwesomeIcon 
+    className="score HeartEmpty" 
+    beat
+    {...props}
+  />
+)
 
-  function Show({ value, activeLow, activeHigh }) {
-    let showContent = "" ;
-    if (value > (activeLow) && value < (activeHigh)) {
-      showContent = 's activeLow';
-    }
-    if (value >= (activeHigh)) {
-      showContent = 's activeHigh';
-    }
-    if (value = (activeLow)) {
-      showContent = 's';
-    }
-    return (
-      <span className={showContent}>{showContent}<FilledHeart /><HalFullHeart /><EmptyHeart /></span>
-    );
+function Show({ value, activeLow, activeHigh }:{value : number, activeLow : number, activeHigh : number}) {
+  if (value > (activeLow) && value < (activeHigh)) {
+    return <RatingIcon icon={faHeartHalf} />;
   }
+  if (value >= (activeHigh)) {
+    return <RatingIcon icon={faHeartFilled} />;
+  }
+  return <RatingIcon icon={faHeartEmpty} />;
+}
   
- 
+export type RatingProps = {
+  score: number;
+}
 
-export function Rating ( {Score} ) {
+export const Rating: FC<RatingProps> = ({score}) => {
   {
     return (
       <div>
         <span className="rating_hearts rating_0">
             <Show
-              value = {Score}
+              value = {score}
               activeLow = {0}
               activeHigh = {1}
             />
             <Show
-              value = {Score}
+              value = {score}
               activeLow = {1}
               activeHigh = {2}
             />
             <Show
-              value = {Score}
+              value = {score}
               activeLow = {2}
               activeHigh = {3}
             />
             <Show
-              value = {Score}
+              value = {score}
               activeLow = {3}
               activeHigh = {4}
             />
             <Show
-              value = {Score}
+              value = {score}
               activeLow = {4}
               activeHigh = {5}
             />
         </span>
+        <span>&nbsp;&nbsp; ({score} / 5)</span>
       </div>
     );
   }

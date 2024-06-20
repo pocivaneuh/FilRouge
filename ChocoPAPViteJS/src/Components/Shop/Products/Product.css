@@ -1,0 +1,202 @@
+.card{
+    display: inline-block;
+    border : 1px solid var(--meringue);
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--miel) ;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    font-family: "Droid Serif";
+    color: var(--meringue);
+    background-color:var(--chocolat);
+    max-width: 350px;
+    height: 45rem;
+}
+
+.card .cardImg {
+    max-width: 95% ;
+    height: 300px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    border: groove 5px var(--miel);
+    box-shadow: 0 0 15px var(--meringue) ;
+}
+
+.card .cardTitle {
+    margin: 0;
+    font-size: 22px;
+    font-family: 'Fjalla One';
+    margin-top: 10px;
+    height: 45px;
+}
+
+.card .card-text-tarif{
+    font-family: 'Droid Serif';
+    color: var(--pateasucre);
+    margin-top: 25px;
+    font-size: 2rem;
+    font-weight: bold;
+    opacity : 1;
+}
+
+.card .card-text-rating, .card .card-text-exist {
+    font-family: "Droid Serif";
+    color : var(--pateasucre);
+    font-size: 1rem;
+    font-style: italic;
+}
+
+#nbArticles {
+    width : 50px;
+    padding : 0.25rem;
+    margin:2.5rem 15px 0 0 ;
+    font-size: 1rem;
+    line-height: 1.5;
+    color : var(--chocolatnoir);
+    background-color: var(--meringue);
+    background-clip: padding-box;
+    border : 1px solid var(--miel);
+    border-radius: 0.375rem;
+    transition : border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btnAjouter {
+    vertical-align: middle;
+    color : var(--chocolatnoir);
+    background-color: var(--miel);
+    border-color: var(--miel);
+    padding : 5px 10px;
+    font-size: var(--bs-btn-font-size);
+    font-weight: var(--bs-btn-font-weight);
+    line-height: var(--bs-btn-line-height);
+    border-width: var(--bs-border-width);
+    border-radius: var(--bs-border-radius);
+    box-shadow : inset 0 3px 5px var(--caramel);
+    text-decoration: none;
+    transition: all 0.20s ease-in-out;
+}
+
+.btnAjouter:hover{
+    color : var(--meringue);
+    background-color: var(--caramel);
+    border-color: var(--meringue);
+    box-shadow : inset 0 3px 5px var(--meringue);
+    transition: all 0.20s ease-in-out;
+}
+
+.btnAjouter:active{
+    color : var(--pateasucre);
+    background-color: var(--chocolat);
+    border-color: var(--meringue);
+    box-shadow : inset 0 3px 5px var(--pateasucre);
+    transition: all 0.20s ease-in-out;
+}
+
+.btnAjouter:focus{
+    box-shadow:3px 3px var(--meringue), -1em 0 .4em var(--pateasucre);
+}
+
+
+/*#lstProduitsLG {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.cardImg {
+    border-radius: 10px;
+    max-height: 20rem;
+}
+
+
+.tarif {
+    color: var(--pateasucre);
+    margin-top: 10px;
+    font-family: 'Droid Serif';
+    font-size: 2rem;
+    font-weight: bold;
+    opacity : 1;
+}
+
+.card {
+    font-family: "Droid Serif";
+    color: var(--meringue);
+    background-color:var(--chocolat);
+    box-shadow: 0 0 15px var(--miel) ;
+    height: max-content ;
+}
+
+.card-title {
+    font-family: "Fjalla One";
+    min-height: 12rem;
+}
+
+.card-body span {
+    font-family: "Droid Serif";
+    color : var(--pateasucre);
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.show{
+    display :inline-block;
+}
+
+.hidden{
+    display :none;
+}
+
+
+
+*/
+
+
+/* ************************************************************************************************* */
+/* AFFICHAGE POUR LES ECRANS DE TAILLE MD ET PLUS */
+/* ************************************************************************************************* */
+@media screen and (min-width:720px) {
+
+    /*.cardImg {
+        border-radius: 10px;
+        min-height: 15rem;
+    }
+    
+    .tarif {
+        color: var(--pateasucre);
+        margin-top: 10px;
+        font-family: 'Droid Serif';
+        font-size: 2rem;
+        font-weight: bold;
+        opacity : 1;
+    }
+    
+    .card {
+        font-family: "Droid Serif";
+        color: var(--meringue);
+        background-color:var(--chocolat);
+        box-shadow: 0 0 15px var(--miel) ;
+        height: 45rem;
+    }
+    
+    .card-title {
+        font-family: "Fjalla One";
+        min-height: 12rem;
+    }
+    
+    .card-body span {
+        font-family: "Droid Serif";
+        color : #55C0CF;
+        font-size: 1rem;
+        font-style: italic;
+    }*/
+}
+
+
+
+/* ************************************************************************************************* */
+/* AFFICHAGE POUR LES ECRANS DE TAILLE LG ET PLUS */
+/* ************************************************************************************************* */
+@media screen and (min-width:992px) {
+
+}

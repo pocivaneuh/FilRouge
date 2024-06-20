@@ -1,9 +1,10 @@
 
-import './App.scss';
+import './App.css';
 
 import { Header } from "./Components/NavBar/Header/Header";
 import { Footer } from "./Components/NavBar/Footer/Footer";
-import { ShoppingList } from './Components/Shop/ShoppingList';
+
+import { Outlet } from "react-router-dom";
 
 function App() {
   
@@ -13,8 +14,8 @@ function App() {
         <header className="App-header">
           <Header />
         </header>
-        <section>
-          <ShoppingList />
+        <section id="detail">
+          <Outlet />
         </section>
         <footer>
           <Footer />

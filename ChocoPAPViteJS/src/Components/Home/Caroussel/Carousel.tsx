@@ -1,4 +1,4 @@
-import "./Carousel.scss";
+import "./Carousel.css";
 
 import { NavCarousel } from "./NavCarousel/NavCarousel"
 
@@ -10,12 +10,12 @@ export const Carousel = ( ) =>
             <div id="crslChocoAccueil" className="carousel slide p-0" data-ride="carousel">
                 <div className="carousel-inner">
                    <div className="carousel-item active">
-                        <img src="{{ urlImgSlide }}" className="d-block w-100" [alt]="textAltImgSlide" title="Illustration de la page d'accueil">
+                        
                     </div>
                 </div>                
             </div>
             <div className="m-0 p-0">
-                <NavCarousel />
+                {/* <NavCarousel /> */}
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-import "./NavCarousel.scss";
+import "./NavCarousel.css";
 
 export const NavCarousel = ( ) =>
 {
