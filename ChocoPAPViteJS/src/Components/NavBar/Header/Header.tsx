@@ -31,7 +31,6 @@ export const Burger = ( ) =>
     );
   };
 
-
 export const Header = ( ) =>
   {
     //  const closeMenuOnMobile = () => {
@@ -42,6 +41,7 @@ export const Header = ( ) =>
     // }
 
     const [isOpen, setOpen] = useState(false);
+
 
     return (
 
@@ -68,10 +68,10 @@ export const Header = ( ) =>
           >
             <Burger />
           </button>
-          {isOpen && (
             <nav
               role="navigation"
               id="navbarSupportedContent"
+              className={isOpen ? '' : 'hide'}
             >
               <ul className="navbar-nav ">
                 <li className="nav-item text-style1">
@@ -81,11 +81,10 @@ export const Header = ( ) =>
                   <Link to={`/Boutique`}>Boutique</Link>
                 </li>
                 <li className="nav-item panier">
-                    <Cart /><Link to={`/Panier`}>Panier</Link>
+                  <Link to={`/Panier`}><Cart />Panier</Link>
                 </li>
               </ul>
             </nav>
-          )}
         </section>
       </header>
     );

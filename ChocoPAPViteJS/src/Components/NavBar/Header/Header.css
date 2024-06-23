@@ -12,18 +12,18 @@ pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-.App-logo {
-    animation: App-logo-spin infinite 20s linear;
-}
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 @keyframes App-logo-spin {
-from {
-    transform: rotate(0deg);
-}
-to {
-    transform: rotate(390deg);
-}
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(390deg);
+    }
 }
   
 #menuToggle {
@@ -36,6 +36,7 @@ to {
     color : var(--caramel);
     font-size: 2.5em;
 }
+
 
 #HMenu{
     background-color: var(--miel);
@@ -71,6 +72,9 @@ li {
     margin-inline: 10px;
 }
 
+#navbarSupportedContent .hide {
+    display: none;
+}
 
 #navbarSupportedContent {
    display: block;
@@ -84,7 +88,8 @@ li {
    box-shadow : inset 0 3px 5px var(--meringue);
 }
 
-#navbarSupportedContent a {
+#navbarSupportedContent li {
+    text-align: left;
     border-color: var(--miel);
     padding : 15px;
     background-color: var(--chocolat);
