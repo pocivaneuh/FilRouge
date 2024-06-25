@@ -10,7 +10,7 @@ export const Footer = ( ) =>
     {
         return (
             /* FOOTER */
-            <footer id="footer" className="container-fluid m-0 p-3">
+            <footer id="footer" className="container-fluid">
                 <section className="row">
                     <div id="informations" className="col-12 col-lg-4 mle-4">
                         <div className="text-style3">Choco pap</div>

@@ -2,16 +2,11 @@
     background-image: linear-gradient(to bottom,var(--caramel),var(--chocolat));
     justify-content : center ;
     align-items : center;
+    width: 100%;
+    box-shadow: 10px 5px 20px 2px var(--chocolat);
 }
 
 .boutique {
     margin-inline: 2rem 1rem;
 
-}
-
-.carousel-item img {
-    object-fit: cover;
-    max-height: 450px;
-    border-radius: 15px 15px 0 0 ;
-    border : 5px ridge var(--miel);
 }

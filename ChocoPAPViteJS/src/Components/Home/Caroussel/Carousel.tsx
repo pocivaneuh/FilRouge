@@ -1,6 +1,7 @@
+import { useState, FC } from "react";
+
 import "./Carousel.css";
 
-import { FC } from "react";
 
 export type slidesProps = {
     slideClass : string;
@@ -10,10 +11,13 @@ export type slidesProps = {
   }
 
 export const Carousel: FC<slidesProps> = ({slideClass,idSlide,urlImgSlide,textAltImgSlide,}) => {
+
+  const [isActive, setIsActive] = useState(1);
+
   return (
     <div className="carousel-inner">
         <div className={slideClass} >
-            <img className="slide" src={urlImgSlide} alt={textAltImgSlide} title={textAltImgSlide} />
+            <img className="slide" src={urlImgSlide} alt={textAltImgSlide} title={textAltImgSlide} onClick={() => setIsActive(idSlide)}/>
         </div>
     </div>                
   );

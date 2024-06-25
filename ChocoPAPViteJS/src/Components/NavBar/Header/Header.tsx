@@ -10,9 +10,9 @@ import { Link } from "react-router-dom";
 export const Cart = ( ) => 
     {
       return (
-        <a className="nav-link m-0" href="/panier">
+        <>
           &nbsp;0 &nbsp;<FontAwesomeIcon id="panier" icon={CartIco} bounce className="panier"/>
-        </a>
+        </ >
       );
     };
 

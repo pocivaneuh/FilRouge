@@ -1,3 +1,4 @@
+
 import { Carousel } from "../Carousel.tsx";
 
 import "./NavCarousel.css";
@@ -9,9 +10,9 @@ export const NavCarousel = ( ) =>
 {
   return (
     <div id="carousel-thumbs" className="carousel slide" data-ride="carousel">
-        <div className="carousel-inner">
-            <div className="carousel-item active">
-                <div className="row mx-0 justify-content-center">
+        <div className="navCarousel-inner">
+            <div className="navCarousel-item">
+                <div className="row">
                     {slidesList.map(({ slideClass, idSlide, urlImgSlide, textAltImgSlide }) => (
                         <Carousel
                             slideClass = "thumbs"

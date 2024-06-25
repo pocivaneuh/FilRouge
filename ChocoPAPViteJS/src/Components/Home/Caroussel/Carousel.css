@@ -1,0 +1,22 @@
+.carousel-container {
+    margin: 0;
+    padding: 0;
+}
+
+.boutique {
+    margin-inline: 2rem 1rem;
+
+}
+
+.carousel-item {
+    margin: 0;
+    padding: 15px 0 0;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    max-height: 450px;
+    max-width: 95%;
+    border-radius: 15px 15px 0 0 ;
+    border : 5px ridge var(--miel);
+}
