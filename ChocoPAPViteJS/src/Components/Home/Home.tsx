@@ -8,7 +8,7 @@ import "../../App.css";
 import "./Home.css";
 
 
-import { slidesList } from '../../Datas/SlidesList.tsx';
+import { slidesList } from '../../Datas/slidesList.ts';
 
 import { Link } from "react-router-dom";
 

@@ -4,7 +4,7 @@ import { Carousel } from "../Carousel.tsx";
 import "./NavCarousel.css";
 import "../../../../App.css";
 
-import { slidesList } from '../../../../Datas/SlidesList.tsx';
+import { slidesList } from '../../../../Datas/slidesList.ts';
 
 export const NavCarousel = ( ) =>
 {
