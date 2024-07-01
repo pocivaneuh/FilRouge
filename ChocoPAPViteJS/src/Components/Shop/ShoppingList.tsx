@@ -1,4 +1,4 @@
-import { prdList } from '../../Datas/PrdList';
+import { prdList } from '../../Datas/prdList';
 import { Product } from './Products/Product';
 
 
