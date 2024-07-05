@@ -22,10 +22,12 @@ export const CarouselSlide: FC<slidesProps> = ({
         }
       };
 
+  const imgClassName = slideClass === 'thumbs' ? 'thumbs' : '';
+
   return (
     <div className="carousel-inner" onClick={onClick}>
-      <div className={slideClass} >
-        <img className="slide" src={urlImgSlide} alt={textAltImgSlide} title={textAltImgSlide}/>
+      <div>
+        <img className={imgClassName} src={urlImgSlide} alt={textAltImgSlide} title={textAltImgSlide}/>
       </div>
     </div>          
   );

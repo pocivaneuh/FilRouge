@@ -4,6 +4,25 @@ import { slidesList } from '../../../Datas/slidesList.ts';
 
 import "./Carousel.css"
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft as PreviousIcon, faChevronRight as NextIcon,} from '@fortawesome/free-solid-svg-icons';
+
+export const Previous = ( ) => 
+    {
+      return (
+        <a className="carousel-control-prev" role="button" title="Précédent">
+            <FontAwesomeIcon icon={PreviousIcon}/>
+        </a>
+    )};
+
+export const Next = ( ) => 
+    {
+        return (
+        <a className="carousel-control-next" role="button" title="Suivant">
+            <FontAwesomeIcon icon={NextIcon}/>
+        </a>
+    )};
+
 export const Carousel = () => {
 
   const [activeSlide, setActiveSlide] = useState(slidesList[0]);
@@ -26,6 +45,7 @@ export const Carousel = () => {
                         <div className="row">
                             {slidesList.map((slide) => (
                                 <CarouselSlide
+                                    key = {slide.idSlide}
                                     idSlide={slide.idSlide}
                                     slideClass = "thumbs"
                                     urlImgSlide={slide.urlImgSlide}
@@ -37,17 +57,11 @@ export const Carousel = () => {
                     </div>
                 </div>                    
                 <div id="Navigation">
-                    <a className="carousel-control-prev" role="button" title="Précédent">
-                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    </a>
-
-                    <a className="carousel-control-next" role="button" title="Suivant">
-                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    </a>
+                  <Previous />
+                  <Next />
                 </div> 
             </div>
         </div>
-  </div>
-              
+  </div>        
   );
 };

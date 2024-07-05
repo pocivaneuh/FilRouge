@@ -3,19 +3,6 @@
     padding: 0;
 }
 
-/* .carousel-item {
-    margin: 0;
-    padding: 0;
-    max-height: min-content;
-} */
-
-
-/* .navCarousel-item {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-} */
-
 #carousel-thumbs {
     justify-content : center ;
     align-items : center;
@@ -26,7 +13,6 @@
     animation: mymove 10s infinite;
     border : ridge var(--miel);
     border-width: 0 5px 5px 5px;
-
 }
 
 #carousel-thumbs img {
@@ -54,7 +40,6 @@
 #carousel-thumbs .row {
     align-items: center;
 }
-
 
 .carousel-control-prev,
 .carousel-control-next {
