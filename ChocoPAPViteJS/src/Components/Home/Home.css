@@ -7,5 +7,7 @@
 }
 
 .boutique {
+    text-align: left;
+    padding: 2rem;
     margin-inline: 2rem 1rem;
 }

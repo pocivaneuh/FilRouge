@@ -2,7 +2,6 @@ import { DOMAttributes, FC } from "react";
 
 import "./CarouselSlide.css";
 
-
 export type slidesProps = {
     slideClass : string;
     idSlide: number;

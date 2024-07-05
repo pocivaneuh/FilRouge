@@ -10,7 +10,7 @@ export const Carousel = () => {
 
   return (
 
-    <div className="carousel-container row">
+    <div className="carousel-container">
         <div id="crslChocoAccueil" className="carousel slide" data-ride="carousel">
             <CarouselSlide
                 slideClass="carousel-item"
