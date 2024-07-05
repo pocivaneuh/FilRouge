@@ -1,5 +1,13 @@
+.navigation{
+    margin: 0;
+    padding: 0;
+}
+
+
 #carousel-thumbs {
     display: inline-flex;
+    justify-content : center ;
+    align-items : center;
     background: var(--chocolat);
     margin: 0;
     padding: 10px 50px;
@@ -7,22 +15,16 @@
     animation: mymove 10s infinite;
     border : ridge var(--miel);
     border-width: 0 5px 5px 5px;
-    width: ;
+    width: 45px ;
 }
 
-.navigation{
-    margin: 0;
-    padding: 0;
-    max-width: 95%;
-}
-
-.navigation img {
+#carousel-thumbs img {
+    display: inline;
     width: 115px;
     border: 5px solid transparent;
     border-radius: 15px;
     cursor: pointer;
 }
-
 
 #carousel-thumbs img:hover {
     border-color: var(--miel);

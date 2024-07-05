@@ -22,8 +22,7 @@ function Exist({available}:{available : boolean}) {
     <span className="card-text-exist">* Indisponible</span>
   );
 }
-export const Product: FC<ProductProps> = ({idArticle,
-  urlImg,
+export const Product: FC<ProductProps> = ({urlImg,
   titleArticle,
   ratingArticle,
   priceArticle,

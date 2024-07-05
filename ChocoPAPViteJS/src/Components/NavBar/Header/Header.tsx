@@ -16,7 +16,6 @@ export const Cart = ( ) =>
       );
     };
 
-import "../../../App.css";
 import "./Header.css"
 
 const Logo = () => (
@@ -33,13 +32,6 @@ export const Burger = ( ) =>
 
 export const Header = ( ) =>
   {
-    //  const closeMenuOnMobile = () => {
-    //   if (window.innerWidth < 768) {
-    //     const [isOpen, setOpen] = useState(false);
-    //   }
-    //     const [isOpen, setOpen] = useState(true);
-    // }
-
     const [isOpen, setOpen] = useState(false);
 
 

@@ -2,7 +2,6 @@ import logo_facebook from "../../../Assets/Images/logo_facebook.png";
 import logo_instagram from "../../../Assets/Images/logo_instagram.png";
 import logo_twitter from "../../../Assets/Images/logo_twitter.png";
 
-import "../../../App.css";
 import "./Footer.css";
 
 
