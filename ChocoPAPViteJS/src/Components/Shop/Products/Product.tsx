@@ -44,7 +44,7 @@ export const Product: FC<ProductProps> = ({urlImg,
             title="Ajouter l'article au panier"
           >
             <div className="group">
-              <label for="nbArticles" className="d-block">
+              <label htmlFor="nbArticles" className="d-block">
                 {/* Nombre d'articles */}
               </label>
               <input

@@ -1,5 +1,4 @@
 .card{
-    display: inline-block;
     border : 1px solid var(--meringue);
     border-radius: 10px;
     box-shadow: 0 0 15px var(--miel) ;
@@ -14,7 +13,7 @@
 }
 
 .card .cardImg {
-    max-width: 95% ;
+    max-width: 100% ;
     height: 300px;
     border-radius: 50%;
     margin-bottom: 30px;
@@ -23,20 +22,19 @@
 }
 
 .card .cardTitle {
-    margin: 0;
-    font-size: 22px;
+    margin: 10px 0 0 0;
     font-family: 'Fjalla One';
-    margin-top: 10px;
+    font-size: 22px;
     height: 45px;
 }
 
 .card .card-text-tarif{
     font-family: 'Droid Serif';
     color: var(--pateasucre);
-    margin-top: 25px;
     font-size: 2rem;
     font-weight: bold;
     opacity : 1;
+    margin : 25px 0 0 0 ;
 }
 
 .card .card-text-rating, .card .card-text-exist {
@@ -97,99 +95,12 @@
 }
 
 
-/*#lstProduitsLG {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(100px, auto);
-}
-
-.cardImg {
-    border-radius: 10px;
-    max-height: 20rem;
-}
-
-
-.tarif {
-    color: var(--pateasucre);
-    margin-top: 10px;
-    font-family: 'Droid Serif';
-    font-size: 2rem;
-    font-weight: bold;
-    opacity : 1;
-}
-
-.card {
-    font-family: "Droid Serif";
-    color: var(--meringue);
-    background-color:var(--chocolat);
-    box-shadow: 0 0 15px var(--miel) ;
-    height: max-content ;
-}
-
-.card-title {
-    font-family: "Fjalla One";
-    min-height: 12rem;
-}
-
-.card-body span {
-    font-family: "Droid Serif";
-    color : var(--pateasucre);
-    font-size: 1rem;
-    font-style: italic;
-}
-
-.show{
-    display :inline-block;
-}
-
-.hidden{
-    display :none;
-}
-
-
-
-*/
-
-
 /* ************************************************************************************************* */
 /* AFFICHAGE POUR LES ECRANS DE TAILLE MD ET PLUS */
 /* ************************************************************************************************* */
 @media screen and (min-width:720px) {
 
-    /*.cardImg {
-        border-radius: 10px;
-        min-height: 15rem;
-    }
-    
-    .tarif {
-        color: var(--pateasucre);
-        margin-top: 10px;
-        font-family: 'Droid Serif';
-        font-size: 2rem;
-        font-weight: bold;
-        opacity : 1;
-    }
-    
-    .card {
-        font-family: "Droid Serif";
-        color: var(--meringue);
-        background-color:var(--chocolat);
-        box-shadow: 0 0 15px var(--miel) ;
-        height: 45rem;
-    }
-    
-    .card-title {
-        font-family: "Fjalla One";
-        min-height: 12rem;
-    }
-    
-    .card-body span {
-        font-family: "Droid Serif";
-        color : #55C0CF;
-        font-size: 1rem;
-        font-style: italic;
-    }*/
+
 }
 
 

@@ -1,6 +1,6 @@
 import { prdList } from '../../Datas/prdList';
 import { Product } from './Products/Product';
-// import { ShoppingFilters } from './ShoppingFilters/ShoppingFilters';
+import { ShoppingFilters } from './ShoppingFilters/ShoppingFilters.tsx';
 
 import './ShoppingList.css';
 
@@ -9,12 +9,12 @@ export const ShoppingList = () => {
   return (
     <section id="ContenuPrincipal">
       <section className="shop">
-        <div id="selectProducts" className="col-5 col-lg-3">
-
+        <div className='productsSelection'>
+          <ShoppingFilters />
         </div>
-        <div id="Productsliste" className="col-7 col-lg-9">
+        <div className='productsList'>
             {prdList.map(({ idArticle, urlImg, titleArticle, ratingArticle, priceArticle, available }) => (
-                <div key={idArticle}>
+                <div className='productCard' key={idArticle}>
                     <Product
                       idArticle={idArticle}
                       urlImg={urlImg}
