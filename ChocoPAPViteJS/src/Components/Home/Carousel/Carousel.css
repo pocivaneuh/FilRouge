@@ -59,8 +59,11 @@
     border-color: var(--meringue);
 }
 
+/* actuellement non nécessaire car pas plus de 3 slides */
 .carousel-control-prev,
 .carousel-control-next {
+    display: none ;
+    color : var(--miel);
     width: 50px;
 }
 
