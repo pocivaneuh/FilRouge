@@ -9,3 +9,11 @@
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     grid-gap: 1rem;
 }
+
+.selectProducts {
+    width: 30%;
+}
+
+.Productsliste {
+    width : 70% ;
+}

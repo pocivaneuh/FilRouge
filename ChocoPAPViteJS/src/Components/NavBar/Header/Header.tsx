@@ -66,13 +66,17 @@ export const Header = ( ) =>
               className={isOpen ? '' : 'hide'}
             >
               <ul className="navbar-nav ">
-                <li className="nav-item text-style1">
-                  <Link to={`/`}>Accueil</Link>
-                </li>
-                <li className="nav-item text-style1">
-                  <Link to={`/Boutique`}>Boutique</Link>
-                </li>
-                <li className="nav-item panier">
+                <Link to={`/`} onClick={() => setOpen((prev) => !prev)}>
+                  <li className="nav-item text-style1">
+                    Accueil
+                  </li>
+                </Link>
+                <Link to={`/Boutique`} onClick={() => setOpen((prev) => !prev)}>
+                  <li className="nav-item text-style1">
+                    Boutique
+                  </li>
+                </Link>
+                <li className="nav-item panier" onClick={() => setOpen((prev) => !prev)}>
                   <Link to={`/Panier`}><Cart />Panier</Link>
                 </li>
               </ul>

@@ -1,4 +1,4 @@
-import { DOMAttributes, FC } from "react";
+import { FC } from "react";
 
 import "./CarouselSlide.css";
 
@@ -16,17 +16,15 @@ export const CarouselSlide: FC<slidesProps> = ({
     textAltImgSlide,
     onSelect,
   }) => {
-      const onClick: DOMAttributes<HTMLDivElement>['onClick'] = () => {
+      function handleClick() {
         if (typeof onSelect !== 'undefined') {
             onSelect();
         }
       };
  
-  // const imgClassName = slideClass === 'thumbs' ? 'navcarousel-inner' : 'carousel-inner';
-
   return (
     <div className="carousel-inner" >
-      <div className={slideClass} onClick={onClick}>
+      <div className={slideClass} onClick={() => handleClick()}>
         <img src={urlImgSlide} alt={textAltImgSlide} title={textAltImgSlide}/>
       </div>
     </div>          
