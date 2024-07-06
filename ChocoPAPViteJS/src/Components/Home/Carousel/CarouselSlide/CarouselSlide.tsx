@@ -21,10 +21,12 @@ export const CarouselSlide: FC<slidesProps> = ({
             onSelect();
         }
       };
+ 
+  // const imgClassName = slideClass === 'thumbs' ? 'navcarousel-inner' : 'carousel-inner';
 
   return (
-    <div className="carousel-inner" onClick={onClick}>
-      <div className={slideClass} >
+    <div className="carousel-inner" >
+      <div className={slideClass} onClick={onClick}>
         <img src={urlImgSlide} alt={textAltImgSlide} title={textAltImgSlide}/>
       </div>
     </div>          

@@ -31,37 +31,37 @@ export const Carousel = () => {
 
     <div className="carousel-container">
         <div id="crslChocoAccueil" className="carousel slide" data-ride="carousel">
-            <CarouselSlide
-                slideClass="carousel-item"
-                idSlide={activeSlide.idSlide}
-                urlImgSlide={activeSlide.urlImgSlide}
-                textAltImgSlide={activeSlide.textAltImgSlide}
-            />
-        </div>
-        <div className="navigation">
-            <div id="carousel-thumbs" className="carousel slide" data-ride="carousel">
-                <div className="navCarousel-inner">
-                    <div className="navCarousel-item">
-                        <div className="row">
-                            {slidesList.map((slide) => (
-                                <CarouselSlide
-                                    key = {slide.idSlide}
-                                    idSlide={slide.idSlide}
-                                    slideClass = "thumbs"
-                                    urlImgSlide={slide.urlImgSlide}
-                                    textAltImgSlide={slide.textAltImgSlide}
-                                    onSelect={ () => { setActiveSlide(slide);   }}
-                                />
-                            ))}
-                        </div>
+            <div className="carousel-inner" >     
+                <CarouselSlide
+                    slideClass="carousel-item"
+                    idSlide={activeSlide.idSlide}
+                    urlImgSlide={activeSlide.urlImgSlide}
+                    textAltImgSlide={activeSlide.textAltImgSlide}
+                />
+                <div className="navigation">
+                    <div id="carousel-thumbs" data-ride="carousel">
+                        <div className="navCarousel-inner">
+                            <div className="navCarousel-item">
+                                <div className="row">
+                                    <Previous />
+                                    {slidesList.map((slide) => (
+                                        <CarouselSlide
+                                            key = {slide.idSlide}
+                                            idSlide={slide.idSlide}
+                                            slideClass = "thumbs"
+                                            urlImgSlide={slide.urlImgSlide}
+                                            textAltImgSlide={slide.textAltImgSlide}
+                                            onSelect={ () => { setActiveSlide(slide);   }}
+                                        />
+                                    ))}
+                                    <Next />
+                                </div>
+                            </div>
+                        </div>                    
                     </div>
-                </div>                    
-                <div id="Navigation">
-                  <Previous />
-                  <Next />
-                </div> 
+                </div>
             </div>
         </div>
-  </div>        
+    </div>      
   );
 };

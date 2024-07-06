@@ -3,17 +3,22 @@
     padding: 0;
 }
 
-.carousel-item {
+/* .carousel-item {
     margin: 0;
     padding: 15px 15px 0 15px;
-}
+} */
 
 .carousel-item img {
     object-fit: cover;
     max-height: 450px;
-    max-width: 95%;
+    max-width: 90%;
     border-radius: 15px 15px 0 0 ;
     border : 5px ridge var(--miel);
 }
 
-
+@media screen and (min-width:720px) {
+    .carousel-item img {
+        max-width: max-content;
+    }
+    
+}

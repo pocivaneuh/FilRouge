@@ -1,22 +1,44 @@
 .navigation{
-    margin: 0 15px 0 15px;
+    display: flex;
+    margin: 0 13px 0 17px;
     padding: 0;
+    justify-content : center ;
+    align-items : center;
+}
+
+#crslChocoAccueil {
+    display:flex;
+    justify-content : center ;
+    align-items : center;
+}
+
+.carousel-inner {
+    width: max-content;
+    max-width: 95%;
+    margin: 0;
+    padding: 15px 15px 0 15px;
+    justify-content : center ;
+    align-items : center;
 }
 
 #carousel-thumbs {
-    justify-content : center ;
-    align-items : center;
+    max-width: 91%;
     background: var(--chocolat);
-    margin: 0;
-    padding: 10px 50px;
     border-radius: 0 0 15px 15px;
     animation: mymove 10s infinite;
     border : ridge var(--miel);
-    border-width: 0 5px 5px 5px;
+    border-width: 5px;
+}
+
+.row {
+    display: flex;
+    justify-content : center ;
+    align-items : center;
+    width: inherit;
 }
 
 #carousel-thumbs img {
-    width: 115px;
+    width: 75px;
     border: 5px solid transparent;
     border-radius: 15px;
     cursor: pointer;
@@ -37,11 +59,24 @@
     border-color: var(--meringue);
 }
 
-#carousel-thumbs .row {
-    align-items: center;
-}
-
 .carousel-control-prev,
 .carousel-control-next {
     width: 50px;
+}
+
+@media screen and (min-width:720px) {
+
+    .navigation{
+        margin: 0 15px 0 15px;
+    }
+
+    #carousel-thumbs {
+        width: 150%;
+        max-width: none;
+    }
+
+    #carousel-thumbs img {
+        width: 100px;
+    }
+
 }
