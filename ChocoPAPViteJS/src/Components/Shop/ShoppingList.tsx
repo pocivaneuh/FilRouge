@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { prdList } from '../../Datas/prdList';
-import { Product } from './Products/Product';
+import { prdList } from '../../Datas/prdList.ts';
+import { Product } from './Products/Product.tsx';
 import { ShoppingFilters } from './ShoppingFilters/ShoppingFilters.tsx';
 
 import './ShoppingList.css';

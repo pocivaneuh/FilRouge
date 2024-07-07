@@ -9,6 +9,7 @@ import ErrorPage from "./error-page.tsx";
 
 import { Home } from "./Components/Home/Home.tsx"
 import { ShoppingList } from "./Components/Shop/ShoppingList.tsx"
+import { CartFilled } from './Components/Shop/CartFilled/CartFilled.tsx';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/Boutique",
         element: <ShoppingList />,
+      },
+      {
+        path: "/Panier",
+        element: <CartFilled />,
       },
     ],
   },
