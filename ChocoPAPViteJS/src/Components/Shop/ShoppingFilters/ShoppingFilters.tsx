@@ -1,6 +1,7 @@
-// import React from "react";
-
+import React, { useState } from 'react';
 import './ShoppingFilters.css';
+
+import { categoriesList } from '../../../Datas/categoriesList.ts';
 
 // function handleSubmit(e:any) {
 //     e.preventDefault()
@@ -8,48 +9,42 @@ import './ShoppingFilters.css';
 // }
 
 export const ShoppingFilters = () => {
+    const [categories, setCategories] = useState(categoriesList);
+
+    const handleCheckboxChange = (event) => {
+        const updatedCategories = categories.map((category) => {
+        if (category.idCategory === event.target.name) {
+            return { ...category, isChecked: event.target.checked };
+        }
+        return category;
+        });
+        setCategories(updatedCategories);
+        const selectedCategories = updatedCategories.filter((category) => category.isChecked).map((category) => category.idCategory);
+        props.onCategoryChange(selectedCategories);
+    };
+
   return (
         <form className="selectionform">
             <div className="form-check" id="category">
                 <label className="form-check-label text-style1">
                     Catégories : 
                 </label>
-                <div className="category">
-                    <label htmlFor="category">
-                        <input type="checkbox" id="blanc" title="blanc" name="lait" defaultValue='true' autoFocus />
-                        <span>Chocolat</span>&nbsp;Blanc
+                {categories.map((category) => (
+                    <div className="category" key={category.idCategory}>
+                    <label htmlFor={category.idCategory}>
+                        <input
+                        type="checkbox"
+                        id={category.idCategory}
+                        title={category.categoryTitle}
+                        name={category.idCategory}
+                        defaultValue="true"
+                        checked={category.isChecked}
+                        onChange={handleCheckboxChange}
+                        />
+                        <span>{category.categoryTitle}</span>
                     </label>
-                </div>
-                <div className="category">
-                    <label htmlFor="category">
-                        <input type="checkbox" id="lait" title="lait"  name="blanc" defaultValue = "true"/>
-                        <span>Chocolat au</span>&nbsp;Lait
-                    </label>
-                </div>
-                <div className="category">
-                    <label htmlFor="category">
-                        <input type="checkbox" id="noir" title="noir"  name="noir" defaultValue = "true"/>
-                        <span>Chocolat</span>&nbsp;Noir
-                    </label>
-                </div>
-                <div className="category">
-                    <label htmlFor="category">
-                        <input type="checkbox" id="noix" title="noix"  name="noixNoisette" defaultValue = "true"/>
-                        <span></span>&nbsp;Noix / Noisettes
-                    </label>
-                </div>
-                <div className="category">
-                    <label htmlFor="category">
-                        <input type="checkbox" id="caramel" title="caramel" name="caramel" defaultValue = "true"/>
-                        <span></span>&nbsp;Caramel
-                    </label>
-                </div>
-                <div className="category">
-                    <label htmlFor="category">
-                        <input type="checkbox" id="liqueur" title="liqueur" name="liqueur" defaultValue = "true"/>
-                        <span></span>&nbsp;Liqueur
-                    </label>
-                </div>
+                    </div>
+                ))}
             </div>
             <div className="form-check price">
                 <label className="form-check-label text-style1" htmlFor="price">
