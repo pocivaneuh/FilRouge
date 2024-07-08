@@ -8,8 +8,34 @@ import produit7 from "../Assets/Images/produit7.jpg";
 import produit8 from "../Assets/Images/produit8.jpg";
 import produit9 from "../Assets/Images/produit9.jpg";
 import produit10 from "../Assets/Images/produit10.jpg";
+import { categoriesList } from "./categoriesList";
 
-export const prdList = [
+
+type Product = {
+  idArticle: number,
+  titleArticle: string,
+  category: string,
+  priceArticle: number,
+  ratingArticle: number,
+  textAltImg: string,
+  descriptionArticle: string,
+  ingredientsArticle: string,
+  urlImg: string,
+  milk: boolean,
+  white: boolean,
+  black: boolean,
+  caramel: boolean,
+  liqueur: boolean,
+  fruit: boolean,
+  crunchy: boolean,
+  molten: boolean,
+  fondant: boolean,
+  filled: boolean,
+  nuts: boolean,
+  available: boolean,
+}
+
+export const prdList: Array<Product> = [
   {
     idArticle: 1,
     titleArticle: "Rocher chocolat au coeur framboise",
@@ -33,6 +59,7 @@ export const prdList = [
     filled: true,
     nuts: true,
     available: true,
+    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
   },
   {
     idArticle: 2,
@@ -57,6 +84,7 @@ export const prdList = [
     filled: false,
     nuts: false,
     available: true,
+    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
   },
   {
     idArticle: 3,
@@ -81,6 +109,7 @@ export const prdList = [
     filled: true,
     nuts: false,
     available: false,
+    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
   },
   {
     idArticle: 4,
@@ -105,6 +134,7 @@ export const prdList = [
     filled: true,
     nuts: false,
     available: false,
+    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
   },
   {
     idArticle: 5,
@@ -129,6 +159,8 @@ export const prdList = [
     filled: true,
     nuts: true,
     available: false,
+    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
+
   },
   {
     idArticle: 6,
@@ -153,6 +185,7 @@ export const prdList = [
     filled: true,
     nuts: true,
     available: false,
+    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
   },
   {
     idArticle: 7,
@@ -177,6 +210,7 @@ export const prdList = [
     filled: true,
     nuts: true,
     available: false,
+    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
   },
   {
     idArticle: 8,
@@ -201,6 +235,7 @@ export const prdList = [
     filled: true,
     nuts: false,
     available: false,
+    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
   },
   {
     idArticle: 9,
@@ -225,6 +260,7 @@ export const prdList = [
     filled: true,
     nuts: true,
     available: false,
+    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
   },
   {
     idArticle: 10,
@@ -249,5 +285,6 @@ export const prdList = [
     filled: true,
     nuts: false,
     available: false,
+    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
   },
 ];

@@ -1,30 +1,31 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { prdList } from '../../Datas/prdList.ts';
 import { Product } from './Products/Product.tsx';
-import { ShoppingFilters } from './ShoppingFilters/ShoppingFilters.tsx';
+import { ShoppingFilters, ShoppingFiltersProps } from './ShoppingFilters/ShoppingFilters.tsx';
 
 import './ShoppingList.css';
 
 export const ShoppingList = () => {
-  
-  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
-  const handleCategoryChange = (selectedCategories) => {
+  const handleCategoriesChange: ShoppingFiltersProps['onCategoriesChange'] = (selectedCategories) => {
     setSelectedCategories(selectedCategories);
   };
   
-  const filteredProducts = prdList.filter((product) => {
-    if (selectedCategories.length === 0) {
-      return true;
-    }
-    return selectedCategories.includes(product.category);
-  });
-  
+  const filteredProducts = useMemo(() => {
+    return prdList.filter((product) => {
+      if (selectedCategories.length === 0) {
+        return true;
+      }
+      return selectedCategories.includes(product.category);
+    });
+  }, [prdList, selectedCategories]);
+
   return (
     <section id="ContenuPrincipal">
       <section className="shop">
         <div className='productsSelection'>
-          <ShoppingFilters onCategoryChange={handleCategoryChange} />
+          <ShoppingFilters onCategoriesChange={handleCategoriesChange} />
         </div>
         <div className='productsList'>
             {filteredProducts.map((item) => (
@@ -36,6 +37,7 @@ export const ShoppingList = () => {
                       ratingArticle={item.ratingArticle}
                       priceArticle={item.priceArticle}
                       available={item.available}
+                      categoryId={item.category}
                     />
                 </div>
               ))
