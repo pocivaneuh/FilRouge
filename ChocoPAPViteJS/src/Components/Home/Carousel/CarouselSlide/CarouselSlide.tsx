@@ -1,8 +1,8 @@
-import { FC } from "react";
+import { FC, DOMAttributes } from "react";
 
 import "./CarouselSlide.css";
 
-export type slidesProps = {
+export type CarouselSlideProps = {
     slideClass : string;
     idSlide: number;
     urlImgSlide: string ;
@@ -10,21 +10,21 @@ export type slidesProps = {
     onSelect?: () => void ;
   }
 
-export const CarouselSlide: FC<slidesProps> = ({
+export const CarouselSlide: FC<CarouselSlideProps> = ({
     slideClass,
     urlImgSlide,
     textAltImgSlide,
     onSelect,
   }) => {
-      function handleClick() {
-        if (typeof onSelect !== 'undefined') {
-            onSelect();
-        }
-      };
+    const handleClick: DOMAttributes<HTMLDivElement>['onClick'] = () => {
+      if (typeof onSelect !== 'undefined') {
+          onSelect();
+      }
+    };
  
   return (
     <div className="carousel-inner" >
-      <div className={slideClass} onClick={() => handleClick()}>
+      <div className={slideClass} onClick={handleClick}>
         <img src={urlImgSlide} alt={textAltImgSlide} title={textAltImgSlide}/>
       </div>
     </div>          
