@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { DOMAttributes, FC, useState } from 'react';
 import './ShoppingFilters.css';
 
 import { categoriesList } from '../../../Datas/categoriesList.ts';
@@ -8,19 +8,25 @@ import { categoriesList } from '../../../Datas/categoriesList.ts';
 //     alert(e.target['my_input'].value)
 // }
 
-export const ShoppingFilters = () => {
+export type ShoppingFiltersProps = {
+    onCategoriesChange: (selectedCategories: Array<string>) => void;
+}
+
+export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
+    onCategoriesChange,
+}) => {
     const [categories, setCategories] = useState(categoriesList);
 
-    const handleCheckboxChange = (event) => {
+    const handleCheckboxChange: DOMAttributes<HTMLInputElement>['onChange'] = (event) => {
         const updatedCategories = categories.map((category) => {
-        if (category.idCategory === event.target.name) {
-            return { ...category, isChecked: event.target.checked };
+        if (category.idCategory === event.currentTarget.name) {
+            return { ...category, isChecked: event.currentTarget.checked };
         }
         return category;
         });
         setCategories(updatedCategories);
         const selectedCategories = updatedCategories.filter((category) => category.isChecked).map((category) => category.idCategory);
-        props.onCategoryChange(selectedCategories);
+        onCategoriesChange(selectedCategories);
     };
 
   return (
@@ -33,13 +39,13 @@ export const ShoppingFilters = () => {
                     <div className="category" key={category.idCategory}>
                     <label htmlFor={category.idCategory}>
                         <input
-                        type="checkbox"
-                        id={category.idCategory}
-                        title={category.categoryTitle}
-                        name={category.idCategory}
-                        defaultValue="true"
-                        checked={category.isChecked}
-                        onChange={handleCheckboxChange}
+                            type="checkbox"
+                            id={category.idCategory}
+                            title={category.categoryTitle}
+                            name={category.idCategory}
+                            defaultValue="true"
+                            checked={category.isChecked}
+                            onChange={handleCheckboxChange}
                         />
                         <span>{category.categoryTitle}</span>
                     </label>
