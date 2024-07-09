@@ -1,5 +1,12 @@
 
-export const categoriesList = [
+
+type Categories = {
+  idCategory: string,
+  categoryTitle : string,
+  isChecked: boolean,
+}
+
+export const categoriesList: Array<Categories> = [
   {
     idCategory: "milk",
     categoryTitle : "Chocolat au Lait",
