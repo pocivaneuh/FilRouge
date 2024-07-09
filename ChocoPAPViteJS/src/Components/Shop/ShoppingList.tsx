@@ -11,13 +11,14 @@ export const ShoppingList = () => {
   const handleCategoriesChange: ShoppingFiltersProps['onCategoriesChange'] = (selectedCategories) => {
     setSelectedCategories(selectedCategories);
   };
-  
+
   const filteredProducts = useMemo(() => {
     return prdList.filter((product) => {
       if (selectedCategories.length === 0) {
         return true;
       }
-      return selectedCategories.includes(product.category);
+
+      return product.categories.some((category) => selectedCategories.includes(category))
     });
   }, [prdList, selectedCategories]);
 
@@ -36,8 +37,8 @@ export const ShoppingList = () => {
                       titleArticle={item.titleArticle}
                       ratingArticle={item.ratingArticle}
                       priceArticle={item.priceArticle}
-                      available={item.available}
-                      categoryId={item.category}
+                      available={item.categories.includes('available')}
+                      categories={item.categories}
                     />
                 </div>
               ))
