@@ -8,31 +8,17 @@ import produit7 from "../Assets/Images/produit7.jpg";
 import produit8 from "../Assets/Images/produit8.jpg";
 import produit9 from "../Assets/Images/produit9.jpg";
 import produit10 from "../Assets/Images/produit10.jpg";
-import { categoriesList } from "./categoriesList";
 
-
-type Product = {
+export type Product = {
   idArticle: number,
   titleArticle: string,
-  category: string,
+  categories: Array<string>,
   priceArticle: number,
   ratingArticle: number,
   textAltImg: string,
   descriptionArticle: string,
   ingredientsArticle: string,
   urlImg: string,
-  milk: boolean,
-  white: boolean,
-  black: boolean,
-  caramel: boolean,
-  liqueur: boolean,
-  fruit: boolean,
-  crunchy: boolean,
-  molten: boolean,
-  fondant: boolean,
-  filled: boolean,
-  nuts: boolean,
-  available: boolean,
 }
 
 export const prdList: Array<Product> = [
@@ -47,19 +33,15 @@ export const prdList: Array<Product> = [
     ingredientsArticle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     urlImg: produit1,
-    milk: true,
-    white: false,
-    black: false,
-    caramel: true,
-    liqueur: false,
-    fruit: true,
-    crunchy: true,
-    molten: false,
-    fondant: false,
-    filled: true,
-    nuts: true,
-    available: true,
-    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
+    categories: [
+      'milk',
+      'caramel',
+      'fruit',
+      'crunchy',
+      'filled',
+      'nuts',
+      'available',
+    ],
   },
   {
     idArticle: 2,
@@ -72,19 +54,13 @@ export const prdList: Array<Product> = [
     ingredientsArticle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     urlImg: produit2,
-    milk: true,
-    white: false,
-    black: false,
-    caramel: true,
-    liqueur: false,
-    fruit: false,
-    crunchy: true,
-    molten: true,
-    fondant: false,
-    filled: false,
-    nuts: false,
-    available: true,
-    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
+    categories: [
+      'milk',
+      'caramel',
+      'crunchy',
+      'molten',
+      'available',
+    ],
   },
   {
     idArticle: 3,
@@ -97,19 +73,12 @@ export const prdList: Array<Product> = [
     ingredientsArticle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     urlImg: produit3,
-    milk: true,
-    white: false,
-    black: false,
-    caramel: false,
-    liqueur: true,
-    fruit: false,
-    crunchy: true,
-    molten: false,
-    fondant: false,
-    filled: true,
-    nuts: false,
-    available: false,
-    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
+    categories: [
+      'milk',
+      'liqueur',
+      'crunchy',
+      'filled',
+    ],
   },
   {
     idArticle: 4,
@@ -122,19 +91,13 @@ export const prdList: Array<Product> = [
     ingredientsArticle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     urlImg: produit4,
-    milk: true,
-    white: true,
-    black: false,
-    caramel: false,
-    liqueur: true,
-    fruit: false,
-    crunchy: false,
-    molten: false,
-    fondant: true,
-    filled: true,
-    nuts: false,
-    available: false,
-    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
+    categories: [
+      'milk',
+      'white',
+      'liqueur',
+      'fondant',
+      'filled',
+    ],
   },
   {
     idArticle: 5,
@@ -147,20 +110,16 @@ export const prdList: Array<Product> = [
     ingredientsArticle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     urlImg: produit5,
-    milk: true,
-    white: false,
-    black: false,
-    caramel: false,
-    liqueur: true,
-    fruit: true,
-    crunchy: true,
-    molten: true,
-    fondant: true,
-    filled: true,
-    nuts: true,
-    available: false,
-    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
-
+    categories: [
+      'milk',
+      'liqueur',
+      'fruit',
+      'crunchy',
+      'molten',
+      'fondant',
+      'filled',
+      'nuts',
+    ],
   },
   {
     idArticle: 6,
@@ -173,19 +132,14 @@ export const prdList: Array<Product> = [
     ingredientsArticle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     urlImg: produit6,
-    milk: true,
-    white: true,
-    black: false,
-    caramel: false,
-    liqueur: false,
-    fruit: false,
-    crunchy: true,
-    molten: false,
-    fondant: true,
-    filled: true,
-    nuts: true,
-    available: false,
-    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
+    categories: [
+      'milk',
+      'white',
+      'crunchy',
+      'fondant',
+      'filled',
+      'nuts',
+    ],
   },
   {
     idArticle: 7,
@@ -198,19 +152,16 @@ export const prdList: Array<Product> = [
     ingredientsArticle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     urlImg: produit7,
-    milk: true,
-    white: false,
-    black: false,
-    caramel: false,
-    liqueur: true,
-    fruit: true,
-    crunchy: true,
-    molten: true,
-    fondant: true,
-    filled: true,
-    nuts: true,
-    available: false,
-    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
+    categories: [
+      'milk',
+      'liqueur',
+      'fruit',
+      'crunchy',
+      'molten',
+      'fondant',
+      'filled',
+      'nuts',
+    ],
   },
   {
     idArticle: 8,
@@ -223,19 +174,12 @@ export const prdList: Array<Product> = [
     ingredientsArticle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     urlImg: produit8,
-    milk: false,
-    white: false,
-    black: true,
-    caramel: false,
-    liqueur: false,
-    fruit: false,
-    crunchy: true,
-    molten: false,
-    fondant: true,
-    filled: true,
-    nuts: false,
-    available: false,
-    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
+    categories: [
+      'black',
+      'crunchy',
+      'fondant',
+      'filled',
+    ],
   },
   {
     idArticle: 9,
@@ -248,19 +192,13 @@ export const prdList: Array<Product> = [
     ingredientsArticle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     urlImg: produit9,
-    milk: true,
-    white: false,
-    black: false,
-    caramel: false,
-    liqueur: false,
-    fruit: false,
-    crunchy: true,
-    molten: false,
-    fondant: true,
-    filled: true,
-    nuts: true,
-    available: false,
-    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
+    categories: [
+      'milk',
+      'crunchy',
+      'fondant',
+      'filled',
+      'nuts',
+    ],
   },
   {
     idArticle: 10,
@@ -273,18 +211,11 @@ export const prdList: Array<Product> = [
     ingredientsArticle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     urlImg: produit10,
-    milk: true,
-    white: false,
-    black: false,
-    caramel: true,
-    liqueur: false,
-    fruit: false,
-    crunchy: false,
-    molten: false,
-    fondant: true,
-    filled: true,
-    nuts: false,
-    available: false,
-    category: categoriesList[Math.floor(Math.random() * categoriesList.length)].idCategory
+    categories: [
+      'milk',
+      'caramel',
+      'fondant',
+      'filled',
+    ],
   },
 ];
