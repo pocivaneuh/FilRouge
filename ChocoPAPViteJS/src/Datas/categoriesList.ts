@@ -34,7 +34,7 @@ export const categoriesList: Array<Categories> = [
     isChecked: true,
   },
   {
-    idCategory: "fuit",
+    idCategory: "fruit",
     categoryTitle : "Fruits",
     isChecked: true,
   },
@@ -56,11 +56,6 @@ export const categoriesList: Array<Categories> = [
   {
     idCategory: "nuts",
     categoryTitle : "Noix / Noisettes",
-    isChecked: true,
-  },
-  {
-    idCategory: "available",
-    categoryTitle : "Disponible",
     isChecked: true,
   }
 ];

@@ -1,4 +1,4 @@
-import React, { DOMAttributes, FC, useState } from 'react';
+import { DOMAttributes, FC, useState } from 'react';
 import './ShoppingFilters.css';
 
 import { categoriesList } from '../../../Datas/categoriesList.ts';
@@ -7,6 +7,7 @@ import { categoriesList } from '../../../Datas/categoriesList.ts';
 //     e.preventDefault()
 //     alert(e.target['my_input'].value)
 // }
+
 
 export type ShoppingFiltersProps = {
     onCategoriesChange: (selectedCategories: Array<string>) => void;
@@ -29,6 +30,24 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
         onCategoriesChange(selectedCategories);
     };
 
+    const onAllCategoriesSelected = () => {
+        const updatedCategories = categories.map((category) => {
+              return { ...category, isChecked: true }
+        });
+        setCategories(updatedCategories);
+        const selectedCategories = updatedCategories.filter((category) => category.isChecked).map((category) => category.idCategory);
+        onCategoriesChange(selectedCategories);
+    }
+
+    const onNoCategoriesSelected = () => {
+        const updatedCategories = categories.map((category) => {
+              return { ...category, isChecked: false }
+        });
+        setCategories(updatedCategories);
+        const selectedCategories = updatedCategories.filter((category) => category.isChecked).map((category) => category.idCategory);
+        onCategoriesChange(selectedCategories);
+    }
+
   return (
         <form className="selectionform">
             <div className="form-check" id="category">
@@ -37,20 +56,57 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
                 </label>
                 {categories.map((category) => (
                     <div className="category" key={category.idCategory}>
-                    <label htmlFor={category.idCategory}>
-                        <input
-                            type="checkbox"
-                            id={category.idCategory}
-                            title={category.categoryTitle}
-                            name={category.idCategory}
-                            defaultValue="true"
-                            checked={category.isChecked}
-                            onChange={handleCheckboxChange}
-                        />
-                        <span>{category.categoryTitle}</span>
-                    </label>
+                        <label htmlFor={category.idCategory}>
+                            <input
+                                type="checkbox"
+                                id={category.idCategory}
+                                title={category.categoryTitle}
+                                name={category.idCategory}
+                                defaultValue="true"
+                                checked={category.isChecked}
+                                onChange={handleCheckboxChange}
+                            />
+                            <span>{category.categoryTitle}</span>
+                        </label>
                     </div>
                 ))}
+            </div>
+            <div className='BtnCat'>
+                <button type="button" title="Sélectionner" className="btnAllCat" onClick={onAllCategoriesSelected}>Toutes</button>
+                <button type="button" title="Déselectionner" className="btnNoneCat" onClick={onNoCategoriesSelected}>Aucune</button>
+            </div>
+            <div className="form-check" id="available">
+                <label className="form-check-label text-style1">
+                    Disponible : 
+                </label>
+                <div className="category">
+                    <label htmlFor="true">
+                        <input
+                            type="checkbox"
+                            id="true"
+                            title="Est disponible"
+                            name="true"
+                            defaultValue="true"
+                            checked
+                            onChange={handleCheckboxChange}
+                        />
+                        <span>Disponible</span>
+                    </label>
+                </div>
+                <div className="category">
+                    <label htmlFor="false">
+                        <input
+                            type="checkbox"
+                            id="false"
+                            title="Est disponible"
+                            name="false"
+                            defaultValue="false"
+                            checked
+                            onChange={handleCheckboxChange}
+                        />
+                        <span>Indisponible</span>
+                    </label>
+                </div>
             </div>
             <div className="form-check price">
                 <label className="form-check-label text-style1" htmlFor="price">

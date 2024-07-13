@@ -23,12 +23,12 @@ function Exist({available}:{available : boolean}) {
     <span className="card-text-exist">* Indisponible</span>
   );
 }
+
 export const Product: FC<ProductProps> = ({urlImg,
   titleArticle,
   ratingArticle,
   priceArticle,
   available,
-  categories,
 }) => {
     {
       return (
@@ -36,9 +36,6 @@ export const Product: FC<ProductProps> = ({urlImg,
         <div className="card">
           <img className="cardImg" src={urlImg} alt={`photo du ${titleArticle}`} title={`photo du ${titleArticle}`} />
           <h1 className="cardTitle">{titleArticle}</h1>
-          {typeof categories !== 'undefined' && (
-            <p>{categories.join(', ')}</p>
-          )}
           <Exist available={available}></Exist>
           <p className="card-text-tarif">{priceArticle} €</p>
           <div className="card-text-rating"><Rating score={ratingArticle}></Rating></div>

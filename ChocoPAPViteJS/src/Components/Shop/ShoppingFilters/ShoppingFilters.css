@@ -126,6 +126,48 @@ select {
     display: none; /* supprimer la fléche par défaut en IE 10 et 11 */
   }
 
+  .btnAllCat, .btnNoneCat {
+    vertical-align: middle;
+    color : var(--chocolatnoir);
+    background-color: var(--miel);
+    border-color: var(--miel);
+    padding : 5px 10px;
+    font-size: var(--bs-btn-font-size);
+    font-weight: var(--bs-btn-font-weight);
+    line-height: var(--bs-btn-line-height);
+    border-width: var(--bs-border-width);
+    border-radius: var(--bs-border-radius);
+    box-shadow : inset 0 3px 5px var(--caramel);
+    text-decoration: none;
+    transition: all 0.20s ease-in-out;
+  }
+
+.btnAllCat {
+    margin: 0 25px 45px 5px;
+}
+
+.btnNoneCat {
+    margin: 0 5px 45px 5px;
+}
+
+.btnAllCat :hover, .btnNoneCat :hover{
+    color : var(--meringue);
+    background-color: var(--caramel);
+    border-color: var(--meringue);
+    box-shadow : inset 0 3px 5px var(--meringue);
+    transition: all 0.20s ease-in-out;
+}
+
+.btnAllCat :active, .btnNoneCat :active{
+    color : var(--pateasucre);
+    background-color: var(--chocolat);
+    border-color: var(--meringue);
+    box-shadow : inset 0 3px 5px var(--pateasucre);
+    transition: all 0.20s ease-in-out;
+}
+
+
+
 
 /* ************************************************************************************************* */
 /* AFFICHAGE POUR LES ECRANS DE TAILLE MD ET PLUS */

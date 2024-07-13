@@ -19,6 +19,7 @@ export type Product = {
   descriptionArticle: string,
   ingredientsArticle: string,
   urlImg: string,
+  available : boolean,
 }
 
 export const prdList: Array<Product> = [
@@ -35,13 +36,12 @@ export const prdList: Array<Product> = [
     urlImg: produit1,
     categories: [
       'milk',
-      'caramel',
       'fruit',
       'crunchy',
       'filled',
       'nuts',
-      'available',
     ],
+    available: true,
   },
   {
     idArticle: 2,
@@ -57,10 +57,9 @@ export const prdList: Array<Product> = [
     categories: [
       'milk',
       'caramel',
-      'crunchy',
       'molten',
-      'available',
     ],
+    available: true,
   },
   {
     idArticle: 3,
@@ -79,6 +78,7 @@ export const prdList: Array<Product> = [
       'crunchy',
       'filled',
     ],
+    available: false,
   },
   {
     idArticle: 4,
@@ -98,6 +98,7 @@ export const prdList: Array<Product> = [
       'fondant',
       'filled',
     ],
+    available: true,
   },
   {
     idArticle: 5,
@@ -113,13 +114,13 @@ export const prdList: Array<Product> = [
     categories: [
       'milk',
       'liqueur',
-      'fruit',
       'crunchy',
       'molten',
       'fondant',
       'filled',
       'nuts',
     ],
+    available: true,
   },
   {
     idArticle: 6,
@@ -140,6 +141,7 @@ export const prdList: Array<Product> = [
       'filled',
       'nuts',
     ],
+    available: true,
   },
   {
     idArticle: 7,
@@ -162,6 +164,7 @@ export const prdList: Array<Product> = [
       'filled',
       'nuts',
     ],
+    available: false,
   },
   {
     idArticle: 8,
@@ -180,6 +183,7 @@ export const prdList: Array<Product> = [
       'fondant',
       'filled',
     ],
+    available: true,
   },
   {
     idArticle: 9,
@@ -199,6 +203,7 @@ export const prdList: Array<Product> = [
       'filled',
       'nuts',
     ],
+    available: true,
   },
   {
     idArticle: 10,
@@ -217,5 +222,6 @@ export const prdList: Array<Product> = [
       'fondant',
       'filled',
     ],
+    available: false,
   },
 ];
