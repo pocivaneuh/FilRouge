@@ -1,9 +1,8 @@
 .navigation{
-    display: flex;
-    margin: 0 13px 0 6px;
-    padding: 0;
-    justify-content : center ;
-    align-items : center;
+    max-width: 100%;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(25%);
 }
 
 #crslChocoAccueil {
@@ -14,22 +13,21 @@
 
 .row {
     display: flex;
-    justify-content : center ;
-    align-items : center;
+    justify-content: space-around;
     width: inherit;
+    border-radius: 0 0 15px 15px ;
 }
 
 .carousel-inner {
-    width: max-content;
-    max-width: 95%;
-    margin: 0;
+    width: inherit;
     padding: 5px 5px 0 5px;
     justify-content : center ;
     align-items : center;
 }
 
 #carousel-thumbs {
-    width: 91%;
+    min-width: 265px;
+    width: 94%;
     background: var(--chocolat);
     border-radius: 0 0 15px 15px;
     animation: mymove 10s infinite;
@@ -37,10 +35,13 @@
     border-width: 5px;
 }
 
+.thumbs {
+    width: max-content;
+}
+
 #carousel-thumbs img {
     width: 55px;
-    border: 5px solid transparent;
-    border-radius: 15px;
+    border: 2px solid transparent;
     cursor: pointer;
 }
 
@@ -70,21 +71,13 @@
 @media screen and (min-width:720px) {
 
     .navigation{
-        margin: 0 15px 0 15px;
-    }
-
-    .carousel-inner {
-        padding: 15px 15px 0 15px;
-        justify-content : center ;
-    }
-
-    #carousel-thumbs {
-        width: 120%;
-        max-width: none;
+        margin: 0 ;
     }
 
     #carousel-thumbs img {
         width: 100px;
+        border: 5px solid transparent;
+        border-radius: 15px;
     }
 
 }

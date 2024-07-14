@@ -9,9 +9,15 @@ import './ShoppingList.css';
 export const ShoppingList = () => {
 
   const initialSelectedCategories = categoriesList.map((category) => category.idCategory);
+
   const [selectedCategories, setSelectedCategories] = useState<string[]>(initialSelectedCategories)
   const handleCategoriesChange: ShoppingFiltersProps['onCategoriesChange'] = (selectedCategories) => {
     setSelectedCategories(selectedCategories);
+  };
+
+  const [selectedAvailable, setSelectedAvailable] = useState<boolean>(true)
+  const handleCheckboxCategoryChange: ShoppingFiltersProps['onCheckboxAvailableChange'] = (selectedAvailable) => {
+    setSelectedAvailable(!selectedAvailable);
   };
 
   const filteredProducts = useMemo(() => {
@@ -19,20 +25,16 @@ export const ShoppingList = () => {
       if (selectedCategories.length === 0) {
         return false;
       }
-      return product.categories.some((category) => selectedCategories.includes(category))
+      return product.categories.some((category) => selectedCategories.includes(category));
+      
     });
-  }, [prdList, selectedCategories]);
-
-
-  // setCategories(updatedCategories);
-  //       const selectedCategories = updatedCategories.filter((category) => category.isChecked).map((category) => category.idCategory);
-  //       onCategoriesChange(selectedCategories);
+  }, [prdList, selectedCategories, selectedAvailable]);
 
   return (
     <section id="ContenuPrincipal">
       <section className="shop">
         <div className='productsSelection'>
-          <ShoppingFilters onCategoriesChange={handleCategoriesChange} />
+          <ShoppingFilters onCategoriesChange={handleCategoriesChange} onCheckboxAvailableChange={handleCheckboxCategoryChange} />
         </div>
         <div className='productsList'>
             {filteredProducts.length === 0 && (

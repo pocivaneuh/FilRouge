@@ -11,14 +11,20 @@ import { categoriesList } from '../../../Datas/categoriesList.ts';
 
 export type ShoppingFiltersProps = {
     onCategoriesChange: (selectedCategories: Array<string>) => void;
+    onCheckboxAvailableChange: (selectedAvailable: boolean) => void;
+    // onCheckboxNotAvailableChange: (selectedNotAvailable: boolean) => void;
 }
 
 export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
-    onCategoriesChange,
+    onCategoriesChange, 
+    // onCheckboxAvailableChange,
+    // onCheckboxNotAvailableChange,
 }) => {
+
+    // Catégories
     const [categories, setCategories] = useState(categoriesList);
 
-    const handleCheckboxChange: DOMAttributes<HTMLInputElement>['onChange'] = (event) => {
+    const onCheckboxCategoryChange: DOMAttributes<HTMLInputElement>['onChange'] = (event) => {
         const updatedCategories = categories.map((category) => {
         if (category.idCategory === event.currentTarget.name) {
             return { ...category, isChecked: event.currentTarget.checked };
@@ -30,6 +36,7 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
         onCategoriesChange(selectedCategories);
     };
 
+    // Toutes les Catégories
     const onAllCategoriesSelected = () => {
         const updatedCategories = categories.map((category) => {
               return { ...category, isChecked: true }
@@ -39,7 +46,8 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
         onCategoriesChange(selectedCategories);
     }
 
-    const onNoCategoriesSelected = () => {
+    // Aucune les Catégories
+    const onNoCategorySelected = () => {
         const updatedCategories = categories.map((category) => {
               return { ...category, isChecked: false }
         });
@@ -47,6 +55,18 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
         const selectedCategories = updatedCategories.filter((category) => category.isChecked).map((category) => category.idCategory);
         onCategoriesChange(selectedCategories);
     }
+    
+
+    // Disponible / Indisponible
+    const [selectedAvailable, setSelectedAvailable] = useState(true);
+    const onCheckboxAvailableChange = () => {
+        setSelectedAvailable(!selectedAvailable)
+    };
+
+    const [selectedNotAvailable, setSelectedNotAvailable] = useState(true);
+    const onCheckboxNotAvailableChange = () => {
+        setSelectedNotAvailable(!selectedNotAvailable)
+    };
 
   return (
         <form className="selectionform">
@@ -64,7 +84,7 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
                                 name={category.idCategory}
                                 defaultValue="true"
                                 checked={category.isChecked}
-                                onChange={handleCheckboxChange}
+                                onChange={onCheckboxCategoryChange}
                             />
                             <span>{category.categoryTitle}</span>
                         </label>
@@ -73,36 +93,36 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
             </div>
             <div className='BtnCat'>
                 <button type="button" title="Sélectionner" className="btnAllCat" onClick={onAllCategoriesSelected}>Toutes</button>
-                <button type="button" title="Déselectionner" className="btnNoneCat" onClick={onNoCategoriesSelected}>Aucune</button>
+                <button type="button" title="Déselectionner" className="btnNoneCat" onClick={onNoCategorySelected}>Aucune</button>
             </div>
             <div className="form-check" id="available">
                 <label className="form-check-label text-style1">
                     Disponible : 
                 </label>
                 <div className="category">
-                    <label htmlFor="true">
+                    <label htmlFor="isAvailable">
                         <input
                             type="checkbox"
-                            id="true"
+                            id="isAvailable"
                             title="Est disponible"
-                            name="true"
+                            name="isAvailable"
                             defaultValue="true"
-                            checked
-                            onChange={handleCheckboxChange}
+                            checked={selectedAvailable}
+                            onChange={onCheckboxAvailableChange}
                         />
                         <span>Disponible</span>
                     </label>
                 </div>
                 <div className="category">
-                    <label htmlFor="false">
+                    <label htmlFor="isNotAvailable">
                         <input
                             type="checkbox"
-                            id="false"
+                            id="isNotAvailable"
                             title="Est disponible"
-                            name="false"
-                            defaultValue="false"
-                            checked
-                            onChange={handleCheckboxChange}
+                            name="isNotAvailable"
+                            defaultValue="true"
+                            checked={selectedNotAvailable}
+                            onChange={onCheckboxNotAvailableChange}
                         />
                         <span>Indisponible</span>
                     </label>

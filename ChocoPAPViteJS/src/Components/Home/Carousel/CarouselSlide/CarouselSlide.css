@@ -11,14 +11,11 @@
 .carousel-item img {
     object-fit: cover;
     max-height: 450px;
-    max-width: 90%;
+    max-width: 95%;
     border-radius: 15px 15px 0 0 ;
     border : 5px ridge var(--miel);
 }
 
 @media screen and (min-width:720px) {
-    .carousel-item img {
-        max-width: max-content;
-    }
     
 }
