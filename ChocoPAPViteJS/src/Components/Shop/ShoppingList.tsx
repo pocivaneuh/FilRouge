@@ -10,31 +10,33 @@ export const ShoppingList = () => {
 
   const initialSelectedCategories = categoriesList.map((category) => category.idCategory);
 
-  const [selectedCategories, setSelectedCategories] = useState<string[]>(initialSelectedCategories)
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(initialSelectedCategories);
   const handleCategoriesChange: ShoppingFiltersProps['onCategoriesChange'] = (selectedCategories) => {
     setSelectedCategories(selectedCategories);
   };
 
-  const [selectedAvailable, setSelectedAvailable] = useState<boolean>(true)
-  const handleCheckboxCategoryChange: ShoppingFiltersProps['onCheckboxAvailableChange'] = (selectedAvailable) => {
-    setSelectedAvailable(!selectedAvailable);
+  const [availableSelection, setAvailableSelection] = useState<boolean[]>([true, false]);
+  const handleCheckboxAvailableChange: ShoppingFiltersProps['onCheckboxAvailableChange'] = (availableSelection) => {
+    setAvailableSelection(availableSelection);
   };
 
   const filteredProducts = useMemo(() => {
     return prdList.filter((product) => {
-      if (selectedCategories.length === 0) {
+      if ((selectedCategories.length === 0) || (availableSelection.length === 0) ){
         return false;
       }
-      return product.categories.some((category) => selectedCategories.includes(category));
-      
+      if (availableSelection.length === 1) {
+        return product.available === availableSelection[0] && product.categories.some((category) => selectedCategories.includes(category));
+      }
+      return availableSelection.includes(product.available) && product.categories.some((category) => selectedCategories.includes(category));
     });
-  }, [prdList, selectedCategories, selectedAvailable]);
+  }, [prdList, selectedCategories, availableSelection]);
 
   return (
     <section id="ContenuPrincipal">
       <section className="shop">
         <div className='productsSelection'>
-          <ShoppingFilters onCategoriesChange={handleCategoriesChange} onCheckboxAvailableChange={handleCheckboxCategoryChange} />
+          <ShoppingFilters onCategoriesChange={handleCategoriesChange} onCheckboxAvailableChange={handleCheckboxAvailableChange} />
         </div>
         <div className='productsList'>
             {filteredProducts.length === 0 && (

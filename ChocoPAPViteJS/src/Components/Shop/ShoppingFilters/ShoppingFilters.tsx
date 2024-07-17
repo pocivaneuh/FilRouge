@@ -11,14 +11,12 @@ import { categoriesList } from '../../../Datas/categoriesList.ts';
 
 export type ShoppingFiltersProps = {
     onCategoriesChange: (selectedCategories: Array<string>) => void;
-    onCheckboxAvailableChange: (selectedAvailable: boolean) => void;
-    // onCheckboxNotAvailableChange: (selectedNotAvailable: boolean) => void;
+    onCheckboxAvailableChange: (availableSelection: Array<boolean>) => void;
 }
 
 export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
     onCategoriesChange, 
-    // onCheckboxAvailableChange,
-    // onCheckboxNotAvailableChange,
+    onCheckboxAvailableChange,
 }) => {
 
     // Catégories
@@ -58,14 +56,35 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
     
 
     // Disponible / Indisponible
-    const [selectedAvailable, setSelectedAvailable] = useState(true);
-    const onCheckboxAvailableChange = () => {
-        setSelectedAvailable(!selectedAvailable)
-    };
 
+    const [availableSelection, setAvailableSelection] = useState<boolean[]>([true, false]);
+    const [selectedAvailable, setSelectedAvailable] = useState(true);
     const [selectedNotAvailable, setSelectedNotAvailable] = useState(true);
-    const onCheckboxNotAvailableChange = () => {
-        setSelectedNotAvailable(!selectedNotAvailable)
+
+    const onCheckboxAvailableTrueChange = () => {
+        setSelectedAvailable(!selectedAvailable);
+        if (availableSelection.length === 0) {
+            setAvailableSelection([true]);
+        } else if (availableSelection.length === 1 && availableSelection[0] === true){
+                setAvailableSelection([]);
+            } else if (availableSelection.length === 2) {
+                setAvailableSelection([false])
+            } else {
+                setAvailableSelection([true, false])
+            }
+        onCheckboxAvailableChange(availableSelection);
+    };
+   
+    const onCheckboxAvailableFalseChange = () => {
+        setSelectedNotAvailable(!selectedNotAvailable);
+        if (availableSelection.length === 0) {
+            setAvailableSelection([false]);
+        } else if (availableSelection.length === 1 && availableSelection[0] === false){
+                setAvailableSelection([]);
+            } else {
+                setAvailableSelection([true, false])
+        }
+        onCheckboxAvailableChange(availableSelection);
     };
 
   return (
@@ -108,7 +127,7 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
                             name="isAvailable"
                             defaultValue="true"
                             checked={selectedAvailable}
-                            onChange={onCheckboxAvailableChange}
+                            onChange={onCheckboxAvailableTrueChange}
                         />
                         <span>Disponible</span>
                     </label>
@@ -122,7 +141,7 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
                             name="isNotAvailable"
                             defaultValue="true"
                             checked={selectedNotAvailable}
-                            onChange={onCheckboxNotAvailableChange}
+                            onChange={onCheckboxAvailableFalseChange}
                         />
                         <span>Indisponible</span>
                     </label>
