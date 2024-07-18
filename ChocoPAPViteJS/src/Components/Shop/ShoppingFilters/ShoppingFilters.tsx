@@ -56,35 +56,56 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
     
 
     // Disponible / Indisponible
-
     const [availableSelection, setAvailableSelection] = useState<boolean[]>([true, false]);
     const [selectedAvailable, setSelectedAvailable] = useState(true);
     const [selectedNotAvailable, setSelectedNotAvailable] = useState(true);
 
-    const onCheckboxAvailableTrueChange = () => {
-        setSelectedAvailable(!selectedAvailable);
+    const onCheckboxAvailableTrueChange: DOMAttributes<HTMLInputElement>['onChange'] = () => {
+        let newAvailableSelection : boolean[] ;
+        let newSelectedAvailable
+      
         if (availableSelection.length === 0) {
-            setAvailableSelection([true]);
-        } else if (availableSelection.length === 1 && availableSelection[0] === true){
-                setAvailableSelection([]);
-            } else if (availableSelection.length === 2) {
-                setAvailableSelection([false])
-            } else {
-                setAvailableSelection([true, false])
-            }
-        onCheckboxAvailableChange(availableSelection);
-    };
-   
-    const onCheckboxAvailableFalseChange = () => {
-        setSelectedNotAvailable(!selectedNotAvailable);
-        if (availableSelection.length === 0) {
-            setAvailableSelection([false]);
-        } else if (availableSelection.length === 1 && availableSelection[0] === false){
-                setAvailableSelection([]);
-            } else {
-                setAvailableSelection([true, false])
+            newAvailableSelection = [true];
+            newSelectedAvailable = true;
+        } else if (availableSelection.length === 1 && availableSelection[0] === true) {
+            newAvailableSelection = [];
+            newSelectedAvailable = false;
+        } else if (availableSelection.length === 2) {
+            newAvailableSelection = [false];
+            newSelectedAvailable = false;
+        } else {
+            newAvailableSelection = [true, false];
+            newSelectedAvailable = true;
         }
-        onCheckboxAvailableChange(availableSelection);
+      
+        setSelectedAvailable(newSelectedAvailable);
+        setAvailableSelection(newAvailableSelection);
+        onCheckboxAvailableChange(newAvailableSelection);
+      
+      };
+   
+      const onCheckboxAvailableFalseChange: DOMAttributes<HTMLInputElement>['onChange'] = () => {
+        let newAvailableSelection : boolean[] ;
+        let newNotSelectedAvailable
+    
+        if (availableSelection.length === 0) {
+            newAvailableSelection = [false];
+            newNotSelectedAvailable = true;
+        } else if (availableSelection.length === 1 && availableSelection[0] === false) {
+            newAvailableSelection = [];
+            newNotSelectedAvailable = false;
+        } else if (availableSelection.length === 2) {
+            newAvailableSelection = [true];
+            newNotSelectedAvailable = false;
+        } else {
+            newAvailableSelection = [true, false];
+            newNotSelectedAvailable = true;
+        }
+      
+        setSelectedNotAvailable(newNotSelectedAvailable);
+        setAvailableSelection(newAvailableSelection);
+        onCheckboxAvailableChange(newAvailableSelection);
+
     };
 
   return (
