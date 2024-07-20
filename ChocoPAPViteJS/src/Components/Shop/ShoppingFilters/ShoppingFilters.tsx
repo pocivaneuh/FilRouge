@@ -2,6 +2,7 @@ import { DOMAttributes, FC, useState } from 'react';
 import './ShoppingFilters.css';
 
 import { categoriesList } from '../../../Datas/categoriesList.ts';
+import { prdList } from 'Datas/prdList.ts';
 
 // function handleSubmit(e:any) {
 //     e.preventDefault()
@@ -61,52 +62,36 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
     const [selectedNotAvailable, setSelectedNotAvailable] = useState(true);
 
     const onCheckboxAvailableTrueChange: DOMAttributes<HTMLInputElement>['onChange'] = () => {
-        let newAvailableSelection : boolean[] ;
-        let newSelectedAvailable
-      
-        if (availableSelection.length === 0) {
-            newAvailableSelection = [true];
-            newSelectedAvailable = true;
-        } else if (availableSelection.length === 1 && availableSelection[0] === true) {
-            newAvailableSelection = [];
-            newSelectedAvailable = false;
-        } else if (availableSelection.length === 2) {
-            newAvailableSelection = [false];
-            newSelectedAvailable = false;
+        let newAvailableSelection;
+        const hasTrue = availableSelection.includes(true)
+        if (hasTrue) {
+            newAvailableSelection = availableSelection.filter(value => value !== true)
         } else {
-            newAvailableSelection = [true, false];
-            newSelectedAvailable = true;
+            newAvailableSelection = availableSelection.concat(true);
         }
-      
-        setSelectedAvailable(newSelectedAvailable);
+        setSelectedAvailable(newAvailableSelection.includes(true));
         setAvailableSelection(newAvailableSelection);
         onCheckboxAvailableChange(newAvailableSelection);
-      
       };
    
       const onCheckboxAvailableFalseChange: DOMAttributes<HTMLInputElement>['onChange'] = () => {
-        let newAvailableSelection : boolean[] ;
-        let newNotSelectedAvailable
-    
-        if (availableSelection.length === 0) {
-            newAvailableSelection = [false];
-            newNotSelectedAvailable = true;
-        } else if (availableSelection.length === 1 && availableSelection[0] === false) {
-            newAvailableSelection = [];
-            newNotSelectedAvailable = false;
-        } else if (availableSelection.length === 2) {
-            newAvailableSelection = [true];
-            newNotSelectedAvailable = false;
+        let newAvailableSelection;
+        const hasFlase = availableSelection.includes(false)
+        if (hasFlase) {
+            newAvailableSelection = availableSelection.filter(value => value !== false)
         } else {
-            newAvailableSelection = [true, false];
-            newNotSelectedAvailable = true;
+            newAvailableSelection = availableSelection.concat(false);
         }
-      
-        setSelectedNotAvailable(newNotSelectedAvailable);
+        setSelectedNotAvailable(newAvailableSelection.includes(true));
         setAvailableSelection(newAvailableSelection);
         onCheckboxAvailableChange(newAvailableSelection);
 
-    };
+      };
+
+      // Prix
+    const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(100);
+
 
   return (
         <form className="selectionform">
@@ -174,11 +159,11 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
                 </label>
                 <div className="pricesSelector">
                     <label htmlFor="PriceMin" className="form-label">Prix Min&nbsp;</label>
-                    <input className="PiceInput" type="number" name="PriceMin" id="PriceMin" min="0" max="100" title="Prix Minimum" placeholder="0 €" />
+                    <input className="PiceInput" type="number" name="PriceMin" id="PriceMin" min="0" max="100" title="Prix Minimum" placeholder="0 €" value={minPrice} onChange={event => setMinPrice(event.currentTarget.valueAsNumber)}/>
                 </div>
                 <div className="pricesSelector">
                     <label htmlFor="PriceMax" className="form-label">Prix Max&nbsp;</label>
-                    <input className="PiceInput"  type="number" name="PriceMax" min="0" max="100" id="PriceMax" title="Prix Maximum" placeholder="100 €" />
+                    <input className="PiceInput"  type="number" name="PriceMax" min="0" max="100" id="PriceMax" title="Prix Maximum" placeholder="100 €" value={maxPrice} onChange={event => setMaxPrice(event.currentTarget.valueAsNumber)}/>
                 </div>
             </div>
             <div className="form-check notes">
