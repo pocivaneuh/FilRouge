@@ -2,22 +2,33 @@ import { DOMAttributes, FC, useState } from 'react';
 import './ShoppingFilters.css';
 
 import { categoriesList } from '../../../Datas/categoriesList.ts';
-import { prdList } from 'Datas/prdList.ts';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeftRotate as ResetIco} from '@fortawesome/free-solid-svg-icons';
+// import { prdList } from 'Datas/prdList.ts';
 
 // function handleSubmit(e:any) {
 //     e.preventDefault()
 //     alert(e.target['my_input'].value)
 // }
-
+export const Reset = ( ) => 
+  {
+    return (
+      <FontAwesomeIcon id="resetIco" icon={ResetIco}/>
+    );
+  };
 
 export type ShoppingFiltersProps = {
     onCategoriesChange: (selectedCategories: Array<string>) => void;
     onCheckboxAvailableChange: (availableSelection: Array<boolean>) => void;
+    onMinChange: (minPrice:number) => void;
+    onMaxChange: (maxPrice:number) => void;
 }
 
 export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
     onCategoriesChange, 
     onCheckboxAvailableChange,
+    onMinChange,
+    onMaxChange,
 }) => {
 
     // Catégories
@@ -76,21 +87,52 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
    
       const onCheckboxAvailableFalseChange: DOMAttributes<HTMLInputElement>['onChange'] = () => {
         let newAvailableSelection;
-        const hasFlase = availableSelection.includes(false)
-        if (hasFlase) {
+        const hasFalse = availableSelection.includes(false)
+        if (hasFalse) {
             newAvailableSelection = availableSelection.filter(value => value !== false)
         } else {
             newAvailableSelection = availableSelection.concat(false);
         }
-        setSelectedNotAvailable(newAvailableSelection.includes(true));
+        setSelectedNotAvailable(newAvailableSelection.includes(false));
         setAvailableSelection(newAvailableSelection);
         onCheckboxAvailableChange(newAvailableSelection);
 
       };
 
-      // Prix
+    // Prix
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(100);
+    const onPriceMinChange: DOMAttributes<HTMLInputElement>['onChange'] = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const newMinPrice = event.currentTarget.valueAsNumber;
+        setMinPrice(newMinPrice);
+        onMinChange(newMinPrice);
+    };
+    
+    const onPriceMaxChange: DOMAttributes<HTMLInputElement>['onChange'] = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const newMaxPrice = event.currentTarget.valueAsNumber;
+        setMaxPrice(newMaxPrice);
+        onMaxChange(newMaxPrice);
+    };
+
+    const onPricesReset = () => {
+        setMinPrice(0);
+        onMinChange(0);
+        setMaxPrice(100);
+        onMaxChange(100);
+    };
+
+    // Notes
+    const [noteMin, setNoteMin] = useState(1);
+    const [noteMax, setNoteMax] = useState(5);
+
+    const onNotesReset = () => {
+        setMinPrice(0);
+        onMinChange(0);
+        setMaxPrice(100);
+        onMaxChange(100);
+    };
+
+
 
 
   return (
@@ -156,20 +198,21 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
             <div className="form-check price">
                 <label className="form-check-label text-style1" htmlFor="price">
                     Prix : 
+                    <button type="reset" title="Réinitialiser les prix" className="btnReset" onClick={onPricesReset}><Reset /></button>
                 </label>
                 <div className="pricesSelector">
                     <label htmlFor="PriceMin" className="form-label">Prix Min&nbsp;</label>
-                    <input className="PiceInput" type="number" name="PriceMin" id="PriceMin" min="0" max="100" title="Prix Minimum" placeholder="0 €" value={minPrice} onChange={event => setMinPrice(event.currentTarget.valueAsNumber)}/>
+                    <input className="PiceInput" type="number" name="PriceMin" id="PriceMin" min="0" max="100" title="Prix Minimum" placeholder="0 €" value={minPrice} onChange={onPriceMinChange}/>
                 </div>
                 <div className="pricesSelector">
                     <label htmlFor="PriceMax" className="form-label">Prix Max&nbsp;</label>
-                    <input className="PiceInput"  type="number" name="PriceMax" min="0" max="100" id="PriceMax" title="Prix Maximum" placeholder="100 €" value={maxPrice} onChange={event => setMaxPrice(event.currentTarget.valueAsNumber)}/>
+                    <input className="PiceInput"  type="number" name="PriceMax" min="0" max="100" id="PriceMax" title="Prix Maximum" placeholder="100 €" value={maxPrice} onChange={onPriceMaxChange}/>
                 </div>
             </div>
             <div className="form-check notes">
                 <div className="notesSelector">
                     <label className="form-check-label text-style1" htmlFor="notes">
-                        Notes : 
+                        Notes : <button type="reset" title="Réinitialiser les notes" className="btnReset" onClick={onNotesReset}><Reset /></button>
                     </label>
                     <div className="input-group noteMin">
                         <label htmlFor="noteMin" className="form-label">Note Min&nbsp;</label>

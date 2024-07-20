@@ -166,6 +166,13 @@ select {
     transition: all 0.20s ease-in-out;
 }
 
+.btnReset {
+    background-color: transparent;
+    border : none;
+    color : var(--pateasucre);
+    font-size: 25px;
+    margin-left : 10px;
+}
 
 
 

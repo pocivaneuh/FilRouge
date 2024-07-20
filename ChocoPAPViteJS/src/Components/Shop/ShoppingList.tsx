@@ -20,23 +20,36 @@ export const ShoppingList = () => {
     setAvailableSelection(availableSelection);
   };
 
+  const [minPrice, setMinPrice] = useState<number>(0);
+  const [maxPrice, setMaxPrice] = useState<number>(100);
+  const handlePricesMinChange: ShoppingFiltersProps['onMinChange'] = (newMinPrice) => {
+    setMinPrice(newMinPrice);
+    console.log(minPrice);
+  };
+  const handlePricesMaxChange: ShoppingFiltersProps['onMaxChange'] = (newMaxPrice) => {
+      setMaxPrice(newMaxPrice);
+      console.log(maxPrice);
+  };
+
+
   const filteredProducts = useMemo(() => {
     return prdList.filter((product) => {
       if ((selectedCategories.length === 0) || (availableSelection.length === 0) ){
         return false;
       }
       if (availableSelection.length === 1) {
-        return product.available === availableSelection[0] && product.categories.some((category) => selectedCategories.includes(category));
+        return product.priceArticle >= minPrice && product.priceArticle <= maxPrice && product.available === availableSelection[0] && product.categories.some((category) => selectedCategories.includes(category));
       }
-      return availableSelection.includes(product.available) && product.categories.some((category) => selectedCategories.includes(category));
+      return product.priceArticle >= minPrice && product.priceArticle <= maxPrice && availableSelection.includes(product.available) && product.categories.some((category) => selectedCategories.includes(category));
     });
-  }, [prdList, selectedCategories, availableSelection]);
+  }, [prdList, selectedCategories, availableSelection, minPrice, maxPrice]);
+
 
   return (
     <section id="ContenuPrincipal">
       <section className="shop">
         <div className='productsSelection'>
-          <ShoppingFilters onCategoriesChange={handleCategoriesChange} onCheckboxAvailableChange={handleCheckboxAvailableChange} />
+          <ShoppingFilters onCategoriesChange={handleCategoriesChange} onCheckboxAvailableChange={handleCheckboxAvailableChange} onMinChange={handlePricesMinChange} onMaxChange={handlePricesMaxChange} />
         </div>
         <div className='productsList'>
             {filteredProducts.length === 0 && (
