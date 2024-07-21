@@ -22,6 +22,8 @@ export type ShoppingFiltersProps = {
     onCheckboxAvailableChange: (availableSelection: Array<boolean>) => void;
     onMinChange: (minPrice:number) => void;
     onMaxChange: (maxPrice:number) => void;
+    onScoreMinChange: (minNote:number) => void ;
+    onScoreMaxChange: (maxNote:number) => void ;
 }
 
 export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
@@ -29,6 +31,8 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
     onCheckboxAvailableChange,
     onMinChange,
     onMaxChange,
+    onScoreMinChange,
+    onScoreMaxChange,
 }) => {
 
     // Catégories
@@ -122,14 +126,24 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
     };
 
     // Notes
-    const [noteMin, setNoteMin] = useState(1);
+    const [noteMin, setNoteMin] = useState(0);
     const [noteMax, setNoteMax] = useState(5);
 
     const onNotesReset = () => {
-        setMinPrice(0);
-        onMinChange(0);
-        setMaxPrice(100);
-        onMaxChange(100);
+        setNoteMin(0);
+        setNoteMax(5);
+    };
+
+    const onNoteMinChange: DOMAttributes<HTMLSelectElement>['onChange'] = (event) => {
+        const newMinNote = parseInt(event.currentTarget.value);
+        setNoteMin(newMinNote);
+        onScoreMinChange(newMinNote);
+    };
+
+    const onNoteMaxChange: DOMAttributes<HTMLSelectElement>['onChange'] = (event) => {
+        const newMaxNote = parseInt(event.currentTarget.value);
+        setNoteMax(newMaxNote);
+        onScoreMaxChange(newMaxNote);
     };
 
 
@@ -216,7 +230,8 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
                     </label>
                     <div className="input-group noteMin">
                         <label htmlFor="noteMin" className="form-label">Note Min&nbsp;</label>
-                        <select className="box" name="noteMin" id="noteMin" defaultValue='1'>
+                        <select className="box" name="noteMin" id="noteMin" defaultValue={noteMin} onChange={onNoteMinChange}>
+                            <option value='0'>0</option>
                             <option value='1'>1</option>
                             <option value='2'>2</option>
                             <option value='3'>3</option>
@@ -227,7 +242,8 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
                 </div>
                 <div className="input-group noteMax">
                     <label htmlFor="noteMax" className="form-label">Note Max&nbsp;</label>
-                    <select className="box" name="noteMax" id="noteMax" defaultValue='5'>
+                    <select className="box" name="noteMax" id="noteMax" defaultValue={noteMax} onChange={onNoteMaxChange}>
+                        <option value='0'>0</option>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
                         <option value='3'>3</option>
