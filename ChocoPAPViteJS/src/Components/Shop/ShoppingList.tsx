@@ -50,6 +50,7 @@ export const ShoppingList = () => {
       <section className="shop">
         <div className='productsSelection'>
           <ShoppingFilters
+            categoriesList={categoriesList}
             onCategoriesChange={handleCategoriesChange}
             onCheckboxAvailableChange={handleCheckboxAvailableChange}
             onMinChange={handlePricesMinChange}

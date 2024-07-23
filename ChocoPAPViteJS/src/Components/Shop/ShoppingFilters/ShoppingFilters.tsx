@@ -1,7 +1,7 @@
-import { DOMAttributes, FC, useState } from 'react';
+import { DOMAttributes, FC, useMemo, useState } from 'react';
 import './ShoppingFilters.css';
 
-import { categoriesList } from '../../../Datas/categoriesList.ts';
+import type { Categories } from '../../../Datas/categoriesList.ts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeftRotate as ResetIco } from '@fortawesome/free-solid-svg-icons';
 // import { prdList } from 'Datas/prdList.ts';
@@ -16,7 +16,12 @@ export const Reset = () => {
   );
 };
 
+type ShoppingFiltersCategories = Categories & {
+  isChecked?: boolean;
+}
+
 export type ShoppingFiltersProps = {
+  categoriesList: Array<ShoppingFiltersCategories>;
   onCategoriesChange: (selectedCategories: Array<string>) => void;
   onCheckboxAvailableChange: (availableSelection: Array<boolean>) => void;
   onMinChange: (minPrice: number) => void;
@@ -24,6 +29,7 @@ export type ShoppingFiltersProps = {
 }
 
 export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
+  categoriesList,
   onCategoriesChange,
   onCheckboxAvailableChange,
   onMinChange,
@@ -31,71 +37,69 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
 }) => {
 
   // Catégories
-  const [categories, setCategories] = useState(categoriesList);
+  const [categories, setCategories] = useState<Array<ShoppingFiltersCategories>>(
+    categoriesList.map(c => ({ ...c, isChecked: true }))
+  );
+
+  useMemo(() => {
+    onCategoriesChange(
+      categories.filter((category) => category.isChecked).map((category) => category.idCategory)
+    );
+  }, [categories])
 
   const onCheckboxCategoryChange: DOMAttributes<HTMLInputElement>['onChange'] = (event) => {
-    const updatedCategories = categories.map((category) => {
-      if (category.idCategory === event.currentTarget.name) {
-        return { ...category, isChecked: event.currentTarget.checked };
-      }
-      return category;
-    });
-    setCategories(updatedCategories);
-    const selectedCategories = updatedCategories.filter((category) => category.isChecked).map((category) => category.idCategory);
-    onCategoriesChange(selectedCategories);
+    setCategories(
+      categories.map((category) => {
+        if (category.idCategory === event.currentTarget.name) {
+          return { ...category, isChecked: event.currentTarget.checked };
+        }
+        return category;
+      }),
+    );
   };
 
   // Toutes les Catégories
   const onAllCategoriesSelected = () => {
-    const updatedCategories = categories.map((category) => {
-      return { ...category, isChecked: true }
-    });
-    setCategories(updatedCategories);
-    const selectedCategories = updatedCategories.filter((category) => category.isChecked).map((category) => category.idCategory);
-    onCategoriesChange(selectedCategories);
+    setCategories(
+      categories.map((category) => {
+        return { ...category, isChecked: true }
+      })
+    );
   }
 
   // Aucune les Catégories
   const onNoCategorySelected = () => {
-    const updatedCategories = categories.map((category) => {
-      return { ...category, isChecked: false }
-    });
-    setCategories(updatedCategories);
-    const selectedCategories = updatedCategories.filter((category) => category.isChecked).map((category) => category.idCategory);
-    onCategoriesChange(selectedCategories);
+    setCategories(
+      categories.map((category) => {
+        return { ...category, isChecked: false }
+      }),
+    );
   }
 
-
   // Disponible / Indisponible
-  const [availableSelection, setAvailableSelection] = useState<boolean[]>([true, false]);
-  const [selectedAvailable, setSelectedAvailable] = useState(true);
-  const [selectedNotAvailable, setSelectedNotAvailable] = useState(true);
+  const [selectedIsAvailable, setSelectedIsAvailable] = useState<boolean>(true);
+  const [selectedIsNotAvailable, setSelectedIsNotAvailable] = useState<boolean>(true);
 
-  const onCheckboxAvailableTrueChange: DOMAttributes<HTMLInputElement>['onChange'] = () => {
-    let newAvailableSelection;
-    const hasTrue = availableSelection.includes(true)
-    if (hasTrue) {
-      newAvailableSelection = availableSelection.filter(value => value !== true)
-    } else {
-      newAvailableSelection = availableSelection.concat(true);
+  useMemo(() => {
+    const availableSelection = [];
+
+    if (selectedIsAvailable) {
+      availableSelection.push(true);
     }
-    setSelectedAvailable(newAvailableSelection.includes(true));
-    setAvailableSelection(newAvailableSelection);
-    onCheckboxAvailableChange(newAvailableSelection);
+
+    if (selectedIsNotAvailable) {
+      availableSelection.push(false);
+    }
+
+    onCheckboxAvailableChange(availableSelection)
+  }, [selectedIsAvailable, selectedIsNotAvailable]);
+
+  const onCheckboxIsAvailableChange: DOMAttributes<HTMLInputElement>['onChange'] = () => {
+    setSelectedIsAvailable(!selectedIsAvailable);
   };
 
-  const onCheckboxAvailableFalseChange: DOMAttributes<HTMLInputElement>['onChange'] = () => {
-    let newAvailableSelection;
-    const hasFalse = availableSelection.includes(false)
-    if (hasFalse) {
-      newAvailableSelection = availableSelection.filter(value => value !== false)
-    } else {
-      newAvailableSelection = availableSelection.concat(false);
-    }
-    setSelectedNotAvailable(newAvailableSelection.includes(false));
-    setAvailableSelection(newAvailableSelection);
-    onCheckboxAvailableChange(newAvailableSelection);
-
+  const onCheckboxIsNotAvailableChange: DOMAttributes<HTMLInputElement>['onChange'] = () => {
+    setSelectedIsNotAvailable(!selectedIsNotAvailable);
   };
 
   // Prix
@@ -148,7 +152,6 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
                 id={category.idCategory}
                 title={category.categoryTitle}
                 name={category.idCategory}
-                defaultValue="true"
                 checked={category.isChecked}
                 onChange={onCheckboxCategoryChange}
               />
@@ -173,8 +176,8 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
               title="Est disponible"
               name="isAvailable"
               defaultValue="true"
-              checked={selectedAvailable}
-              onChange={onCheckboxAvailableTrueChange}
+              checked={selectedIsAvailable}
+              onChange={onCheckboxIsAvailableChange}
             />
             <span>Disponible</span>
           </label>
@@ -187,8 +190,8 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
               title="Est disponible"
               name="isNotAvailable"
               defaultValue="true"
-              checked={selectedNotAvailable}
-              onChange={onCheckboxAvailableFalseChange}
+              checked={selectedIsNotAvailable}
+              onChange={onCheckboxIsNotAvailableChange}
             />
             <span>Indisponible</span>
           </label>
