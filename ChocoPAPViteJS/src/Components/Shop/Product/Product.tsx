@@ -1,7 +1,8 @@
 import "./Product.css";
 
 import { Rating } from "../Rating/Rating";
-import { FC } from "react";
+import { DOMAttributes, FC, useState } from "react";
+import { prdList } from '../../../Datas/prdList.ts';
 
 export type ProductProps = {
   idArticle: number;
@@ -24,12 +25,32 @@ function Exist({available}:{available : boolean}) {
   );
 }
 
-export const Product: FC<ProductProps> = ({urlImg,
+export const Product: FC<ProductProps> = ({
+  idArticle,
+  urlImg,
   titleArticle,
   ratingArticle,
   priceArticle,
   available,
 }) => {
+
+      const [nbToAdd, setNbToAdd] = useState<number>(0);
+      const [prdCartListChange, setprdCartListChange] = useState<any[]>([]);
+
+      const onNbToAddChange: DOMAttributes<HTMLInputElement>['onChange']  = (event) => {
+        const newNbToAdd = event.currentTarget.valueAsNumber;
+        setNbToAdd(newNbToAdd);
+        console.log(nbToAdd);
+      };
+
+      const onAddedToCartValidation = (id: number) => {
+        const newPrdCartList = prdList.map(product => product.idArticle === id ? 
+          {...product, nbToAdd: nbToAdd } : product );
+          setprdCartListChange(newPrdCartList);
+          console.log(prdCartListChange);
+      }; 
+
+
     {
       return (
 
@@ -41,13 +62,13 @@ export const Product: FC<ProductProps> = ({urlImg,
           <div className="card-text-rating"><Rating score={ratingArticle}></Rating></div>
 
           <form
-            className="ajouter"
+            className="formAjouter"
             action=""
             title="Ajouter l'article au panier"
           >
             <div className="group">
               <label htmlFor="nbArticles" className="d-block">
-                {/* Nombre d'articles */}
+                <p className="BIP">{nbToAdd} article(s) ajoutés au panier'</p>
               </label>
               <input
                 type="number"
@@ -58,8 +79,10 @@ export const Product: FC<ProductProps> = ({urlImg,
                 max="100"
                 placeholder="0"
                 required
+                value={nbToAdd}
+                onChange={onNbToAddChange}
               />
-              <button type="submit" className="btnAjouter">
+              <button type="button" className="btnAjouter" onClick={() => onAddedToCartValidation(Product.idArticle)}>
                 Ajouter au panier
               </button>
             </div>

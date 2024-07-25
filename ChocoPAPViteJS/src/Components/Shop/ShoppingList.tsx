@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { prdList } from '../../Datas/prdList.ts';
-import { Product } from './Products/Product.tsx';
+import { Product } from './Product/Product.tsx';
 import { categoriesList } from "../../Datas/categoriesList.ts";
 import { ShoppingFilters, ShoppingFiltersProps } from './ShoppingFilters/ShoppingFilters.tsx';
 
