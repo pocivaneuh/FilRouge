@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { prdList } from '../../Datas/prdList.ts';
-import { Product } from './Products/Product.tsx';
+import { Product } from './Product/Product.tsx';
 import { categoriesList } from "../../Datas/categoriesList.ts";
 import { ShoppingFilters, ShoppingFiltersProps } from './ShoppingFilters/ShoppingFilters.tsx';
 
@@ -31,6 +31,17 @@ export const ShoppingList = () => {
     console.log(maxPrice);
   };
 
+  const [minNote, setMinNote] = useState<number>(0);
+  const [maxNote, setMaxNote] = useState<number>(5);
+  const handleNoteMinChange: ShoppingFiltersProps['onScoreMinChange'] = (newMinNote) => {
+      setMinNote(newMinNote);
+      console.log(minNote);
+  };
+  const handleNoteMaxChange: ShoppingFiltersProps['onScoreMaxChange'] = (newMaxNote) => {
+      setMaxNote(newMaxNote);
+      console.log(maxNote);
+  };
+
 
   const filteredProducts = useMemo(() => {
     return prdList.filter((product) => {
@@ -38,9 +49,9 @@ export const ShoppingList = () => {
         return false;
       }
       if (availableSelection.length === 1) {
-        return product.priceArticle >= minPrice && product.priceArticle <= maxPrice && product.available === availableSelection[0] && product.categories.some((category) => selectedCategories.includes(category));
+        return product.ratingArticle >= minPrice && product.ratingArticle  <= maxNote && product.priceArticle >= minPrice && product.priceArticle <= maxPrice && product.available === availableSelection[0] && product.categories.some((category) => selectedCategories.includes(category));
       }
-      return product.priceArticle >= minPrice && product.priceArticle <= maxPrice && availableSelection.includes(product.available) && product.categories.some((category) => selectedCategories.includes(category));
+      return product.ratingArticle >= minPrice && product.ratingArticle  <= maxNote && product.priceArticle >= minPrice && product.priceArticle <= maxPrice && availableSelection.includes(product.available) && product.categories.some((category) => selectedCategories.includes(category));
     });
   }, [prdList, selectedCategories, availableSelection, minPrice, maxPrice]);
 
@@ -49,13 +60,17 @@ export const ShoppingList = () => {
     <section id="ContenuPrincipal">
       <section className="shop">
         <div className='productsSelection'>
+
           <ShoppingFilters
             categoriesList={categoriesList}
             onCategoriesChange={handleCategoriesChange}
             onCheckboxAvailableChange={handleCheckboxAvailableChange}
             onMinChange={handlePricesMinChange}
             onMaxChange={handlePricesMaxChange}
+            onScoreMinChange={handleNoteMinChange}
+            onScoreMaxChange={handleNoteMaxChange}
           />
+        
         </div>
         <div className='productsList'>
           {filteredProducts.length === 0 && (
