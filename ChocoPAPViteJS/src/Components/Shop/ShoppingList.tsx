@@ -27,8 +27,8 @@ export const ShoppingList = () => {
     console.log(minPrice);
   };
   const handlePricesMaxChange: ShoppingFiltersProps['onMaxChange'] = (newMaxPrice) => {
-      setMaxPrice(newMaxPrice);
-      console.log(maxPrice);
+    setMaxPrice(newMaxPrice);
+    console.log(maxPrice);
   };
 
   const [minNote, setMinNote] = useState<number>(0);
@@ -45,7 +45,7 @@ export const ShoppingList = () => {
 
   const filteredProducts = useMemo(() => {
     return prdList.filter((product) => {
-      if ((selectedCategories.length === 0) || (availableSelection.length === 0) ){
+      if ((selectedCategories.length === 0) || (availableSelection.length === 0)) {
         return false;
       }
       if (availableSelection.length === 1) {
@@ -60,26 +60,36 @@ export const ShoppingList = () => {
     <section id="ContenuPrincipal">
       <section className="shop">
         <div className='productsSelection'>
-          <ShoppingFilters onCategoriesChange={handleCategoriesChange} onCheckboxAvailableChange={handleCheckboxAvailableChange} onMinChange={handlePricesMinChange} onMaxChange={handlePricesMaxChange} onScoreMinChange={handleNoteMinChange} onScoreMaxChange={handleNoteMaxChange}/>
+
+          <ShoppingFilters
+            categoriesList={categoriesList}
+            onCategoriesChange={handleCategoriesChange}
+            onCheckboxAvailableChange={handleCheckboxAvailableChange}
+            onMinChange={handlePricesMinChange}
+            onMaxChange={handlePricesMaxChange}
+            onScoreMinChange={handleNoteMinChange}
+            onScoreMaxChange={handleNoteMaxChange}
+          />
+        
         </div>
         <div className='productsList'>
-            {filteredProducts.length === 0 && (
-              <p>Aucun produit ne correspond aux critères de filtrage sélectionnés.</p>
-            )}
-            {filteredProducts.map((item) => (
-                <div className='productCard' key={item.idArticle}>
-                    <Product
-                      idArticle={item.idArticle}
-                      urlImg={item.urlImg}
-                      titleArticle={item.titleArticle}
-                      ratingArticle={item.ratingArticle}
-                      priceArticle={item.priceArticle}
-                      available={item.available}
-                      categories={item.categories}
-                    />
-                </div>
-              ))
-            }
+          {filteredProducts.length === 0 && (
+            <p>Aucun produit ne correspond aux critères de filtrage sélectionnés.</p>
+          )}
+          {filteredProducts.map((item) => (
+            <div className='productCard' key={item.idArticle}>
+              <Product
+                idArticle={item.idArticle}
+                urlImg={item.urlImg}
+                titleArticle={item.titleArticle}
+                ratingArticle={item.ratingArticle}
+                priceArticle={item.priceArticle}
+                available={item.available}
+                categories={item.categories}
+              />
+            </div>
+          ))
+          }
         </div>
       </section>
     </section>
