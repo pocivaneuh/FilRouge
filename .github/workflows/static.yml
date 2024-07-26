@@ -37,7 +37,7 @@ jobs:
         # @see https://stackoverflow.com/a/63100715/1731473
         run: |
           cd ./ChocoPAPViteJS
-          npm ci
+          npm ci --force
           npm run build -- --base-href=/${GITHUB_REPOSITORY#*/}/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
