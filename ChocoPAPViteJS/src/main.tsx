@@ -11,27 +11,32 @@ import { Home } from "./Components/Home/Home.tsx"
 import { ShoppingList } from "./Components/Shop/ShoppingList.tsx"
 import { CartFilled } from './Components/Shop/CartFilled/CartFilled.tsx';
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+      errorElement: <ErrorPage />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/Boutique",
+          element: <ShoppingList />,
+        },
+        {
+          path: "/Panier",
+          element: <CartFilled />,
+        },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/Boutique",
-        element: <ShoppingList />,
-      },
-      {
-        path: "/Panier",
-        element: <CartFilled />,
-      },
-    ],
+    basename: import.meta.env.BASE_URL,
   },
-]);
+);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
