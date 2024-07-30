@@ -48,12 +48,15 @@ export const ShoppingList = () => {
       if ((selectedCategories.length === 0) || (availableSelection.length === 0)) {
         return false;
       }
-      if (availableSelection.length === 1) {
-        return product.ratingArticle >= minPrice && product.ratingArticle  <= maxNote && product.priceArticle >= minPrice && product.priceArticle <= maxPrice && product.available === availableSelection[0] && product.categories.some((category) => selectedCategories.includes(category));
-      }
-      return product.ratingArticle >= minPrice && product.ratingArticle  <= maxNote && product.priceArticle >= minPrice && product.priceArticle <= maxPrice && availableSelection.includes(product.available) && product.categories.some((category) => selectedCategories.includes(category));
+      return product.ratingArticle >= minNote 
+        && product.ratingArticle  <= maxNote 
+        && product.priceArticle >= minPrice 
+        && product.priceArticle <= maxPrice 
+        && availableSelection.includes(product.available) 
+        && product.categories.some((category) => 
+          selectedCategories.includes(category));
     });
-  }, [prdList, selectedCategories, availableSelection, minPrice, maxPrice]);
+  }, [prdList, selectedCategories, availableSelection, minPrice, maxPrice, minNote, maxNote]);
 
 
   return (

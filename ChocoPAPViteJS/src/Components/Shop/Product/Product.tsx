@@ -59,7 +59,9 @@ export const Product: FC<ProductProps> = ({
           <h1 className="cardTitle">{titleArticle}</h1>
           <Exist available={available}></Exist>
           <p className="card-text-tarif">{priceArticle} €</p>
-          <div className="card-text-rating"><Rating score={ratingArticle}></Rating></div>
+          <div className="card-text-rating">
+            <Rating score={ratingArticle}></Rating>
+          </div>
 
           <form
             className="formAjouter"
@@ -82,7 +84,10 @@ export const Product: FC<ProductProps> = ({
                 value={nbToAdd}
                 onChange={onNbToAddChange}
               />
-              <button type="button" className="btnAjouter" onClick={() => onAddedToCartValidation(Product.idArticle)}>
+              <button 
+                type="button" 
+                className="btnAjouter" 
+                onClick={() => onAddedToCartValidation(Product.idArticle)}>
                 Ajouter au panier
               </button>
             </div>

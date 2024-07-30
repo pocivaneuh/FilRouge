@@ -135,6 +135,8 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
   const onNotesReset = () => {
       setNoteMin(0);
       setNoteMax(5);
+      onScoreMinChange(0);
+      onScoreMaxChange(5)
   };
 
   const onNoteMinChange: DOMAttributes<HTMLSelectElement>['onChange'] = (event) => {
@@ -179,7 +181,7 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
       </div>
       <div className="form-check" id="available">
         <label className="form-check-label text-style1">
-          Disponible :
+          Disponibilité :
         </label>
         <div className="category">
           <label htmlFor="isAvailable">
@@ -232,22 +234,24 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
           <div className="input-group noteMin">
             <label htmlFor="noteMin" className="form-label">Note Min&nbsp;</label>
             <select className="box" name="noteMin" id="noteMin" defaultValue={noteMin} onChange={onNoteMinChange}>
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-              <option value='4'>4</option>
-              <option value='5'>5</option>
+              <option value='1'>0</option>
+              <option value='2'>1</option>
+              <option value='3'>2</option>
+              <option value='4'>3</option>
+              <option value='5'>4</option>
+              <option value='6'>5</option>
             </select>
           </div>
         </div>
         <div className="input-group noteMax">
           <label htmlFor="noteMax" className="form-label">Note Max&nbsp;</label>
           <select className="box" name="noteMax" id="noteMax" defaultValue={noteMax} onChange={onNoteMaxChange}>
-            <option value='1'>1</option>
-            <option value='2'>2</option>
-            <option value='3'>3</option>
-            <option value='4'>4</option>
-            <option value='5'>5</option>
+            <option value='1'>0</option>
+            <option value='2'>1</option>
+            <option value='3'>2</option>
+            <option value='4'>3</option>
+            <option value='5'>4</option>
+            <option value='6'>5</option>
           </select>
         </div>
       </div>
