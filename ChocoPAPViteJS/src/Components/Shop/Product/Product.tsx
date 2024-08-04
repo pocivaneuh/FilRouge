@@ -4,17 +4,17 @@ import { Rating } from "../Rating/Rating";
 import { DOMAttributes, FC, useState } from "react";
 import { prdList } from '../../../Datas/prdList.ts';
 
-export type ProductProps = {
+export interface ProductProps {
   idArticle: number;
   urlImg: string ;
   titleArticle : string ;
   ratingArticle : number ;
   priceArticle : number ;
   available : boolean ;
-  categories?: Array<string>;
+  categories?: string[];
 }
   
-function Exist({available}:{available : boolean}) {
+const Exist = ({available}:{available : boolean}) => {
   if (available) {
     return (
       <span>&nbsp;</span>
@@ -87,7 +87,7 @@ export const Product: FC<ProductProps> = ({
               <button 
                 type="button" 
                 className="btnAjouter" 
-                onClick={() => onAddedToCartValidation(Product.idArticle)}>
+                onClick={() => { onAddedToCartValidation(Product.idArticle); }}>
                 Ajouter au panier
               </button>
             </div>

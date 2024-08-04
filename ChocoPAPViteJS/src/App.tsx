@@ -6,7 +6,7 @@ import { Footer } from "./Components/NavBar/Footer/Footer";
 
 import { Outlet } from "react-router-dom";
 
-function App() {
+const App = () => {
   
   return (
     <>

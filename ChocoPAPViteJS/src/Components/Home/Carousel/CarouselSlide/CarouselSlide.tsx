@@ -2,7 +2,7 @@ import { FC, DOMAttributes } from "react";
 
 import "./CarouselSlide.css";
 
-export type CarouselSlideProps = {
+export interface CarouselSlideProps {
     slideClass : string;
     idSlide: number;
     urlImgSlide: string ;

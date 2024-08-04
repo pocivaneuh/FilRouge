@@ -55,7 +55,7 @@ export const Header = ( ) =>
           <button
             id="menuToggle"
             type="button"
-            onClick={() => setOpen((prev) => !prev)}
+            onClick={() => { setOpen((prev) => !prev); }}
             title="Afficher/masquer le menu"
           >
             <Burger />
@@ -66,17 +66,17 @@ export const Header = ( ) =>
               className={isOpen ? '' : 'hide'}
             >
               <ul className="navbar-nav ">
-                <Link to={`/`} onClick={() => setOpen((prev) => !prev)}>
+                <Link to={`/`} onClick={() => { setOpen((prev) => !prev); }}>
                   <li className="nav-item text-style1">
                     Accueil
                   </li>
                 </Link>
-                <Link to={`/Boutique`} onClick={() => setOpen((prev) => !prev)}>
+                <Link to={`/Boutique`} onClick={() => { setOpen((prev) => !prev); }}>
                   <li className="nav-item text-style1">
                     Boutique
                   </li>
                 </Link>
-                <li className="nav-item panier" onClick={() => setOpen((prev) => !prev)}>
+                <li className="nav-item panier" onClick={() => { setOpen((prev) => !prev); }}>
                   <Link to={`/Panier`}><Cart />Panier</Link>
                 </li>
               </ul>

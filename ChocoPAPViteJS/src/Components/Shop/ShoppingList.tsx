@@ -56,7 +56,7 @@ export const ShoppingList = () => {
         && product.categories.some((category) => 
           selectedCategories.includes(category));
     });
-  }, [prdList, selectedCategories, availableSelection, minPrice, maxPrice, minNote, maxNote]);
+  }, [selectedCategories, availableSelection, minPrice, maxPrice, minNote, maxNote]);
 
 
   return (

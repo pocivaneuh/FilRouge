@@ -20,10 +20,10 @@ type ShoppingFiltersCategories = Categories & {
   isChecked?: boolean;
 }
 
-export type ShoppingFiltersProps = {
-  categoriesList: Array<ShoppingFiltersCategories>;
-  onCategoriesChange: (selectedCategories: Array<string>) => void;
-  onCheckboxAvailableChange: (availableSelection: Array<boolean>) => void;
+export interface ShoppingFiltersProps {
+  categoriesList: ShoppingFiltersCategories[];
+  onCategoriesChange: (selectedCategories: string[]) => void;
+  onCheckboxAvailableChange: (availableSelection: boolean[]) => void;
   onMinChange: (minPrice: number) => void;
   onMaxChange: (maxPrice: number) => void;
   onScoreMinChange: (minNote:number) => void ;
@@ -41,7 +41,7 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
 }) => {
 
   // Catégories
-  const [categories, setCategories] = useState<Array<ShoppingFiltersCategories>>(
+  const [categories, setCategories] = useState<ShoppingFiltersCategories[]>(
     categoriesList.map(c => ({ ...c, isChecked: true }))
   );
 
@@ -49,7 +49,7 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
     onCategoriesChange(
       categories.filter((category) => category.isChecked).map((category) => category.idCategory)
     );
-  }, [categories])
+  }, [onCategoriesChange, categories])
 
   const onCheckboxCategoryChange: DOMAttributes<HTMLInputElement>['onChange'] = (event) => {
     setCategories(
@@ -96,7 +96,7 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
     }
 
   onCheckboxAvailableChange(availableSelection)
-  }, [selectedIsAvailable, selectedIsNotAvailable]);
+  }, [onCheckboxAvailableChange, selectedIsAvailable, selectedIsNotAvailable]);
 
   const onCheckboxIsAvailableChange: DOMAttributes<HTMLInputElement>['onChange'] = () => {
     setSelectedIsAvailable(!selectedIsAvailable);
@@ -109,13 +109,15 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
   // Prix
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(100);
-  const onPriceMinChange: DOMAttributes<HTMLInputElement>['onChange'] = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onPriceMinChange: DOMAttributes<HTMLInputElement>['onChange'] = (
+    event: React.ChangeEvent<HTMLInputElement>) => {
     const newMinPrice = event.currentTarget.valueAsNumber;
     setMinPrice(newMinPrice);
     onMinChange(newMinPrice);
   };
 
-  const onPriceMaxChange: DOMAttributes<HTMLInputElement>['onChange'] = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onPriceMaxChange: DOMAttributes<HTMLInputElement>['onChange'] = (
+    event: React.ChangeEvent<HTMLInputElement>) => {
     const newMaxPrice = event.currentTarget.valueAsNumber;
     setMaxPrice(newMaxPrice);
     onMaxChange(newMaxPrice);
@@ -176,8 +178,18 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
         ))}
       </div>
       <div className='BtnCat'>
-        <button type="button" title="Sélectionner" className="btnAllCat" onClick={onAllCategoriesSelected}>Toutes</button>
-        <button type="button" title="Déselectionner" className="btnNoneCat" onClick={onNoCategorySelected}>Aucune</button>
+        <button 
+          type="button" 
+          title="Sélectionner" 
+          className="btnAllCat" 
+          onClick={onAllCategoriesSelected}>Toutes
+        </button>
+        <button 
+          type="button" 
+          title="Déselectionner" 
+          className="btnNoneCat" 
+          onClick={onNoCategorySelected}>Aucune
+        </button>
       </div>
       <div className="form-check" id="available">
         <label className="form-check-label text-style1">
@@ -215,43 +227,90 @@ export const ShoppingFilters: FC<ShoppingFiltersProps> = ({
       <div className="form-check price">
         <label className="form-check-label text-style1" htmlFor="price">
           Prix :
-          <button type="reset" title="Réinitialiser les prix" className="btnReset" onClick={onPricesReset}><Reset /></button>
+          <button 
+            type="reset" 
+            title="Réinitialiser les prix" 
+            className="btnReset" 
+            onClick={onPricesReset}>
+              <Reset />
+          </button>
         </label>
         <div className="pricesSelector">
           <label htmlFor="PriceMin" className="form-label">Prix Min&nbsp;</label>
-          <input className="PiceInput" type="number" name="PriceMin" id="PriceMin" min="0" max="100" title="Prix Minimum" placeholder="0 €" value={minPrice} onChange={onPriceMinChange} />
+          <input 
+            className="PiceInput" 
+            type="number" 
+            name="PriceMin" 
+            id="PriceMin" 
+            min="0" 
+            max="100" 
+            title="Prix Minimum" 
+            placeholder="0 €" 
+            value={minPrice} 
+            onChange={onPriceMinChange}
+          />
         </div>
         <div className="pricesSelector">
           <label htmlFor="PriceMax" className="form-label">Prix Max&nbsp;</label>
-          <input className="PiceInput" type="number" name="PriceMax" min="0" max="100" id="PriceMax" title="Prix Maximum" placeholder="100 €" value={maxPrice} onChange={onPriceMaxChange} />
+          <input
+            className="PiceInput"
+            type="number"
+            name="PriceMax"
+            min="0"
+            max="100"
+            id="PriceMax"
+            title="Prix Maximum"
+            placeholder="100 €"
+            value={maxPrice}
+            onChange={onPriceMaxChange}
+          />
         </div>
       </div>
       <div className="form-check notes">
         <div className="notesSelector">
           <label className="form-check-label text-style1" htmlFor="notes">
-            Notes : <button type="reset" title="Réinitialiser les notes" className="btnReset" onClick={onNotesReset}><Reset /></button>
+            Notes : 
+            <button 
+              type="reset"
+              title="Réinitialiser les notes"
+              className="btnReset"
+              onClick={onNotesReset}>
+                <Reset />
+            </button>
           </label>
           <div className="input-group noteMin">
             <label htmlFor="noteMin" className="form-label">Note Min&nbsp;</label>
-            <select className="box" name="noteMin" id="noteMin" defaultValue={noteMin} onChange={onNoteMinChange}>
-              <option value='1'>0</option>
-              <option value='2'>1</option>
-              <option value='3'>2</option>
-              <option value='4'>3</option>
-              <option value='5'>4</option>
-              <option value='6'>5</option>
+            <select 
+              className="box" 
+              name="noteMin" 
+              id="noteMin" 
+              defaultValue={noteMin} 
+              onChange={onNoteMinChange}
+            >
+                <option value='0'>0</option>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
             </select>
           </div>
         </div>
         <div className="input-group noteMax">
           <label htmlFor="noteMax" className="form-label">Note Max&nbsp;</label>
-          <select className="box" name="noteMax" id="noteMax" defaultValue={noteMax} onChange={onNoteMaxChange}>
-            <option value='1'>0</option>
-            <option value='2'>1</option>
-            <option value='3'>2</option>
-            <option value='4'>3</option>
-            <option value='5'>4</option>
-            <option value='6'>5</option>
+          <select 
+            className="box"
+            name="noteMax"
+            id="noteMax"
+            defaultValue={noteMax}
+            onChange={onNoteMaxChange}
+          >
+                <option value='0'>0</option>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
           </select>
         </div>
       </div>
