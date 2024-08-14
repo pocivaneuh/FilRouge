@@ -103,21 +103,18 @@ ul {
 
 
 /*Met en évidence le bouton du menu correspondant à la page affichée */
-.active, .panier {
+.active {
     font-size: 20px;
     font-family: 'Fjalla One';
     margin-top: 10px;
-}
-
-.panier a {
-    color: var(--meringue);
+    color : var(--caramel);
     text-decoration: none;
 }
 
-.active a { 
-    color : var(--pateasucre);
+.panier a, .active a {
     text-decoration: none;
 }
+
 
 
 
