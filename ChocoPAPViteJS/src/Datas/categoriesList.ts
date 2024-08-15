@@ -1,11 +1,11 @@
 
 
-export type Categories = {
+export interface Categories {
   idCategory: string,
   categoryTitle : string,
 }
 
-export const categoriesList: Array<Categories> = [
+export const categoriesList: Categories[] = [
   {
     idCategory: "milk",
     categoryTitle : "Chocolat au Lait",

@@ -22,7 +22,7 @@ const RatingIcon: FC<FontAwesomeIconProps> = (props) => (
   />
 )
 
-function Show({ value, activeLow, activeHigh }:{value : number, activeLow : number, activeHigh : number}) {
+const Show = ({ value, activeLow, activeHigh }:{value : number, activeLow : number, activeHigh : number}) => {
   if (value > (activeLow) && value < (activeHigh)) {
     return <RatingIcon icon={faHeartHalf} />;
   }
@@ -32,7 +32,7 @@ function Show({ value, activeLow, activeHigh }:{value : number, activeLow : numb
   return <RatingIcon icon={faHeartEmpty} />;
 }
   
-export type RatingProps = {
+export interface RatingProps {
   score: number;
 }
 

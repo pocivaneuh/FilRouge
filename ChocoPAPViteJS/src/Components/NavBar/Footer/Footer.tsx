@@ -13,7 +13,11 @@ export const Footer = ( ) =>
                 <section className="row">
                     <div id="informations" className="rubriques">
                         <div className="text-style3">Choco pap</div>
-                        <div className="text-style4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
+                        <div className="text-style4">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                            sed do eiusmod tempor incididunt ut labore et dolore magna 
+                            aliqua
+                        </div>
                     </div>
                     <div id="contact" className="rubriques">
                         <div className="text-style3">Contact</div>
