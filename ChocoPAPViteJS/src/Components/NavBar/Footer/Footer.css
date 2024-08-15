@@ -1,0 +1,65 @@
+/* ************************************************************************************************* */
+/* FOOTER  */
+/* ************************************************************************************************* */
+
+#footer {
+    background-color: var(--miel);
+    justify-content: space-between;
+    opacity: 0.8;
+    box-shadow: 15px 5px 20px var(--chocolat);
+  }
+
+  .row {
+    display: block;
+    flex-wrap: wrap;
+    justify-content:center;
+    width: 100%;
+    padding : 5px 20px;
+  }
+
+  .rubriques {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 25px;
+  }
+
+  .rubriques p {
+    margin : 0;
+    padding : 0;
+  }
+
+  #social-network {
+    display: inline-flex;
+    max-width: max-content;
+    padding: 0;
+  }
+  
+  #social-network img {
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+  }
+
+/* ************************************************************************************************* */
+/* AFFICHAGE POUR LES ECRANS DE TAILLE MD ET PLUS */
+/* ************************************************************************************************* */
+@media screen and (min-width:720px) {
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin : 0;
+  }
+
+  .rubriques {
+    flex-basis: 30%; /* Largeur de base de la colonne */
+    margin : 0px 20px 20px 20px; /* Marge inférieure pour les écrans plus petits */
+  }
+
+  #social-network {
+    padding: 0;
+  }
+
+}

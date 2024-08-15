@@ -1,0 +1,83 @@
+.navigation{
+    max-width: 100%;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(25%);
+}
+
+#crslChocoAccueil {
+    display:flex;
+    justify-content : center ;
+    align-items : center;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    width: inherit;
+    border-radius: 0 0 15px 15px ;
+}
+
+.carousel-inner {
+    width: inherit;
+    padding: 5px 5px 0 5px;
+    justify-content : center ;
+    align-items : center;
+}
+
+#carousel-thumbs {
+    min-width: 265px;
+    width: 94%;
+    background: var(--chocolat);
+    border-radius: 0 0 15px 15px;
+    animation: mymove 10s infinite;
+    border : ridge var(--miel);
+    border-width: 5px;
+}
+
+.thumbs {
+    width: max-content;
+}
+
+#carousel-thumbs img {
+    width: 55px;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+#carousel-thumbs img:hover {
+    border-color: var(--miel);
+    box-shadow : inset 100px 13px 15px var(--meringue);
+    filter : drop-shadow(0 0 10px var(--meringue));
+    transition: all 0.70s ease-in-out;
+}
+
+#carousel-thumbs .selected img {
+    border-color: var(--pateasucre);
+}
+
+#carousel-thumbs .selected img:hover {
+    border-color: var(--meringue);
+}
+
+/* actuellement non nécessaire car pas plus de 3 slides */
+.carousel-control-prev,
+.carousel-control-next {
+    display: none ;
+    color : var(--miel);
+    width: 50px;
+}
+
+@media screen and (min-width:720px) {
+
+    .navigation{
+        margin: 0 ;
+    }
+
+    #carousel-thumbs img {
+        width: 100px;
+        border: 5px solid transparent;
+        border-radius: 15px;
+    }
+
+}

@@ -1,0 +1,183 @@
+#lstFiltres {
+    background-image: linear-gradient(to bottom,var(--meringue),var(--miel));
+    justify-content : center ;
+    align-items : center;
+    height: 150vh;
+    color: var(--chocolatnoir);
+}
+
+#filtresProduits {
+    width: 100% ;
+    color: var(--chocolatnoir);
+}
+
+/* Catégories */
+.category {
+--borderColor: var(--caramel);
+--borderWidth: .125em;
+    margin : 0;
+    padding: 0;
+}
+
+.category label {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    line-height: 3rem;
+}
+
+.category label span {
+    display: none ;
+}
+
+.category input[type=checkbox] {
+-webkit-appearance: none;
+    appearance: none;
+    vertical-align: middle;
+    background: var(--meringue);
+    font-size: 1.8em;
+    border-radius: 0.125em;
+    display: inline-block;
+    border: var(--borderWidth) solid var(--miel);
+    width: 1em;
+    height: 1em;
+    position: relative;
+}
+
+.category input[type=checkbox]:before,
+.category input[type=checkbox]:after {
+    content: "";
+    position: absolute;
+    background: var(--borderColor);
+    width: calc(var(--borderWidth) * 3);
+    height: var(--borderWidth);
+    top: 50%;
+    left: 10%;
+    transform-origin: left center;
+}
+
+.category input[type=checkbox]:before {
+    transform: rotate(45deg) translate(calc(var(--borderWidth) / -2), calc(var(--borderWidth) / -2)) scaleX(0);
+    transition: transform 200ms ease-in 200ms;
+}
+
+.category input[type=checkbox]:after {
+    width: calc(var(--borderWidth) * 5);
+    transform: rotate(-45deg) translateY(calc(var(--borderWidth) * 2)) scaleX(0);
+    transform-origin: left center;
+    transition: transform 200ms ease-in;
+}
+
+.category input[type=checkbox]:checked:before {
+    transform: rotate(45deg) translate(calc(var(--borderWidth) / -2), calc(var(--borderWidth) / -2)) scaleX(1);
+    transition: transform 200ms ease-in;
+}
+
+.category input[type=checkbox]:checked:after {
+    width: calc(var(--borderWidth) * 5);
+    transform: rotate(-45deg) translateY(calc(var(--borderWidth) * 2)) scaleX(1);
+    transition: transform 200ms ease-out 200ms;
+}
+
+.category input[type=checkbox]:focus {
+    outline: calc(var(--borderWidth) / 2) dotted rgba(0, 0, 0, 0.25);
+}
+
+
+/* Echelle de prix */
+.inpPrix {
+    width: 100px;
+    height: 35px;
+    padding: 0 0.1rem 0 0.5rem ;
+    margin: 0;
+    font-weight: bold;
+    background: var(--miel);
+    border:inset;
+}
+
+/* Echelle de note */
+select {
+    width: 140px;
+    height: 35px;
+    padding: 5px 35px 5px 5px;
+    font-size: 18px;
+    border: 2px solid var(--caramel);
+    border-radius: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url("../../../../node_modules/bootstrap-icons/icons/arrow-through-heart-fill.svg") 96% / 15% no-repeat var(--miel);
+  }
+
+  select::-ms-expand {
+    display: none; /* supprimer la fléche par défaut en IE 10 et 11 */
+  }
+
+
+/* ************************************************************************************************* */
+/* AFFICHAGE POUR LES ECRANS DE TAILLE MD ET PLUS */
+/* ************************************************************************************************* */
+@media screen and (min-width:720px) {
+    #lstFiltres {
+        background-image: linear-gradient(to bottom,var(--meringue),var(--miel));
+        justify-content : center ;
+        align-items : center;
+        height: 150vh;
+        color: var(--chocolatnoir);
+        margin-top: 2rem;
+    }
+    
+    #filtresProduits {
+        width: 100% ;
+        color: var(--chocolatnoir);
+    }
+    
+    .prix, .notes {
+        margin-top: 2rem;  
+    }
+    
+    .prix label, .notes label {
+        margin-right: 2rem; 
+    }
+    
+    .category label {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+        line-height: 2.5rem;
+    }
+
+      .category label span {
+        display: inline ;
+        margin-left: 4rem;
+    }
+
+    input[type="checkbox"].category {
+        display: none;
+    }
+      
+    input[type="checkbox"].category + label::before {
+    content:'';
+        border: 1px solid var(--caramel);
+        border-radius: 5px;
+        padding: 0 0.6rem;
+        margin-right: 1.5rem;
+        line-height : 2rem;
+    }
+    
+    input[type="checkbox"].category:checked + label::before {
+    background-color: var(--caramel);
+    }
+    
+    /* Echelle de prix */
+    .inpPrix {
+        width: 140px;
+        padding: 0 0.1rem 0 0.5rem ;
+        margin: 0;
+        font-weight: bold;
+        background: var(--miel);
+        border:inset;
+    }
+   
+
+}
