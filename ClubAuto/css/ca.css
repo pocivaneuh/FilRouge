@@ -51,10 +51,14 @@ h1, h2, h3 {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #autoRecent, article h1, #ContactNous h1 {
 =======
 #autoRecent, article h1, #ContactNous h1, .cpvente h1 {
 >>>>>>> Header
+=======
+#autoRecent, article h1, #ContactNous h1, .cpvente h1 {
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
     background-color: #ffffff ;
     color : #232628;
 }
@@ -87,9 +91,13 @@ h1, h2, h3 {
 
 /* BARRE DE NAVIGATION */
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> Header
+=======
+
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
 /*.custom-toggler.navbar-toggler-icon { 
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#6C98E1' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
 } 
@@ -195,12 +203,16 @@ article {
 
 /* VEHICULES RECENTS */
 <<<<<<< HEAD
+<<<<<<< HEAD
 #autoRecent{
     background-color: #232628;
 }
 
 #autoRecent h1:first-child{
 =======
+=======
+
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
 #autoRecent {
     display :none;
 }
@@ -209,7 +221,10 @@ article {
 }
 
 #autoRecent h1:first-child, #CrslautoRecent h1:first-child{
+<<<<<<< HEAD
 >>>>>>> Header
+=======
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
     font-size: 2.5em;
     text-align :center;
 }
@@ -238,17 +253,25 @@ article {
     background-color: #6C98E1;
     color :#ECEFF3;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     font-size: large;
 >>>>>>> Header
+=======
+    font-size: large;
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
     font-weight: bold;
     border : none;
     padding:15px;
     margin-left : 55px;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     height: 65px;
 >>>>>>> Header
+=======
+    height: 65px;
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
 }
 
 #vehicule button span{
@@ -286,11 +309,15 @@ article {
 
 /* Bouton Contact page d'accueil */
 <<<<<<< HEAD
+<<<<<<< HEAD
 #contacter{
 =======
 /* Bouton Contact page d'accueil */
 #BtnContact {
 >>>>>>> Header
+=======
+#BtnContact {
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
     background-color: #6C98E1;
     font-weight: bold;
     border : none;
@@ -301,15 +328,21 @@ article {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #contacter a {
 =======
 #BtnContact span{
 >>>>>>> Header
+=======
+
+#BtnContact span{
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
     text-decoration: none;
     color :#ffffff;
     text-transform: uppercase;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 #contacter:hover {
     background-color :#CC6119;
@@ -317,12 +350,17 @@ article {
 
 #contacter:active {
 =======
+=======
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
 #BtnContact:hover {
     background-color :#CC6119;
 }
 
 #BtnContact:active {
+<<<<<<< HEAD
 >>>>>>> Header
+=======
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
     background-color:#ECEFF3;
 }
 
@@ -331,10 +369,14 @@ article {
     background-image: url("../images/vehicule3.jpg");
     background-repeat: no-repeat;
 <<<<<<< HEAD
+<<<<<<< HEAD
     background-size: cover;
 =======
     background-size:contain;
 >>>>>>> Header
+=======
+    background-size:contain;
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
     background-position: center top;
     margin :15px 15px 45px 15px;
     padding : 85px 0 ; /* 85 pour faire déborder l'image de la zone de texte */
@@ -358,7 +400,10 @@ article {
 
 /* ************************************************************************************************* */
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
 /* CONTENU PAGE CONTACT */
 /* ************************************************************************************************* */
 #ContenuPrincipal.contact {
@@ -500,7 +545,10 @@ article {
 }
 
 /* ************************************************************************************************* */
+<<<<<<< HEAD
 >>>>>>> Header
+=======
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
 /* PIED DE PAGE */
 /* ************************************************************************************************* */
 
@@ -518,17 +566,23 @@ footer p, label {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 #Newsletter button, #Newsletter .offcanvas-header, #Newsletter .offcanvas-header h1{
     background-color: #CC6119;
     color :#ffffff
 }
 
+=======
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
 #Newsletter .offcanvas-body {
     color :#232628 ;
 }
 
+<<<<<<< HEAD
 >>>>>>> Header
+=======
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
 /* Aspect des icônes des réseaux sociaux */
 #FootSociaux i {
     color : #ECEFF3 ;
@@ -543,12 +597,19 @@ footer p, label {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* AFFICHAGE POUR LES ECRANS DE TAILLE LG ET PLUS  */
 =======
 /* ************************************************************************************************* */
 /* AFFICHAGE POUR LES ECRANS DE TAILLE LG ET PLUS */
 /* ************************************************************************************************* */
 >>>>>>> Header
+=======
+/* ************************************************************************************************* */
+/* AFFICHAGE POUR LES ECRANS DE TAILLE LG ET PLUS */
+/* ************************************************************************************************* */
+
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
 @media screen and (min-width:992px) {
 
     /* Entête */
@@ -595,8 +656,11 @@ footer p, label {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     /* VEHICULES RECENTS LG */
 =======
+=======
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
     /* ************************************************************************************************* */
     /* VEHICULES RECENTS LG */
     /* ************************************************************************************************* */
@@ -608,7 +672,10 @@ footer p, label {
        display: none;
     }
 
+<<<<<<< HEAD
 >>>>>>> Header
+=======
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
     #vehicule h1{
         font-size:larger;
     }
@@ -618,12 +685,20 @@ footer p, label {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     /* NOUS CHOISIR */
 =======
    /* ************************************************************************************************* */
     /* NOUS CHOISIR */
     /* ************************************************************************************************* */
 >>>>>>> Header
+=======
+
+   /* ************************************************************************************************* */
+   /* NOUS CHOISIR */
+   /* ************************************************************************************************* */
+
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
     #Finance h1, #Equipe h1, #Clientele h1, #Service h1 {
         font-size:larger;
     }
@@ -634,6 +709,7 @@ footer p, label {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     /* FOOTER Se superpose au dernier article */
     footer {
         position : fixed;
@@ -641,6 +717,8 @@ footer p, label {
     }
 
 =======
+=======
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
     /* ************************************************************************************************* */
     /* CONTENU PAGE CONTACT */
     /* ************************************************************************************************* */
@@ -675,5 +753,8 @@ footer p, label {
         width: 85%;
         align-items: center;
     }
+<<<<<<< HEAD
 >>>>>>> Header
+=======
+>>>>>>> 501bde93b4652675b866e620f93560315e86026a
 }
