@@ -82,6 +82,7 @@ h1, h2, h3 {
 }
 
 /* BARRE DE NAVIGATION */
+
 /*.custom-toggler.navbar-toggler-icon { 
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#6C98E1' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
 } 
@@ -186,6 +187,7 @@ article {
 }
 
 /* VEHICULES RECENTS */
+
 #autoRecent {
     display :none;
 }
@@ -263,7 +265,6 @@ article {
 }
 
 /* Bouton Contact page d'accueil */
-/* Bouton Contact page d'accueil */
 #BtnContact {
     background-color: #6C98E1;
     font-weight: bold;
@@ -273,6 +274,7 @@ article {
     padding:15px 45px;
     border-radius: 5px;
 }
+
 
 #BtnContact span{
     text-decoration: none;
@@ -472,11 +474,6 @@ footer p, label {
     color:#6C98E1;
 }
 
-#Newsletter button, #Newsletter .offcanvas-header, #Newsletter .offcanvas-header h1{
-    background-color: #CC6119;
-    color :#ffffff
-}
-
 #Newsletter .offcanvas-body {
     color :#232628 ;
 }
@@ -497,6 +494,7 @@ footer p, label {
 /* ************************************************************************************************* */
 /* AFFICHAGE POUR LES ECRANS DE TAILLE LG ET PLUS */
 /* ************************************************************************************************* */
+
 @media screen and (min-width:992px) {
 
     /* Entête */
@@ -561,9 +559,11 @@ footer p, label {
         float: right;
     }
 
+
    /* ************************************************************************************************* */
-    /* NOUS CHOISIR */
-    /* ************************************************************************************************* */
+   /* NOUS CHOISIR */
+   /* ************************************************************************************************* */
+
     #Finance h1, #Equipe h1, #Clientele h1, #Service h1 {
         font-size:larger;
     }
