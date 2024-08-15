@@ -1,0 +1,95 @@
+/* ************************************************************************************************* */
+/* NAVBARRE */
+/* ************************************************************************************************* */
+#HMenu{
+    background-color: var(--miel);
+    display: flex;
+    justify-content: space-between;
+    text-align:center;
+    opacity: 0.8;
+    width: 100%;
+    box-shadow: 10px 5px 20px 2px var(--chocolat);
+}
+
+#menuToggle {
+    margin : 0.7em;
+    border : none ;
+}
+
+#imenuToggle{
+    color : var(--caramel);
+    font-size: 2.5em;
+}
+
+#HMenu img {
+    height: 70px;
+    margin: 2rem;
+}
+
+#navbarSupportedContent a {
+    border-color: var(--miel);
+    padding : 10px;
+    background-color: var(--chocolat);
+    text-shadow: 2px 2px 5px var(--chocolatnoir);
+    line-height: var(--bs-btn-line-height);
+    border-width: var(--bs-border-width);
+    border-radius: var(--bs-border-radius);
+    box-shadow : inset 0 3px 5px var(--caramel);
+}
+
+#HMenu a:hover {
+    color : var(--miel);
+    font-size : 1.2em;
+    transition: all 0.50s ease-in-out;
+}
+
+/*Met en évidence le bouton du menu correspondant à la page affichée */
+.active, .panier {
+    font-size: 20px;
+    font-family: 'Fjalla One';
+    margin-top: 10px;
+}
+    
+.panier a {
+    color: var(--meringue);
+    text-decoration: none;
+}
+
+.active a { 
+    color : var(--pateasucre);
+    text-decoration: none;
+}
+
+#header-right {
+    display: flex;
+    align-items: center;
+}
+
+#header-right p {
+    margin-left: 20px;
+}
+
+
+
+/* ************************************************************************************************* */
+/* AFFICHAGE POUR LES ECRANS DE TAILLE MD ET PLUS */
+/* ************************************************************************************************* */
+@media screen and (min-width:720px) {
+    #navbarSupportedContent {
+        margin-right:1rem;
+    }
+
+    #navbarSupportedContent a {
+        border:none;
+        background-color: transparent;
+        line-height: var(--bs-btn-line-height);
+        border-width: var(--bs-border-width);
+        border-radius: var(--bs-border-radius);
+        box-shadow : none ;
+    }
+
+    #HMenu a:hover {
+        color : var(--chocolatnoir);
+    }
+
+}

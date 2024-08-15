@@ -1,0 +1,54 @@
+https://www.clemdesign.fr/blog/2021/angular-transformer-ses-chemins-relatifs-en-chemin-absolu
+
+Dans le fichier tsconfig.json, ajoutez les lignes suivantes (NB je n'avais pas baseURL, non reconnu quand on l'ajoute):
+
+{
+    //...
+    "compilerOptions": {
+        "baseUrl": "./",
+        // ...
+        // ===> Code à rajouter
+        "paths": {
+            "@environments/*": ["./src/environments/*"],
+            "@components/*": ["./src/app/_components/*"],
+            // ...
+        }
+    }
+    // ...
+}
+
+Ainsi, on peut transformer nos:
+
+import {environment} from '../../../../environments/environment';
+import {PasswordModule} from '../../../_components/password/password.module';
+En
+
+import {environment} from '@environments/environment';
+import {PasswordModule} '@components/password/password.module';
+
+
+Dans angular.json, ajoutez les lignes suivantes:
+
+// ...
+      "architect": {
+          "build": {
+              // ...
+              "options": {
+                  // ...
+                  // ===> Code à rajouter
+                  "stylePreprocessorOptions": {
+                      "includePaths": [
+                          "src/theme"
+                      ]
+                  }
+                  // ...
+              }
+          }
+      }
+
+Ainsi, on peut transformer nos:
+
+@import '../../../../theme/mixins';
+En
+
+@import 'mixins';

@@ -1,0 +1,15 @@
+        <!-- CAROUSSEL -->
+        <div class="container mt-5">
+            <div class="carousel-container row">
+                <div id="crslChocoAccueil" class="carousel slide p-0" data-ride="carousel">
+                    <div class="carousel-inner">
+                       <div class="carousel-item active">
+                            <img src="{{ urlImgSlide }}" class="d-block w-100" [alt]="textAltImgSlide" title="Illustration de la page d'accueil">
+                        </div>
+                    </div>                
+                </div>
+                <div class="m-0 p-0">
+                    <app-navcarousel [idSlideCarousel]="idSlide" (idSlideNav)="slideAffiche($event)"></app-navcarousel>
+                </div>
+            </div>  <!-- /CAROUSSEL row -->        
+        </div> <!-- /CAROUSSEL container  -->

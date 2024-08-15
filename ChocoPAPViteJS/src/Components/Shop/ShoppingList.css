@@ -1,0 +1,70 @@
+#ContenuPrincipal {
+    background-image: linear-gradient(to bottom,var(--caramel),var(--chocolat));
+    width: 100%;
+}
+
+.productsSelection {
+    width: inherit;
+    background-image: linear-gradient(to bottom,var(--meringue),var(--miel));
+    color: var(--chocolatnoir);
+    padding: 10px 10px 0 10px;
+    margin: 10px;
+}
+
+.productsList {
+    width: 100%;
+}
+.productCard {
+    width:100%;
+}
+
+
+
+/* ************************************************************************************************* */
+/* AFFICHAGE POUR LES ECRANS DE TAILLE MD ET PLUS */
+/* ************************************************************************************************* */
+
+@media screen and (min-width:720px) {
+    .shop {
+        display: inline-flex;
+        width: 100%;
+        padding: 5px;
+    }
+
+    #lstFiltres {
+        background-image: linear-gradient(to bottom,var(--meringue),var(--miel));
+        justify-content : center ;
+        align-items : center;
+        height: 150vh;
+        color: var(--chocolatnoir);
+        margin-top: 2rem;
+    }
+    
+    #filtresProduits {
+        width: 100% ;
+        color: var(--chocolatnoir);
+    }
+
+    .productsList {
+        width: 80%;
+        display: grid ;
+        grid-template-columns: repeat(auto-fill, minmax(10rem, 25rem));
+        grid-gap: 1rem;
+    }
+
+    .productsSelection {
+        width: 285px;
+        background-image: linear-gradient(to bottom,var(--meringue),var(--miel));
+        color: var(--chocolatnoir);
+        padding: 10px 10px 0 10px;
+        margin: 10px;
+    }
+
+    .productsList {
+        width: 100%;
+    }
+    .productCard {
+        width:100%;
+    }
+
+}
