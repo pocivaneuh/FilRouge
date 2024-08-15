@@ -33,7 +33,7 @@ export const Burger = ( ) =>
 export const Header = ( ) =>
   {
     const [isOpen, setOpen] = useState(false);
-    const [isActive, setIsActive] = useState("home");
+    const [isActive, setIsActive] = useState("homepage");
 
     return (
 
@@ -69,10 +69,10 @@ export const Header = ( ) =>
                 <Link to={`/`} onClick={() => 
                   { 
                     setOpen((prev) => !prev); 
-                    setIsActive('home');
+                    setIsActive('homepage');
                   }}>
                   <li className={ 
-                      isActive === 'home' ?
+                      isActive === 'homepage' ?
                        'active nav-item text-style1' : 
                        'nav-item text-style1'
                     }>
@@ -82,10 +82,10 @@ export const Header = ( ) =>
                 <Link to={`/Boutique`} onClick={() => 
                   { 
                     setOpen((prev) => !prev); 
-                    setIsActive("boutique");
+                    setIsActive("shoppage");
                   }}>
                   <li className={ 
-                        isActive === 'boutique' ?
+                        isActive === 'shoppage' ?
                         'active nav-item text-style1' : 
                         'nav-item text-style1'
                     }>
@@ -95,10 +95,10 @@ export const Header = ( ) =>
                 <Link to={`/Panier`} onClick={() => 
                   { 
                     setOpen((prev) => !prev); 
-                    setIsActive("panier");
+                    setIsActive("cartpage");
                   }}>
                   <li className={ 
-                        isActive === 'boutique' ?
+                        isActive === 'cartpage' ?
                         'active nav-item panier text-style1' : 
                         'nav-item panier text-style1'
                     }>
