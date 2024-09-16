@@ -33,7 +33,7 @@ export const Burger = ( ) =>
 export const Header = ( ) =>
   {
     const [isOpen, setOpen] = useState(false);
-
+    const [isActive, setIsActive] = useState("homepage");
 
     return (
 
@@ -55,7 +55,7 @@ export const Header = ( ) =>
           <button
             id="menuToggle"
             type="button"
-            onClick={() => setOpen((prev) => !prev)}
+            onClick={() => { setOpen((prev) => !prev); }}
             title="Afficher/masquer le menu"
           >
             <Burger />
@@ -66,19 +66,45 @@ export const Header = ( ) =>
               className={isOpen ? '' : 'hide'}
             >
               <ul className="navbar-nav ">
-                <Link to={`/`} onClick={() => setOpen((prev) => !prev)}>
-                  <li className="nav-item text-style1">
-                    Accueil
+                <Link to={`/`} onClick={() => 
+                  { 
+                    setOpen((prev) => !prev); 
+                    setIsActive('homepage');
+                  }}>
+                  <li className={ 
+                      isActive === 'homepage' ?
+                       'active nav-item text-style1' : 
+                       'nav-item text-style1'
+                    }>
+                      Accueil
+                    </li>
+                </Link>
+                <Link to={`/Boutique`} onClick={() => 
+                  { 
+                    setOpen((prev) => !prev); 
+                    setIsActive("shoppage");
+                  }}>
+                  <li className={ 
+                        isActive === 'shoppage' ?
+                        'active nav-item text-style1' : 
+                        'nav-item text-style1'
+                    }>
+                      Boutique
                   </li>
                 </Link>
-                <Link to={`/Boutique`} onClick={() => setOpen((prev) => !prev)}>
-                  <li className="nav-item text-style1">
-                    Boutique
+                <Link to={`/Panier`} onClick={() => 
+                  { 
+                    setOpen((prev) => !prev); 
+                    setIsActive("cartpage");
+                  }}>
+                  <li className={ 
+                        isActive === 'cartpage' ?
+                        'active nav-item panier text-style1' : 
+                        'nav-item panier text-style1'
+                    }>
+                    <Cart />Panier
                   </li>
                 </Link>
-                <li className="nav-item panier" onClick={() => setOpen((prev) => !prev)}>
-                  <Link to={`/Panier`}><Cart />Panier</Link>
-                </li>
               </ul>
             </nav>
         </section>
